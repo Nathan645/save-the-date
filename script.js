@@ -1,18 +1,40 @@
-const eventDate = new Date("July 12, 2026 15:00:00").getTime();
 const countdown = document.getElementById("countdown");
 
-setInterval(() => {
-  const now = new Date().getTime();
-  const distance = eventDate - now;
+// Date de l'événement (12 juillet 2026 à 15h00)
+const eventDate = new Date(2026, 6, 12, 15, 0, 0); 
+// ⚠️ Mois = 6 → juillet (les mois commencent à 0)
 
-  if (distance < 0) {
-    countdown.innerHTML = "C'est le grand jour 🎉";
+function updateCountdown() {
+  if (!countdown) return;
+
+  const now = new Date();
+  const diff = eventDate - now;
+
+  if (diff <= 0) {
+    countdown.innerHTML = "C’est le grand jour 🎉";
     return;
   }
 
-  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  countdown.innerHTML = `${days} jours avant le jour J`;
-}, 1000);
+  const totalSeconds = Math.floor(diff / 1000);
+
+  const days = Math.floor(totalSeconds / (3600 * 24));
+  const hours = Math.floor((totalSeconds % (3600 * 24)) / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+
+  countdown.innerHTML = `
+    <strong>${days}</strong> jours ·
+    <strong>${hours}</strong> h ·
+    <strong>${minutes}</strong> min ·
+    <strong>${seconds}</strong> s
+  `;
+}
+
+// 🔥 affichage immédiat (supprime la latence)
+updateCountdown();
+
+// 🔁 mise à jour chaque seconde
+setInterval(updateCountdown, 1000);
 
 const form = document.getElementById("rsvp-form");
 const thankYou = document.getElementById("thank-you");
