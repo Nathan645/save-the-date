@@ -46,3 +46,43 @@ input, select, textarea {
   display: block;
   margin-top: 20px;
 }
+
+form {
+  text-align: left;
+  margin-top: 30px;
+}
+
+label {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 0.9em;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+input:invalid {
+  border-color: #d33;
+}
+
+button {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+#thank-you {
+  margin-top: 30px;
+  font-size: 1.1em;
+  text-align: center;
+}
+
