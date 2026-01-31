@@ -92,3 +92,51 @@ button {
   letter-spacing: 0.5px;
 }
 
+.section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.section.light {
+  background: #f0f0f0;
+}
+
+.hero h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+}
+
+.hero h2 {
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+.date {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.photo-placeholder {
+  margin: 30px auto;
+  padding: 40px;
+  border: 2px dashed #ccc;
+  max-width: 400px;
+  font-style: italic;
+  color: #777;
+}
+
+.program {
+  list-style: none;
+  padding: 0;
+}
+
+.program li {
+  margin: 10px 0;
+}
+
+.link {
+  color: #000;
+  text-decoration: underline;
+}
+
+
