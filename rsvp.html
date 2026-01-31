@@ -7,30 +7,76 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<main class="container">
+  <h1>Confirmation de présence</h1>
 
-  <main class="container">
-    <h1>Confirmation de présence</h1>
+  <form
+    id="rsvp-form"
+    action="https://formspree.io/f/mlglrelr"
+    method="POST"
+  >
 
-    <form action="https://formspree.io/f/mlglrelr" method="POST">
-      <input type="text" name="name" placeholder="Nom et prénom" required>
+    <label>
+      Nom et prénom *
+      <input
+        type="text"
+        name="fullname"
+        required
+        autocomplete="name"
+      >
+    </label>
 
-      <input type="email" name="email" placeholder="Email (optionnel)">
+    <label>
+      Adresse postale *
+      <input
+        type="text"
+        name="address"
+        required
+        autocomplete="street-address"
+      >
+    </label>
 
-      <select name="presence" required>
-        <option value="">Présence ?</option>
-        <option value="oui">Oui</option>
-        <option value="non">Non</option>
-      </select>
+    <label>
+      Code postal *
+      <input
+        type="text"
+        name="zipcode"
+        required
+        pattern="[0-9]{5}"
+        title="Code postal à 5 chiffres"
+        autocomplete="postal-code"
+      >
+    </label>
 
-      <input type="number" name="guests" placeholder="Nombre de personnes" min="1">
+    <label>
+      Ville *
+      <input
+        type="text"
+        name="city"
+        required
+        autocomplete="address-level2"
+      >
+    </label>
 
-      <textarea name="message" placeholder="Message (optionnel)"></textarea>
+    <label>
+      Commentaires / questions / restrictions alimentaires
+      <textarea
+        name="comment"
+        rows="4"
+      ></textarea>
+    </label>
 
-      <button type="submit">Envoyer</button>
-    </form>
+    <button type="submit">Envoyer</button>
+  </form>
 
-    <a href="index.html" class="back">← Retour</a>
-  </main>
+  <p id="thank-you" class="hidden">
+    Merci pour votre réponse 💛  
+    Nous avons bien reçu vos informations.
+  </p>
+
+  <a href="index.html" class="back">← Retour</a>
+</main>
+
 
 </body>
 </html>
