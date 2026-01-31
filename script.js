@@ -13,3 +13,16 @@ setInterval(() => {
   const days = Math.floor(distance / (1000 * 60 * 60 * 24));
   countdown.innerHTML = `${days} jours avant le jour J`;
 }, 1000);
+
+const form = document.getElementById("rsvp-form");
+const thankYou = document.getElementById("thank-you");
+
+if (form) {
+  form.addEventListener("submit", function () {
+    setTimeout(() => {
+      form.classList.add("hidden");
+      thankYou.classList.remove("hidden");
+    }, 500);
+  });
+}
+
