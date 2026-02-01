@@ -25,75 +25,41 @@
     <h1>Confirmation de présence</h1>
     <p>Merci de remplir le formulaire ci-dessous pour confirmer votre présence à notre mariage.</p>
 
-    <form
-      id="rsvp-form"
-      action="https://formspree.io/f/mlglrelr"
-      method="POST"
-    >
-
+    <form id="rsvp-form" action="https://formspree.io/f/XXXXXX" method="POST">
       <label>
         Nom et prénom *
-        <input
-          type="text"
-          name="fullname"
-          required
-          autocomplete="name"
-        >
+        <input type="text" name="fullname" required autocomplete="name">
       </label>
 
       <label>
         Adresse postale *
-        <input
-          type="text"
-          name="address"
-          required
-          autocomplete="street-address"
-        >
+        <input type="text" name="address" required autocomplete="street-address">
       </label>
 
       <label>
         Code postal *
-        <input
-          type="text"
-          name="zipcode"
-          required
-          pattern="[0-9]{5}"
-          title="Code postal à 5 chiffres"
-          autocomplete="postal-code"
-        >
+        <input type="text" name="zipcode" required pattern="[0-9]{5}" title="Code postal à 5 chiffres" autocomplete="postal-code">
       </label>
 
       <label>
         Ville *
-        <input
-          type="text"
-          name="city"
-          required
-          autocomplete="address-level2"
-        >
+        <input type="text" name="city" required autocomplete="address-level2">
       </label>
 
       <label>
         Commentaires / questions / restrictions alimentaires
-        <textarea
-          name="comment"
-          rows="4"
-        ></textarea>
+        <textarea name="comment" rows="4"></textarea>
       </label>
 
       <button type="submit" class="btn">Envoyer</button>
     </form>
 
-    <p id="thank-you" class="hidden">
-      Merci pour votre réponse 💛<br>
-      Nous avons bien reçu vos informations.
-    </p>
-
+    <p id="thank-you" class="hidden">Merci pour votre réponse 💛<br>Nous avons bien reçu vos informations.</p>
     <a href="index.html" class="link back">← Retour à l’accueil</a>
   </section>
 
   <script>
-    // Message de remerciement après envoi
+    // Formulaire RSVP
     const form = document.getElementById("rsvp-form");
     const thankYou = document.getElementById("thank-you");
 
