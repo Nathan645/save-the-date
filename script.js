@@ -1,8 +1,6 @@
+// ------------------- COMPTE À REBOURS -------------------
 const countdown = document.getElementById("countdown");
-
-// Date de l'événement (12 juillet 2026 à 15h00)
-const eventDate = new Date(2026, 6, 12, 15, 0, 0); 
-// ⚠️ Mois = 6 → juillet (les mois commencent à 0)
+const eventDate = new Date(2027, 6, 10, 15, 0, 0); // 12 juillet 2026 15h
 
 function updateCountdown() {
   if (!countdown) return;
@@ -30,25 +28,10 @@ function updateCountdown() {
   `;
 }
 
-// 🔥 affichage immédiat (supprime la latence)
 updateCountdown();
-
-// 🔁 mise à jour chaque seconde
 setInterval(updateCountdown, 1000);
 
-const form = document.getElementById("rsvp-form");
-const thankYou = document.getElementById("thank-you");
-
-if (form) {
-  form.addEventListener("submit", function () {
-    setTimeout(() => {
-      form.classList.add("hidden");
-      thankYou.classList.remove("hidden");
-    }, 500);
-  });
-}
-
-// Fade-in au scroll
+// ------------------- FADE-IN AU SCROLL -------------------
 const sections = document.querySelectorAll(".section");
 
 function checkVisible() {
@@ -65,5 +48,3 @@ function checkVisible() {
 
 window.addEventListener("scroll", checkVisible);
 window.addEventListener("load", checkVisible);
-
-
