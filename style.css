@@ -153,3 +153,19 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+/* --- Micro-animations boutons et liens --- */
+.btn, .link {
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  background-color: #333;
+}
+
+.link:hover {
+  transform: scale(1.05);
+  color: #d33;
+}
+
