@@ -7,76 +7,90 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<main class="container">
-  <h1>Confirmation de présence</h1>
 
-  <form
-    id="rsvp-form"
-    action="https://formspree.io/f/mlglrelr"
-    method="POST"
-  >
+  <main class="container">
+    <h1>Confirmation de présence</h1>
 
-    <label>
-      Nom et prénom *
-      <input
-        type="text"
-        name="fullname"
-        required
-        autocomplete="name"
-      >
-    </label>
+    <form
+      id="rsvp-form"
+      action="https://formspree.io/f/XXXXXX"
+      method="POST"
+    >
 
-    <label>
-      Adresse postale *
-      <input
-        type="text"
-        name="address"
-        required
-        autocomplete="street-address"
-      >
-    </label>
+      <label>
+        Nom et prénom *
+        <input
+          type="text"
+          name="fullname"
+          required
+          autocomplete="name"
+        >
+      </label>
 
-    <label>
-      Code postal *
-      <input
-        type="text"
-        name="zipcode"
-        required
-        pattern="[0-9]{5}"
-        title="Code postal à 5 chiffres"
-        autocomplete="postal-code"
-      >
-    </label>
+      <label>
+        Adresse postale *
+        <input
+          type="text"
+          name="address"
+          required
+          autocomplete="street-address"
+        >
+      </label>
 
-    <label>
-      Ville *
-      <input
-        type="text"
-        name="city"
-        required
-        autocomplete="address-level2"
-      >
-    </label>
+      <label>
+        Code postal *
+        <input
+          type="text"
+          name="zipcode"
+          required
+          pattern="[0-9]{5}"
+          title="Code postal à 5 chiffres"
+          autocomplete="postal-code"
+        >
+      </label>
 
-    <label>
-      Commentaires / questions / restrictions alimentaires
-      <textarea
-        name="comment"
-        rows="4"
-      ></textarea>
-    </label>
+      <label>
+        Ville *
+        <input
+          type="text"
+          name="city"
+          required
+          autocomplete="address-level2"
+        >
+      </label>
 
-    <button type="submit">Envoyer</button>
-  </form>
+      <label>
+        Commentaires / questions / restrictions alimentaires
+        <textarea
+          name="comment"
+          rows="4"
+        ></textarea>
+      </label>
 
-  <p id="thank-you" class="hidden">
-    Merci pour votre réponse 💛  
-    Nous avons bien reçu vos informations.
-  </p>
+      <button type="submit">Envoyer</button>
+    </form>
 
-  <a href="index.html" class="back">← Retour</a>
-</main>
+    <p id="thank-you" class="hidden">
+      Merci pour votre réponse 💛  
+      Nous avons bien reçu vos informations.
+    </p>
 
+    <a href="index.html" class="back">← Retour</a>
+  </main>
+
+  <script>
+    const form = document.getElementById("rsvp-form");
+    const thankYou = document.getElementById("thank-you");
+
+    if (form) {
+      form.addEventListener("submit", function () {
+        setTimeout(() => {
+          form.classList.add("hidden");
+          thankYou.classList.remove("hidden");
+        }, 500);
+      });
+    }
+  </script>
 
 </body>
 </html>
