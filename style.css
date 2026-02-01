@@ -1,106 +1,69 @@
+/* --- Styles généraux --- */
 body {
   margin: 0;
+  padding-top: 60px; /* pour le menu fixe */
   font-family: Arial, sans-serif;
   background: #f7f7f7;
   color: #333;
 }
 
-.container {
-  max-width: 500px;
-  margin: auto;
-  padding: 40px 20px;
-  text-align: center;
+/* MENU FLOTTANT */
+#floating-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255,255,255,0.95);
+  padding: 10px 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  z-index: 1000;
 }
 
-h1 {
-  font-size: 2.5em;
+#floating-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 
-.date {
-  font-size: 1.2em;
-  margin: 10px 0;
+#floating-menu ul li {
+  margin: 0;
 }
 
-.buttons {
-  margin-top: 30px;
-}
-
-.btn, button {
-  display: inline-block;
-  padding: 12px 24px;
-  background: #000;
-  color: #fff;
+#floating-menu ul li a {
   text-decoration: none;
-  border: none;
-  cursor: pointer;
-  margin-top: 10px;
+  color: #000;
+  font-weight: bold;
+  font-size: 0.95em;
+  padding: 5px 10px;
+  transition: color 0.3s;
 }
 
-input, select, textarea {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
+#floating-menu ul li a:hover {
+  color: #d33;
 }
 
-.back {
-  display: block;
-  margin-top: 20px;
-}
-
-form {
-  text-align: left;
-  margin-top: 30px;
-}
-
-label {
-  display: block;
-  margin-bottom: 15px;
-  font-size: 0.9em;
-}
-
-input, textarea {
-  width: 100%;
-  padding: 10px;
-  margin-top: 6px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1em;
-}
-
-input:invalid {
-  border-color: #d33;
-}
-
-button {
-  width: 100%;
-  margin-top: 20px;
-}
-
-.hidden {
-  display: none;
-}
-
-#thank-you {
-  margin-top: 30px;
-  font-size: 1.1em;
-  text-align: center;
-}
-
-#countdown {
-  margin-top: 20px;
-  font-size: 1.2em;
-  letter-spacing: 0.5px;
-}
-
+/* SECTION */
 .section {
   padding: 60px 20px;
   text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .section.light {
   background: #f0f0f0;
 }
 
+/* HERO */
 .hero h1 {
   font-size: 3em;
   margin-bottom: 10px;
@@ -116,6 +79,7 @@ button {
   margin-bottom: 20px;
 }
 
+/* PLACEHOLDER PHOTO */
 .photo-placeholder {
   margin: 30px auto;
   padding: 40px;
@@ -125,6 +89,7 @@ button {
   color: #777;
 }
 
+/* PROGRAMME */
 .program {
   list-style: none;
   padding: 0;
@@ -132,6 +97,17 @@ button {
 
 .program li {
   margin: 10px 0;
+}
+
+/* LIENS & BOUTONS */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  margin-top: 10px;
 }
 
 .link {
@@ -173,48 +149,7 @@ button {
   }
 }
 
-#floating-menu {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: rgba(255,255,255,0.9);
-  padding: 10px 15px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  z-index: 1000;
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
 }
-
-#floating-menu ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-#floating-menu ul li {
-  margin: 5px 0;
-}
-
-#floating-menu ul li a {
-  text-decoration: none;
-  color: #000;
-  font-weight: bold;
-}
-
-#floating-menu ul li a:hover {
-  color: #d33;
-}
-
-.section {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-
-
-
