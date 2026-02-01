@@ -1,36 +1,28 @@
-// ------------------- COMPTE À REBOURS -------------------
-const countdown = document.getElementById("countdown");
-const eventDate = new Date(2026, 6, 12, 15, 0, 0); // 12 juillet 2026 15h
+// MENU MOBILE
+const toggle = document.getElementById("menu-toggle");
+const menu = document.getElementById("menu-links");
 
-function updateCountdown() {
-  if (!countdown) return;
-  const now = new Date();
-  const diff = eventDate - now;
-  if (diff <= 0) {
-    countdown.innerHTML = "C’est le grand jour 🎉";
-    return;
-  }
-  const totalSeconds = Math.floor(diff / 1000);
-  const days = Math.floor(totalSeconds / (3600*24));
-  const hours = Math.floor((totalSeconds % (3600*24))/3600);
-  const minutes = Math.floor((totalSeconds % 3600)/60);
-  const seconds = totalSeconds % 60;
-  countdown.innerHTML = `<strong>${days}</strong> jours · <strong>${hours}</strong> h · <strong>${minutes}</strong> min · <strong>${seconds}</strong> s`;
-}
-
-updateCountdown();
-setInterval(updateCountdown, 1000);
-
-// ------------------- FADE-IN AU SCROLL -------------------
-const sections = document.querySelectorAll(".section");
-
-function checkVisible() {
-  const triggerBottom = window.innerHeight * 0.85;
-  sections.forEach(section => {
-    const top = section.getBoundingClientRect().top;
-    if (top < triggerBottom) section.classList.add("visible");
+if (toggle) {
+  toggle.addEventListener("click", () => {
+    menu.classList.toggle("show");
   });
 }
 
-window.addEventListener("scroll", checkVisible);
-window.addEventListener("load", checkVisible);
+// COMPTE À REBOURS
+const countdown = document.getElementById("countdown");
+const eventDate = new Date(2026, 6, 12, 15, 0);
+
+if (countdown) {
+  setInterval(() => {
+    const now = new Date();
+    const diff = eventDate - now;
+    if (diff <= 0) return countdown.innerHTML = "C’est le grand jour 🎉";
+
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor(diff % 86400000 / 3600000);
+    const m = Math.floor(diff % 3600000 / 60000);
+    const s = Math.floor(diff % 60000 / 1000);
+
+    countdown.innerHTML = `${d}j ${h}h ${m}m ${s}s`;
+  }, 1000);
+}
