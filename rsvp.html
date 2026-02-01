@@ -8,8 +8,24 @@
 </head>
 <body>
 
-  <main class="container">
+  <!-- MENU FLOTTANT IDENTIQUE -->
+  <nav id="floating-menu">
+    <ul>
+      <li><a href="index.html#hero">Accueil</a></li>
+      <li><a href="index.html#rsvp">RSVP</a></li>
+      <li><a href="index.html#programme">Programme</a></li>
+      <li><a href="index.html#lieu">Lieu</a></li>
+      <li><a href="index.html#itineraire">Itinéraire</a></li>
+      <li><a href="index.html#cagnotte">Cagnotte</a></li>
+    </ul>
+  </nav>
+
+  <section class="section hero">
     <h1>Confirmation de présence</h1>
+    <p>
+      Merci de bien vouloir remplir le formulaire ci-dessous
+      pour confirmer votre présence à notre mariage.
+    </p>
 
     <form
       id="rsvp-form"
@@ -67,7 +83,7 @@
         ></textarea>
       </label>
 
-      <button type="submit">Envoyer</button>
+      <button type="submit" class="btn">Envoyer</button>
     </form>
 
     <p id="thank-you" class="hidden">
@@ -75,8 +91,8 @@
       Nous avons bien reçu vos informations.
     </p>
 
-    <a href="index.html" class="back">← Retour</a>
-  </main>
+    <a href="index.html" class="back link">← Retour à l’accueil</a>
+  </section>
 
   <script>
     const form = document.getElementById("rsvp-form");
