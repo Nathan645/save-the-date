@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <!-- MENU FLOTTANT IDENTIQUE -->
+  <!-- MENU FLOTTANT -->
   <nav id="floating-menu">
     <ul>
       <li><a href="index.html#hero">Accueil</a></li>
@@ -20,16 +20,14 @@
     </ul>
   </nav>
 
-  <section class="section hero">
+  <!-- SECTION PRINCIPALE -->
+  <section class="section hero" id="rsvp-section">
     <h1>Confirmation de présence</h1>
-    <p>
-      Merci de bien vouloir remplir le formulaire ci-dessous
-      pour confirmer votre présence à notre mariage.
-    </p>
+    <p>Merci de remplir le formulaire ci-dessous pour confirmer votre présence à notre mariage.</p>
 
     <form
       id="rsvp-form"
-      action="https://formspree.io/f/XXXXXX"
+      action="https://formspree.io/f/mlglrelr"
       method="POST"
     >
 
@@ -87,14 +85,15 @@
     </form>
 
     <p id="thank-you" class="hidden">
-      Merci pour votre réponse 💛  
+      Merci pour votre réponse 💛<br>
       Nous avons bien reçu vos informations.
     </p>
 
-    <a href="index.html" class="back link">← Retour à l’accueil</a>
+    <a href="index.html" class="link back">← Retour à l’accueil</a>
   </section>
 
   <script>
+    // Message de remerciement après envoi
     const form = document.getElementById("rsvp-form");
     const thankYou = document.getElementById("thank-you");
 
