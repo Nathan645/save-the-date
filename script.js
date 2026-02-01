@@ -48,3 +48,22 @@ if (form) {
   });
 }
 
+// Fade-in au scroll
+const sections = document.querySelectorAll(".section");
+
+function checkVisible() {
+  const triggerBottom = window.innerHeight * 0.85;
+
+  sections.forEach(section => {
+    const top = section.getBoundingClientRect().top;
+
+    if (top < triggerBottom) {
+      section.classList.add("visible");
+    }
+  });
+}
+
+window.addEventListener("scroll", checkVisible);
+window.addEventListener("load", checkVisible);
+
+
