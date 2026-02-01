@@ -1,3 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>RSVP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- MENU -->
+<nav id="floating-menu">
+  <div class="menu-container">
+    <div class="logo">Save the Date</div>
+    <button id="menu-toggle">☰</button>
+    <ul id="menu-links">
+      <li><a href="index.html#hero">Accueil</a></li>
+      <li><a href="index.html#programme">Programme</a></li>
+      <li><a href="index.html#lieu">Lieu</a></li>
+      <li><a href="index.html#itineraire">Itinéraire</a></li>
+      <li><a href="index.html#cagnotte">Cagnotte</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- SECTION RSVP -->
+<section class="section hero visible">
+  <h1>Confirmation de présence</h1>
+  <p>Merci de remplir ce formulaire pour confirmer votre venue.</p>
+
+  <form id="rsvp-form">
+
+    <label>
+      Nom et prénom *
+      <input type="text" name="fullname" required>
+    </label>
+
+    <label>
+      Adresse postale *
+      <input type="text" name="address" required>
+    </label>
+
+    <label>
+      Code postal *
+      <input type="text" name="zipcode" required pattern="[0-9]{5}">
+    </label>
+
+    <label>
+      Ville *
+      <input type="text" name="city" required>
+    </label>
+
+    <label>
+      Date d’arrivée
+      <input type="date" name="arrival">
+    </label>
+
+    <label>
+      Date de départ
+      <input type="date" name="departure">
+    </label>
+
+    <label>
+      Commentaires / questions / restrictions alimentaires
+      <textarea name="comment" rows="4"></textarea>
+    </label>
+
+    <button type="submit" class="btn">Envoyer</button>
+  </form>
+
+  <p id="success-message" class="hidden">
+    Merci 💛 Votre réponse a bien été enregistrée.
+  </p>
+
+  <a href="index.html" class="link">← Retour à l’accueil</a>
+</section>
+
+<!-- MENU MOBILE -->
+<script>
+const toggle = document.getElementById("menu-toggle");
+const links = document.getElementById("menu-links");
+
+toggle.addEventListener("click", () => {
+  links.classList.toggle("open");
+});
+</script>
+
+<!-- ENVOI GOOGLE SHEETS -->
 <script>
 const form = document.getElementById("rsvp-form");
 const success = document.getElementById("success-message");
@@ -19,7 +107,7 @@ form.addEventListener("submit", (e) => {
     "https://script.google.com/macros/s/AKfycbzXKltJ8exzJlMVIZW1R_A1EeLLv2c1znRnAUN8L_z7f6PxkIXkfW2tLU5fMg6uumrF/exec",
     {
       method: "POST",
-      mode: "no-cors",   // 🔑 LA CLÉ
+      mode: "no-cors",
       headers: {
         "Content-Type": "application/json"
       },
@@ -27,9 +115,12 @@ form.addEventListener("submit", (e) => {
     }
   );
 
-  // On affiche le succès sans attendre la réponse
+  // UX immédiate (on n'attend pas la réponse)
   form.reset();
   form.classList.add("hidden");
   success.classList.remove("hidden");
 });
 </script>
+
+</body>
+</html>
