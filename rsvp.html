@@ -8,6 +8,7 @@
 </head>
 <body>
 
+<!-- MENU -->
 <nav id="floating-menu">
   <div class="menu-container">
     <div class="logo">Save the Date</div>
@@ -22,37 +23,100 @@
   </div>
 </nav>
 
+<!-- SECTION RSVP -->
 <section class="section hero visible">
   <h1>Confirmation de présence</h1>
-  <p>Merci de remplir le formulaire ci-dessous</p>
+  <p>Merci de remplir le formulaire ci-dessous pour confirmer votre présence.</p>
 
-  <form action="https://formspree.io/f/mlglrelr" method="POST">
-    <label>Nom et prénom *
+  <form id="rsvp-form">
+
+    <label>
+      Nom et prénom *
       <input type="text" name="fullname" required>
     </label>
 
-    <label>Adresse postale *
+    <label>
+      Adresse postale *
       <input type="text" name="address" required>
     </label>
 
-    <label>Code postal *
+    <label>
+      Code postal *
       <input type="text" name="zipcode" required pattern="[0-9]{5}">
     </label>
 
-    <label>Ville *
+    <label>
+      Ville *
       <input type="text" name="city" required>
     </label>
 
-    <label>Commentaires / restrictions alimentaires
-      <textarea name="comment"></textarea>
+    <label>
+      Date d’arrivée
+      <input type="date" name="arrival">
     </label>
 
-    <button class="btn" type="submit">Envoyer</button>
+    <label>
+      Date de départ
+      <input type="date" name="departure">
+    </label>
+
+    <label>
+      Commentaires / questions / restrictions alimentaires
+      <textarea name="comment" rows="4"></textarea>
+    </label>
+
+    <button type="submit" class="btn">Envoyer</button>
   </form>
 
-  <a class="link" href="index.html">← Retour à l’accueil</a>
+  <p id="success-message" class="hidden">
+    Merci 💛 Votre réponse a bien été enregistrée.
+  </p>
+
+  <a href="index.html" class="link">← Retour à l’accueil</a>
 </section>
 
+<!-- SCRIPT -->
 <script src="script.js"></script>
+
+<script>
+const form = document.getElementById("rsvp-form");
+const success = document.getElementById("success-message");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const data = {
+    fullname: form.fullname.value,
+    address: form.address.value,
+    zipcode: form.zipcode.value,
+    city: form.city.value,
+    arrival: form.arrival.value,
+    departure: form.departure.value,
+    comment: form.comment.value
+  };
+
+  try {
+    const response = await fetch(
+      "https://script.google.com/macros/s/AKfycbzXawhN7k6Abv29oVQhPyz2S_2bO6cXqCU6AQX1TYZoD7EfVmaZJIc5M77v670m7S0D/exec",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      }
+    );
+
+    if (response.ok) {
+      form.reset();
+      form.classList.add("hidden");
+      success.classList.remove("hidden");
+    } else {
+      alert("Erreur lors de l’envoi 😕");
+    }
+  } catch (error) {
+    alert("Impossible d’envoyer le formulaire 😕");
+  }
+});
+</script>
+
 </body>
 </html>
