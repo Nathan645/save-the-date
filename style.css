@@ -139,4 +139,38 @@ button {
   text-decoration: underline;
 }
 
+/* --- Mobile / Responsive --- */
+@media (max-width: 600px) {
+
+  .hero h1 {
+    font-size: 2.2em;
+  }
+
+  .hero h2 {
+    font-size: 1.5em;
+  }
+
+  .date {
+    font-size: 1em;
+  }
+
+  .section {
+    padding: 40px 15px;
+  }
+
+  .photo-placeholder {
+    padding: 30px;
+    font-size: 0.9em;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.9em;
+  }
+
+  #countdown {
+    font-size: 1em;
+  }
+}
+
 
