@@ -4,7 +4,7 @@ const menu = document.getElementById("menu-links");
 
 if (toggle) {
   toggle.addEventListener("click", () => {
-    menu.classList.toggle("show");
+    menu.classList.toggle("open");
   });
 }
 
