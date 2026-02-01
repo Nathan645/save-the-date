@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Save the Date</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- MENU FLOTTANT -->
-  <nav id="floating-menu">
-    <ul>
+<nav id="floating-menu">
+  <div class="menu-container">
+    <div class="logo">Save the Date</div>
+    <button id="menu-toggle">☰</button>
+    <ul id="menu-links">
       <li><a href="#hero">Accueil</a></li>
       <li><a href="#rsvp">RSVP</a></li>
       <li><a href="#programme">Programme</a></li>
@@ -18,59 +20,51 @@
       <li><a href="#itineraire">Itinéraire</a></li>
       <li><a href="#cagnotte">Cagnotte</a></li>
     </ul>
-  </nav>
+  </div>
+</nav>
 
-  <!-- SECTION 1 : HERO -->
-  <section class="section hero visible" id="hero">
-    <h1>Save the Date</h1>
-    <h2>Marie & Paul</h2>
-    <p class="date">12 juillet 2026 · Paris</p>
+<section class="section hero visible" id="hero">
+  <h1>Save the Date</h1>
+  <h2>Marie & Paul</h2>
+  <p class="date">12 juillet 2026 · Paris · 15h</p>
+  <div id="countdown"></div>
+  <div class="photo-placeholder">Photo de nous deux (à venir)</div>
+</section>
 
-    <div id="countdown"></div>
+<section class="section" id="rsvp">
+  <h3>Confirmation de présence</h3>
+  <p>Merci de confirmer votre présence.</p>
+  <a href="rsvp.html" class="btn">Confirmer sa présence</a>
+</section>
 
-    <div class="photo-placeholder">
-      Photo de nous deux (à venir)
-    </div>
-  </section>
+<section class="section light" id="programme">
+  <h3>Programme</h3>
+  <ul class="program">
+    <li>15h — Cérémonie</li>
+    <li>17h — Cocktail</li>
+    <li>20h — Dîner & soirée</li>
+  </ul>
+</section>
 
-  <!-- SECTION 2 : RSVP -->
-  <section class="section" id="rsvp">
-    <h3>Confirmation de présence</h3>
-    <p>Merci de bien vouloir confirmer votre présence avant le 1er juin 2026.</p>
-    <a href="rsvp.html" class="btn">Confirmer sa présence</a>
-  </section>
+<section class="section" id="lieu">
+  <h3>Le lieu</h3>
+  <p>Château de Exemple – Paris</p>
+  <div class="photo-placeholder">Photo du lieu (à venir)</div>
+</section>
 
-  <!-- SECTION 3 : PROGRAMME -->
-  <section class="section light" id="programme">
-    <h3>Le programme</h3>
-    <ul class="program">
-      <li>15h00 — Cérémonie</li>
-      <li>17h00 — Cocktail</li>
-      <li>20h00 — Dîner & soirée</li>
-    </ul>
-  </section>
+<section class="section light" id="itineraire">
+  <h3>Itinéraire</h3>
+  <a class="link" href="https://www.google.com/maps" target="_blank">
+    Voir sur Google Maps
+  </a>
+</section>
 
-  <!-- SECTION 4 : LIEU -->
-  <section class="section" id="lieu">
-    <h3>Le lieu</h3>
-    <p>Château de Exemple<br>123 rue de la fête<br>75000 Paris</p>
-    <div class="photo-placeholder">Photo du lieu (à venir)</div>
-  </section>
+<section class="section" id="cagnotte">
+  <h3>Cagnotte</h3>
+  <p>Votre présence est le plus beau des cadeaux.</p>
+  <a class="btn" href="https://www.leetchi.com" target="_blank">Accéder à la cagnotte</a>
+</section>
 
-  <!-- SECTION 5 : ITINÉRAIRE -->
-  <section class="section light" id="itineraire">
-    <h3>Itinéraire</h3>
-    <p>Le lieu est accessible en voiture et en transports.</p>
-    <a href="https://www.google.com/maps" target="_blank" class="link">Voir l’itinéraire sur Google Maps</a>
-  </section>
-
-  <!-- SECTION 6 : CAGNOTTE -->
-  <section class="section" id="cagnotte">
-    <h3>Cagnotte</h3>
-    <p>Votre présence est le plus beau des cadeaux. Si vous le souhaitez, une cagnotte est disponible pour nous aider à réaliser nos projets.</p>
-    <a href="https://www.leetchi.com" target="_blank" class="btn">Accéder à la cagnotte</a>
-  </section>
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
