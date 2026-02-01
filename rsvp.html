@@ -61,7 +61,22 @@
     </label>
 
     <label>
-      Commentaires / questions / restrictions alimentaires
+      Présence ? *
+      <select name="presence" required>
+        <option value="">-- Choisissez --</option>
+        <option value="samedi">Samedi</option>
+        <option value="dimanche brunch">Dimanche brunch</option>
+        <option value="pas possible déso">Pas possible, désolé</option>
+      </select>
+    </label>
+
+    <label>
+      Restrictions alimentaires
+      <textarea name="dietary" rows="2" placeholder="Ex : végétarien, allergies, etc."></textarea>
+    </label>
+
+    <label>
+      Commentaires / questions
       <textarea name="comment" rows="4"></textarea>
     </label>
 
@@ -100,6 +115,8 @@ form.addEventListener("submit", (e) => {
     city: form.city.value,
     arrival: form.arrival.value,
     departure: form.departure.value,
+    presence: form.presence.value,
+    dietary: form.dietary.value,
     comment: form.comment.value
   };
 
