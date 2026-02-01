@@ -8,70 +8,51 @@
 </head>
 <body>
 
-  <!-- MENU FLOTTANT -->
-  <nav id="floating-menu">
-    <ul>
+<nav id="floating-menu">
+  <div class="menu-container">
+    <div class="logo">Save the Date</div>
+    <button id="menu-toggle">☰</button>
+    <ul id="menu-links">
       <li><a href="index.html#hero">Accueil</a></li>
-      <li><a href="index.html#rsvp">RSVP</a></li>
       <li><a href="index.html#programme">Programme</a></li>
       <li><a href="index.html#lieu">Lieu</a></li>
       <li><a href="index.html#itineraire">Itinéraire</a></li>
       <li><a href="index.html#cagnotte">Cagnotte</a></li>
     </ul>
-  </nav>
+  </div>
+</nav>
 
-  <!-- SECTION PRINCIPALE -->
-  <section class="section hero visible" id="rsvp-section">
-    <h1>Confirmation de présence</h1>
-    <p>Merci de remplir le formulaire ci-dessous pour confirmer votre présence à notre mariage.</p>
+<section class="section hero visible">
+  <h1>Confirmation de présence</h1>
+  <p>Merci de remplir le formulaire ci-dessous</p>
 
-    <form id="rsvp-form" action="https://formspree.io/f/mlglrelr" method="POST">
-      <label>
-        Nom et prénom *
-        <input type="text" name="fullname" required autocomplete="name">
-      </label>
+  <form action="https://formspree.io/f/XXXXXX" method="POST">
+    <label>Nom et prénom *
+      <input type="text" name="fullname" required>
+    </label>
 
-      <label>
-        Adresse postale *
-        <input type="text" name="address" required autocomplete="street-address">
-      </label>
+    <label>Adresse postale *
+      <input type="text" name="address" required>
+    </label>
 
-      <label>
-        Code postal *
-        <input type="text" name="zipcode" required pattern="[0-9]{5}" title="Code postal à 5 chiffres" autocomplete="postal-code">
-      </label>
+    <label>Code postal *
+      <input type="text" name="zipcode" required pattern="[0-9]{5}">
+    </label>
 
-      <label>
-        Ville *
-        <input type="text" name="city" required autocomplete="address-level2">
-      </label>
+    <label>Ville *
+      <input type="text" name="city" required>
+    </label>
 
-      <label>
-        Commentaires / questions / restrictions alimentaires
-        <textarea name="comment" rows="4"></textarea>
-      </label>
+    <label>Commentaires / restrictions alimentaires
+      <textarea name="comment"></textarea>
+    </label>
 
-      <button type="submit" class="btn">Envoyer</button>
-    </form>
+    <button class="btn" type="submit">Envoyer</button>
+  </form>
 
-    <p id="thank-you" class="hidden">Merci pour votre réponse 💛<br>Nous avons bien reçu vos informations.</p>
-    <a href="index.html" class="link back">← Retour à l’accueil</a>
-  </section>
+  <a class="link" href="index.html">← Retour à l’accueil</a>
+</section>
 
-  <script>
-    // Formulaire RSVP
-    const form = document.getElementById("rsvp-form");
-    const thankYou = document.getElementById("thank-you");
-
-    if (form) {
-      form.addEventListener("submit", function () {
-        setTimeout(() => {
-          form.classList.add("hidden");
-          thankYou.classList.remove("hidden");
-        }, 500);
-      });
-    }
-  </script>
-
+<script src="script.js"></script>
 </body>
 </html>
