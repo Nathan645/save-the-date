@@ -1,13 +1,13 @@
 /* --- Styles généraux --- */
 body {
   margin: 0;
-  padding-top: 60px; /* pour le menu fixe */
+  padding-top: 60px; /* pour menu fixe */
   font-family: Arial, sans-serif;
   background: #f7f7f7;
   color: #333;
 }
 
-/* MENU FLOTTANT */
+/* MENU FLOTTANT HORIZONTAL */
 #floating-menu {
   position: fixed;
   top: 0;
@@ -38,11 +38,12 @@ body {
   font-weight: bold;
   font-size: 0.95em;
   padding: 5px 10px;
-  transition: color 0.3s;
+  transition: color 0.3s, transform 0.2s;
 }
 
 #floating-menu ul li a:hover {
   color: #d33;
+  transform: scale(1.05);
 }
 
 /* SECTION */
@@ -64,22 +65,11 @@ body {
 }
 
 /* HERO */
-.hero h1 {
-  font-size: 3em;
-  margin-bottom: 10px;
-}
+.hero h1 { font-size: 3em; margin-bottom: 10px; }
+.hero h2 { font-weight: normal; margin-bottom: 10px; }
+.date { font-size: 1.2em; margin-bottom: 20px; }
 
-.hero h2 {
-  font-weight: normal;
-  margin-bottom: 10px;
-}
-
-.date {
-  font-size: 1.2em;
-  margin-bottom: 20px;
-}
-
-/* PLACEHOLDER PHOTO */
+/* PHOTO PLACEHOLDER */
 .photo-placeholder {
   margin: 30px auto;
   padding: 40px;
@@ -90,16 +80,10 @@ body {
 }
 
 /* PROGRAMME */
-.program {
-  list-style: none;
-  padding: 0;
-}
+.program { list-style: none; padding: 0; }
+.program li { margin: 10px 0; }
 
-.program li {
-  margin: 10px 0;
-}
-
-/* LIENS & BOUTONS */
+/* BOUTONS ET LIENS */
 .btn {
   display: inline-block;
   padding: 12px 24px;
@@ -108,64 +92,41 @@ body {
   text-decoration: none;
   border-radius: 4px;
   margin-top: 10px;
+  transition: transform 0.2s ease, background-color 0.2s ease;
 }
+
+.btn:hover { transform: scale(1.05); background-color: #333; }
 
 .link {
   color: #000;
   text-decoration: underline;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
-/* --- Mobile / Responsive --- */
+.link:hover { transform: scale(1.05); color: #d33; }
+
+/* FORMULAIRE RSVP */
+form { text-align: left; margin: 30px auto; max-width: 400px; }
+label { display: block; margin-bottom: 15px; font-size: 0.9em; }
+input, textarea {
+  width: 100%; padding: 10px; margin-top: 6px;
+  border: 1px solid #ccc; border-radius: 4px; font-size: 1em;
+}
+input:invalid { border-color: #d33; }
+
+.hidden { display: none; }
+#thank-you { margin-top: 30px; font-size: 1.1em; text-align: center; }
+
+/* MOBILE */
 @media (max-width: 600px) {
-
-  .hero h1 {
-    font-size: 2.2em;
-  }
-
-  .hero h2 {
-    font-size: 1.5em;
-  }
-
-  .date {
-    font-size: 1em;
-  }
-
-  .section {
-    padding: 40px 15px;
-  }
-
-  .photo-placeholder {
-    padding: 30px;
-    font-size: 0.9em;
-  }
-
-  .btn {
-    padding: 10px 20px;
-    font-size: 0.9em;
-  }
-
-  #countdown {
-    font-size: 1em;
-  }
+  .hero h1 { font-size: 2.2em; }
+  .hero h2 { font-size: 1.5em; }
+  .date { font-size: 1em; }
+  .section { padding: 40px 15px; }
+  .photo-placeholder { padding: 30px; font-size: 0.9em; }
+  .btn { padding: 10px 20px; font-size: 0.9em; }
+  #countdown { font-size: 1em; }
 }
 
 /* Smooth scroll */
-html {
-  scroll-behavior: smooth;
-}
-
-/* --- Micro-animations boutons et liens --- */
-.btn, .link {
-  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
-}
-
-.btn:hover {
-  transform: scale(1.05);
-  background-color: #333;
-}
-
-.link:hover {
-  transform: scale(1.05);
-  color: #d33;
-}
-
+html { scroll-behavior: smooth; }
