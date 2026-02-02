@@ -139,16 +139,19 @@ textarea { resize: vertical; }
   margin-top: 20px;
 }
 
-.form-buttons .btn {
-  min-width: 140px;
-  padding: 12px 26px;           /* identique pour button et a */
-  display: inline-flex;
+.form-buttons button,
+.form-buttons a.btn {
+  box-sizing: border-box;       /* s'assure que padding + border = width/height */
+  min-width: 140px;             /* largeur minimale */
+  padding: 12px 26px;           /* padding identique */
+  display: inline-flex;          /* pour alignement vertical du texte */
   justify-content: center;
   align-items: center;
+  text-align: center;
   font-size: 1em;
   line-height: 1.2;
+  height: 48px;                  /* force la même hauteur exacte */
 }
-
 /* ===== MOBILE ===== */
 @media (max-width: 768px) {
   body { padding-top: 56px; }
