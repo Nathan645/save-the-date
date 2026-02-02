@@ -1,1 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>RSVP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- MENU -->
+<nav id="floating-menu">
+  <div class="menu-container">
+    <div class="logo">Save the Date</div>
+    <button id="menu-toggle">☰</button>
+    <ul id="menu-links">
+      <li><a href="index.html#hero">Accueil</a></li>
+      <li><a href="index.html#programme">Programme</a></li>
+      <li><a href="index.html#lieu">Lieu</a></li>
+      <li><a href="index.html#itineraire">Itinéraire</a></li>
+      <li><a href="index.html#cagnotte">Cagnotte</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="section hero visible">
+  <h1>Confirmation de présence</h1>
+  <p>Merci de remplir ce formulaire pour confirmer votre venue.</p>
+
+  <form id="rsvp-form">
+
+    <label>
+      Présence ? *
+      <select name="presence" required>
+        <option value="">-- Choisissez --</option>
+        <option value="samedi">Samedi</option>
+        <option value="dimanche brunch">Dimanche brunch</option>
+        <option value="les deux">Les deux</option>
+        <option value="pas possible déso">Pas possible, désolé</option>
+      </select>
+    </label>
+
+    <label>
+      Nom et prénom *
+      <input type="text" name="fullname" required>
+    </label>
+
+    <label>
+      Adresse postale
+      <input type="text" name="address">
+    </label>
+
+    <label>
+      Code postal
+      <input type="text" name="zipcode" pattern="[0-9]{5}">
+    </label>
+
+    <label>
+      Ville
+      <input type="text" name="city">
+    </label>
+
+    <label>
+      Date d’arrivée
+      <input type="date" name="arrival">
+    </label>
+
+    <label>
+      Date de départ
+      <input type="date" name="departure">
+    </label>
+
+    <label>
+      Restrictions alimentaires
+      <textarea name="dietary" rows="2" placeholder="Ex : végétarien, allergies, etc."></textarea>
+    </label>
+
+    <label>
+      Commentaires / questions
+      <textarea name="comment" rows="4"></textarea>
+    </label>
+
+    <div class="form-buttons">
+      <button type="submit" class="btn">Envoyer</button>
+      <a href="index.html" class="btn">Revenir à l'accueil</a>
+    </div>
+  </form>
+
+  <p id="success-message" class="hidden">
+    Merci 💛 Votre réponse a bien été enregistrée.
+  </p>
+</section>
+
+<script>
+const toggle = document.getElementById("menu-toggle");
+const links = document.getElementById("menu-links");
+toggle.addEventListener("click", () => links.classList.toggle("open"));
+
+// Rendre adresse/code postal/ville non obligatoires si pas présent
+const form = document.getElementById("rsvp-form");
+const presenceField = form.presence;
+const addressField = form.address;
+const zipcodeField = form.zipcode;
+const cityField = form.city;
+presenceField.addEventListener('change', () => {
+  if (presenceField.value === 'pas possible déso') {
+    addressField.removeAttribute('required');
+    zipcodeField.removeAttribute('required');
+    cityField.removeAttribute('required');
+  } else {
+    addressField.setAttribute('required','required');
+    zipcodeField.setAttribute('required','required');
+    cityField.setAttribute('required','required');
+  }
+});
+
+// Envoi vers Google Sheet
+const success = document.getElementById("success-message");
+form.addEventListener("submit", e => {
+  e.preventDefault();
+  const data = {
+    fullname: form.fullname.value,
+    address: form.address.value,
+    zipcode: form.zipcode.value,
+    city: form.city.value,
+    arrival: form.arrival.value,
+    departure: form.departure.value,
+    presence: form.presence.value,
+    dietary: form.dietary.value,
+    comment: form.comment.value
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbzXKltJ8exzJlMVIZW1R_A1EeLLv2c1znRnAUN8L_z7f6PxkIXkfW2tLU5fMg6uumrF/exec", {
+    method: "POST",
+    mode: "no-cors",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
+  });
+
+  form.reset();
+  form.classList.add("hidden");
+  success.classList.remove("hidden");
+});
+</script>
+</body>
+</html>
 
