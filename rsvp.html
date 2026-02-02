@@ -31,23 +31,34 @@
   <form id="rsvp-form">
 
     <label>
+      Présence ? *
+      <select name="presence" required>
+        <option value="">-- Choisissez --</option>
+        <option value="samedi">Samedi</option>
+        <option value="dimanche brunch">Dimanche brunch</option>
+        <option value="les deux">Les deux</option>
+        <option value="pas possible déso">Pas possible, désolé</option>
+      </select>
+    </label>
+
+    <label>
       Nom et prénom *
       <input type="text" name="fullname" required>
     </label>
 
     <label>
-      Adresse postale *
-      <input type="text" name="address" required>
+      Adresse postale
+      <input type="text" name="address">
     </label>
 
     <label>
-      Code postal *
-      <input type="text" name="zipcode" required pattern="[0-9]{5}">
+      Code postal
+      <input type="text" name="zipcode" pattern="[0-9]{5}">
     </label>
 
     <label>
-      Ville *
-      <input type="text" name="city" required>
+      Ville
+      <input type="text" name="city">
     </label>
 
     <label>
@@ -61,17 +72,6 @@
     </label>
 
     <label>
-      Présence ? *
-      <select name="presence" required>
-        <option value="">-- Choisissez --</option>
-        <option value="samedi">Samedi</option>
-        <option value="dimanche brunch">Dimanche brunch</option>
-        <option value="les deux">Les deux</option>
-        <option value="pas possible déso">Pas possible, désolé</option>
-      </select>
-    </label>
-
-    <label>
       Restrictions alimentaires
       <textarea name="dietary" rows="2" placeholder="Ex : végétarien, allergies, etc."></textarea>
     </label>
@@ -81,14 +81,15 @@
       <textarea name="comment" rows="4"></textarea>
     </label>
 
-    <button type="submit" class="btn">Envoyer</button>
+    <div class="form-buttons">
+      <button type="submit" class="btn">Envoyer</button>
+      <a href="index.html" class="btn">Revenir à l'accueil</a>
+    </div>
   </form>
 
   <p id="success-message" class="hidden">
     Merci 💛 Votre réponse a bien été enregistrée.
   </p>
-
-  <a href="index.html" class="link">← Retour à l’accueil</a>
 </section>
 
 <!-- MENU MOBILE -->
@@ -105,6 +106,23 @@ toggle.addEventListener("click", () => {
 <script>
 const form = document.getElementById("rsvp-form");
 const success = document.getElementById("success-message");
+const presenceField = form.presence;
+const addressField = form.address;
+const zipcodeField = form.zipcode;
+const cityField = form.city;
+
+// rendre adresse, code postal et ville non obligatoires si "pas possible"
+presenceField.addEventListener('change', () => {
+  if (presenceField.value === 'pas possible déso') {
+    addressField.removeAttribute('required');
+    zipcodeField.removeAttribute('required');
+    cityField.removeAttribute('required');
+  } else {
+    addressField.setAttribute('required','required');
+    zipcodeField.setAttribute('required','required');
+    cityField.setAttribute('required','required');
+  }
+});
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -122,7 +140,7 @@ form.addEventListener("submit", (e) => {
   };
 
   fetch(
-      "https://script.google.com/macros/s/AKfycbzXawhN7k6Abv29oVQhPyz2S_2bO6cXqCU6AQX1TYZoD7EfVmaZJIc5M77v670m7S0D/exec",
+    "https://script.google.com/macros/s/AKfycbzXKltJ8exzJlMVIZW1R_A1EeLLv2c1znRnAUN8L_z7f6PxkIXkfW2tLU5fMg6uumrF/exec",
     {
       method: "POST",
       mode: "no-cors",
