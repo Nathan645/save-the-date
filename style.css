@@ -176,3 +176,18 @@ textarea { resize: vertical; }
   .section { padding: 50px 16px; }
   form { width: 100%; }
 }
+
+/* Checkbox alignée proprement */
+label.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 15px 0;
+  cursor: pointer;
+}
+
+label.checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+}
