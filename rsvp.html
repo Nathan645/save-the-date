@@ -116,41 +116,72 @@
 </section>
 
 <script>
-/* MENU MOBILE */
-document.getElementById("menu-toggle")
-  .addEventListener("click", () =>
-    document.getElementById("menu-links").classList.toggle("open")
-  );
+/* =====================
+   MENU MOBILE
+===================== */
+const menuToggle = document.getElementById("menu-toggle");
+const menuLinks = document.getElementById("menu-links");
 
-/* LOGIQUE INTELLIGENTE */
+menuToggle.addEventListener("click", () => {
+  menuLinks.classList.toggle("open");
+});
+
+/* =====================
+   FORMULAIRE INTELLIGENT
+===================== */
 const form = document.getElementById("rsvp-form");
 const presence = form.presence;
 const presenceDetails = document.getElementById("presence-details");
 const sleepingCheckbox = form.sleeping;
 const sleepDetails = document.getElementById("sleep-details");
+const successMessage = document.getElementById("success-message");
 
+/* --- Présence --- */
 presence.addEventListener("change", () => {
   if (["samedi", "dimanche brunch", "les deux"].includes(presence.value)) {
+
+    // Affiche bloc présence
     presenceDetails.classList.remove("hidden");
+    setTimeout(() => presenceDetails.classList.add("visible"), 10);
+
+    // Champs requis
     form.address.required = true;
     form.zipcode.required = true;
     form.city.required = true;
+
   } else {
-    presenceDetails.classList.add("hidden");
-    sleepDetails.classList.add("hidden");
+
+    // Cache tout
+    presenceDetails.classList.remove("visible");
+    sleepDetails.classList.remove("visible");
     sleepingCheckbox.checked = false;
+
+    setTimeout(() => {
+      presenceDetails.classList.add("hidden");
+      sleepDetails.classList.add("hidden");
+    }, 300);
+
     form.address.required = false;
     form.zipcode.required = false;
     form.city.required = false;
   }
 });
 
+/* --- Dort sur place --- */
 sleepingCheckbox.addEventListener("change", () => {
-  sleepDetails.classList.toggle("hidden", !sleepingCheckbox.checked);
+  if (sleepingCheckbox.checked) {
+    sleepDetails.classList.remove("hidden");
+    setTimeout(() => sleepDetails.classList.add("visible"), 10);
+  } else {
+    sleepDetails.classList.remove("visible");
+    setTimeout(() => sleepDetails.classList.add("hidden"), 300);
+  }
 });
 
-/* ENVOI GOOGLE SHEET */
-form.addEventListener("submit", e => {
+/* =====================
+   ENVOI GOOGLE SHEET
+===================== */
+form.addEventListener("submit", (e) => {
   e.preventDefault();
 
   const data = {
@@ -175,11 +206,18 @@ form.addEventListener("submit", e => {
     body: JSON.stringify(data)
   });
 
+  // Reset & message
   form.reset();
+  presenceDetails.classList.add("hidden");
+  presenceDetails.classList.remove("visible");
+  sleepDetails.classList.add("hidden");
+  sleepDetails.classList.remove("visible");
+
   form.classList.add("hidden");
-  document.getElementById("success-message").classList.remove("hidden");
+  successMessage.classList.remove("hidden");
 });
 </script>
+
 
 </body>
 </html>
