@@ -32,6 +32,7 @@
       <option value="non">Pas possible</option>
     </select>
 
+    <!-- Adresse -->
     <div id="address-block" class="hidden">
       <label>Adresse</label>
       <input type="text" name="adresse">
@@ -46,20 +47,29 @@
       <input type="text" name="restrictions">
     </div>
 
-    <label class="checkbox">
-      <input type="checkbox" id="sleeping">
-      Dort sur le lieu du mariage
-    </label>
-
-    <div id="sleeping-options" class="hidden">
+    <!-- Dort sur place -->
+    <div id="sleeping-block" class="hidden">
       <label class="checkbox">
-        <input type="checkbox" name="linge">
-        Linge de lit (6€/lit)
+        <input type="checkbox" id="sleeping">
+        <span>Dort sur le lieu du mariage</span>
+      </label>
+    </div>
+
+    <!-- Nuits -->
+    <div id="nights-block" class="hidden">
+      <label class="checkbox">
+        <input type="checkbox" name="vendredi">
+        <span>Vendredi soir</span>
       </label>
 
       <label class="checkbox">
-        <input type="checkbox" name="serviette">
-        Kit serviette (6€/personne)
+        <input type="checkbox" name="samedi_soir">
+        <span>Samedi soir</span>
+      </label>
+
+      <label class="checkbox">
+        <input type="checkbox" name="dimanche">
+        <span>Dimanche soir</span>
       </label>
     </div>
 
