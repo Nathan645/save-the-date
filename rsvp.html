@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>RSVP</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
 
@@ -18,10 +18,10 @@
   </div>
 </nav>
 
-<section class="section hero visible">
+<section class="section hero visible scroll-animate">
   <h1>Confirmation de présence</h1>
 
-  <form id="rsvp-form">
+  <form id="rsvp-form" class="scroll-animate">
 
     <label>
       Nom et prénom *
@@ -48,7 +48,7 @@
 
       <label>
         Code postal *
-        <input type="text" name="zipcode" pattern="[0-9]{5}">
+        <input type="text" name="zipcode">
       </label>
 
       <label>
@@ -69,28 +69,23 @@
       <div id="sleep-details" class="hidden animate">
 
         <label class="checkbox">
-          <input type="checkbox" name="night_friday">
-          Vendredi soir
+          <input type="checkbox" name="night_friday"> Vendredi soir
         </label>
 
         <label class="checkbox">
-          <input type="checkbox" name="night_saturday">
-          Samedi soir
+          <input type="checkbox" name="night_saturday"> Samedi soir
         </label>
 
         <label class="checkbox">
-          <input type="checkbox" name="night_sunday">
-          Dimanche soir
+          <input type="checkbox" name="night_sunday"> Dimanche soir
         </label>
 
         <label class="checkbox">
-          <input type="checkbox" name="bedlinen">
-          Linge de lit (6€ / lit)
+          <input type="checkbox" name="bedlinen"> Linge de lit (6€ / lit)
         </label>
 
         <label class="checkbox">
-          <input type="checkbox" name="towels">
-          Kit serviettes (6€ / personne)
+          <input type="checkbox" name="towels"> Kit serviettes (6€ / personne)
         </label>
 
       </div>
@@ -103,7 +98,7 @@
 
     <div class="form-buttons">
       <button type="submit" class="btn">Envoyer</button>
-      <a href="index.html" class="btn">Revenir à l'accueil</a>
+      <a href="index.html" class="btn secondary">Revenir à l'accueil</a>
     </div>
 
   </form>
@@ -113,6 +108,6 @@
   </p>
 </section>
 
-<script src="script.js"></script>
+<script src="script.js?v=3"></script>
 </body>
 </html>
