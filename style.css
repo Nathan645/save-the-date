@@ -133,31 +133,41 @@ input, select, textarea {
 
 label.checkbox {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 12px;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   cursor: pointer;
+  line-height: 1.4;
 }
 
-label.checkbox input {
+label.checkbox span {
+  display: block;
+}
+
+label.checkbox input[type="checkbox"] {
   appearance: none;
+  -webkit-appearance: none;
   width: 20px;
   height: 20px;
   border: 2px solid #c3a46b;
   border-radius: 5px;
+  margin-top: 2px; /* alignement vertical parfait */
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
-label.checkbox input:checked {
+label.checkbox input[type="checkbox"]:checked {
   background: #c3a46b;
 }
 
-label.checkbox input:checked::after {
+label.checkbox input[type="checkbox"]:checked::after {
   content: "✓";
   color: white;
+  font-size: 14px;
 }
+
 
 .hidden {
   display: none;
