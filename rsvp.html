@@ -4,110 +4,76 @@
   <meta charset="UTF-8">
   <title>RSVP</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <nav id="floating-menu">
   <div class="menu-container">
-    <div class="logo">Save the Date</div>
-    <button id="menu-toggle">☰</button>
-    <ul id="menu-links">
-      <li><a href="index.html">Accueil</a></li>
-    </ul>
+    <div class="logo">RSVP</div>
+    <a href="index.html" class="btn small">Accueil</a>
   </div>
 </nav>
 
-<section class="section hero visible scroll-animate">
-  <h1>Confirmation de présence</h1>
+<section class="section animate">
+  <h3>Confirmation de présence</h3>
 
-  <form id="rsvp-form" class="scroll-animate">
+  <form id="rsvp-form">
 
-    <label>
-      Nom et prénom *
-      <input type="text" name="fullname" required>
+    <label>Nom / Prénom *</label>
+    <input type="text" name="nom" required>
+
+    <label>Présence *</label>
+    <select name="presence" id="presence" required>
+      <option value="">—</option>
+      <option value="samedi">Samedi</option>
+      <option value="dimanche">Dimanche brunch</option>
+      <option value="les deux">Les deux</option>
+      <option value="non">Pas possible</option>
+    </select>
+
+    <div id="address-block" class="hidden">
+      <label>Adresse</label>
+      <input type="text" name="adresse">
+
+      <label>Code postal</label>
+      <input type="text" name="cp">
+
+      <label>Ville</label>
+      <input type="text" name="ville">
+
+      <label>Restrictions alimentaires</label>
+      <input type="text" name="restrictions">
+    </div>
+
+    <label class="checkbox">
+      <input type="checkbox" id="sleeping">
+      Dort sur le lieu du mariage
     </label>
 
-    <label>
-      Présence ? *
-      <select name="presence" required>
-        <option value="">-- Choisissez --</option>
-        <option value="samedi">Samedi</option>
-        <option value="dimanche brunch">Dimanche brunch</option>
-        <option value="les deux">Les deux</option>
-        <option value="pas possible déso">Pas possible, désolé</option>
-      </select>
-    </label>
-
-    <div id="presence-details" class="hidden animate">
-
-      <label>
-        Adresse postale *
-        <input type="text" name="address">
-      </label>
-
-      <label>
-        Code postal *
-        <input type="text" name="zipcode">
-      </label>
-
-      <label>
-        Ville *
-        <input type="text" name="city">
-      </label>
-
-      <label>
-        Restrictions alimentaires
-        <textarea name="dietary" rows="2"></textarea>
+    <div id="sleeping-options" class="hidden">
+      <label class="checkbox">
+        <input type="checkbox" name="linge">
+        Linge de lit (6€/lit)
       </label>
 
       <label class="checkbox">
-        <input type="checkbox" name="sleeping">
-        Dort sur le lieu du mariage
+        <input type="checkbox" name="serviette">
+        Kit serviette (6€/personne)
       </label>
-
-      <div id="sleep-details" class="hidden animate">
-
-        <label class="checkbox">
-          <input type="checkbox" name="night_friday"> Vendredi soir
-        </label>
-
-        <label class="checkbox">
-          <input type="checkbox" name="night_saturday"> Samedi soir
-        </label>
-
-        <label class="checkbox">
-          <input type="checkbox" name="night_sunday"> Dimanche soir
-        </label>
-
-        <label class="checkbox">
-          <input type="checkbox" name="bedlinen"> Linge de lit (6€ / lit)
-        </label>
-
-        <label class="checkbox">
-          <input type="checkbox" name="towels"> Kit serviettes (6€ / personne)
-        </label>
-
-      </div>
     </div>
 
-    <label>
-      Commentaires / questions
-      <textarea name="comment" rows="4"></textarea>
-    </label>
+    <label>Commentaires</label>
+    <textarea name="commentaire"></textarea>
 
     <div class="form-buttons">
       <button type="submit" class="btn">Envoyer</button>
-      <a href="index.html" class="btn secondary">Revenir à l'accueil</a>
+      <a href="index.html" class="btn">Revenir à l’accueil</a>
     </div>
 
   </form>
-
-  <p id="success-message" class="hidden">
-    Merci 💛 Votre réponse a bien été enregistrée.
-  </p>
 </section>
 
-<script src="script.js?v=3"></script>
+<script src="script.js"></script>
 </body>
 </html>
