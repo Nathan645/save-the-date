@@ -1,12 +1,19 @@
-body {
-  margin: 0;
-  font-family: 'Arial', sans-serif;
-  background: #fafafa;
-  color: #333;
+/* RESET & BASE */
+* {
+  box-sizing: border-box;
 }
 
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #fafafa;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* SECTIONS */
 .section {
-  padding: 80px 20px;
+  padding: 90px 20px;
   text-align: center;
 }
 
@@ -16,23 +23,32 @@ body {
 
 .hero h1 {
   font-size: 3em;
+  margin-bottom: 10px;
+}
+
+.hero h2 {
+  font-size: 1.5em;
+  font-weight: normal;
 }
 
 .date {
-  margin-bottom: 20px;
+  margin: 20px 0;
 }
 
 .photo-placeholder {
   margin-top: 30px;
   padding: 60px;
   background: #ddd;
+  border-radius: 10px;
 }
 
+/* COUNTDOWN */
 #countdown {
   font-size: 1.4em;
   margin: 20px 0;
 }
 
+/* MENU */
 nav {
   position: fixed;
   top: 0;
@@ -49,10 +65,23 @@ nav {
   padding: 15px 20px;
 }
 
+.logo {
+  font-weight: bold;
+}
+
+#menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.6em;
+}
+
 #menu-links {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 22px;
+  padding: 0;
+  margin: 0;
 }
 
 #menu-links a {
@@ -70,25 +99,28 @@ nav {
   width: 0;
   height: 2px;
   background: #c3a46b;
-  transition: width 0.3s;
+  transition: width 0.3s ease;
 }
 
 #menu-links a:hover::after {
   width: 100%;
 }
 
+/* BUTTONS */
 .btn {
   background: #c3a46b;
   color: white;
-  padding: 12px 26px;
+  padding: 14px 28px;
   border-radius: 30px;
   text-decoration: none;
   border: none;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-size: 1em;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  min-width: 170px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn:hover {
@@ -96,6 +128,12 @@ nav {
   box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
 
+.btn.small {
+  min-width: auto;
+  padding: 10px 20px;
+}
+
+/* PULSE EFFECT */
 .pulse {
   animation: pulse 2.5s infinite;
 }
@@ -106,22 +144,11 @@ nav {
   100% { box-shadow: 0 0 0 0 rgba(195,164,107,0); }
 }
 
+/* CENTER BUTTONS */
 .buttons-center {
   display: flex;
   justify-content: center;
   margin-top: 30px;
-}
-
-form {
-  max-width: 600px;
-  margin: auto;
-  text-align: left;
-}
-
-input, select, textarea {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 20px;
 }
 
 .form-buttons {
@@ -131,13 +158,46 @@ input, select, textarea {
   margin-top: 30px;
 }
 
+/* FORM */
+form {
+  max-width: 620px;
+  margin: auto;
+  text-align: left;
+}
+
+label {
+  font-weight: 500;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 22px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: white;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+select {
+  appearance: none;
+}
+
+/* CHECKBOX (ALIGNEMENT PARFAIT) */
 label.checkbox {
   display: flex;
-  align-items: flex-start;
-  gap: 12px;
+  align-items: center;
+  gap: 14px;
   margin-bottom: 18px;
   cursor: pointer;
-  line-height: 1.4;
+  line-height: 1.3;
 }
 
 label.checkbox span {
@@ -149,13 +209,12 @@ label.checkbox input[type="checkbox"] {
   -webkit-appearance: none;
   width: 20px;
   height: 20px;
+  min-width: 20px;
   border: 2px solid #c3a46b;
   border-radius: 5px;
-  margin-top: 2px; /* alignement vertical parfait */
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
 }
 
 label.checkbox input[type="checkbox"]:checked {
@@ -168,11 +227,29 @@ label.checkbox input[type="checkbox"]:checked::after {
   font-size: 14px;
 }
 
+/* PROGRAM */
+.program {
+  list-style: none;
+  padding: 0;
+}
 
+.program li {
+  margin-bottom: 10px;
+}
+
+/* LINKS */
+.link {
+  color: #c3a46b;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* HIDDEN */
 .hidden {
   display: none;
 }
 
+/* ANIMATIONS AU SCROLL */
 .animate {
   opacity: 0;
   transform: translateY(40px);
@@ -182,4 +259,30 @@ label.checkbox input[type="checkbox"]:checked::after {
 .animate.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  #menu-toggle {
+    display: block;
+  }
+
+  #menu-links {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: white;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    display: none;
+  }
+
+  #menu-links.open {
+    display: flex;
+  }
+
+  .section {
+    padding: 70px 16px;
+  }
 }
