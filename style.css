@@ -11,48 +11,31 @@ body {
   line-height: 1.6;
 }
 
-/* =====================
-   SECTIONS
-===================== */
+/* SECTIONS */
 .section {
   padding: 80px 20px;
 }
 
-.section.light {
-  background: #fff;
-}
-
-/* HERO (plein largeur) */
-.hero {
-  text-align: center;
-  max-width: 900px;
-  margin: auto;
-}
-
-.hero h1 {
-  font-size: 3rem;
-}
-
-.hero h2 {
-  font-size: 1.6rem;
-  margin-bottom: 10px;
-}
-
-.date {
-  font-style: italic;
-  margin-bottom: 30px;
-}
-
-/* Contenu centré mais aéré */
 .section > * {
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* =====================
-   MENU
-===================== */
+.section.light {
+  background: #fff;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+}
+
+/* MENU */
 #floating-menu {
   position: sticky;
   top: 0;
@@ -70,38 +53,23 @@ body {
   align-items: center;
 }
 
-.logo {
-  font-weight: bold;
-}
-
 #menu-toggle {
   background: none;
   border: none;
   font-size: 26px;
-  cursor: pointer;
 }
 
 #menu-links {
   list-style: none;
+  display: none;
   padding: 0;
   margin: 0;
-  display: none;
-}
-
-#menu-links li {
-  margin: 10px 0;
-}
-
-#menu-links a {
-  text-decoration: none;
-  color: #333;
 }
 
 #menu-links.open {
   display: block;
 }
 
-/* Desktop menu */
 @media (min-width: 768px) {
   #menu-toggle {
     display: none;
@@ -111,15 +79,9 @@ body {
     display: flex;
     gap: 25px;
   }
-
-  #menu-links li {
-    margin: 0;
-  }
 }
 
-/* =====================
-   FORMULAIRE
-===================== */
+/* FORM */
 form {
   background: white;
   padding: 40px;
@@ -131,7 +93,6 @@ form {
 label {
   display: block;
   margin-top: 25px;
-  font-weight: 500;
 }
 
 input,
@@ -142,40 +103,28 @@ textarea {
   margin-top: 8px;
   border-radius: 8px;
   border: 1px solid #ccc;
-  font-size: 1rem;
 }
 
-textarea {
-  resize: vertical;
-}
-
-/* Checkboxes propres */
+/* CHECKBOX */
 label.checkbox {
   display: flex;
   align-items: center;
   gap: 12px;
   margin-top: 20px;
-  cursor: pointer;
 }
 
-label.checkbox input {
-  width: 18px;
-  height: 18px;
-  margin: 0;
-}
-
-/* =====================
-   BOUTONS
-===================== */
+/* BOUTONS */
 .btn {
   background: #c3a46b;
   color: white;
-  border: none;
-  padding: 14px 28px;
+  padding: 14px 30px;
   border-radius: 30px;
-  cursor: pointer;
   text-decoration: none;
-  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -184,7 +133,12 @@ label.checkbox input {
   box-shadow: 0 6px 15px rgba(0,0,0,0.2);
 }
 
-.form-buttons {
+.btn.secondary {
+  background: #999;
+}
+
+.form-buttons,
+.buttons-center {
   display: flex;
   justify-content: center;
   gap: 20px;
@@ -192,37 +146,40 @@ label.checkbox input {
   flex-wrap: wrap;
 }
 
-/* =====================
-   ANIMATIONS
-===================== */
+/* ANIMATIONS */
 .hidden {
   display: none;
 }
 
-.animate {
+.scroll-animate {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.animate.visible {
+.scroll-animate.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* =====================
-   DIVERS
-===================== */
+/* PULSE RSVP */
+.pulse {
+  animation: pulse 2.5s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(195,164,107,0.6); }
+  70% { box-shadow: 0 0 0 15px rgba(195,164,107,0); }
+  100% { box-shadow: 0 0 0 0 rgba(195,164,107,0); }
+}
+
+/* DIVERS */
 .photo-placeholder {
   margin-top: 30px;
   height: 220px;
   background: #eee;
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 14px;
-}
-
-.program {
-  padding-left: 20px;
 }
