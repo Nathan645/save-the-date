@@ -190,33 +190,35 @@ select {
   appearance: none;
 }
 
-/* CHECKBOX (ALIGNEMENT PARFAIT) */
+/* CHECKBOX – ALIGNEMENT VISUEL PARFAIT */
 label.checkbox {
   display: flex;
-  align-items: center;
-  gap: 14px;
+  align-items: center;     /* alignement vertical réel */
+  gap: 12px;
   margin-bottom: 18px;
   cursor: pointer;
-  line-height: 1.3;
+  line-height: 1.2;        /* réduit la hauteur du texte */
 }
 
 label.checkbox span {
-  display: block;
+  display: inline-block;
 }
 
+/* checkbox légèrement plus petite */
 label.checkbox input[type="checkbox"] {
   appearance: none;
   -webkit-appearance: none;
-  width: 20px;
-  height: 20px;
-  min-width: 20px;
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
   border: 2px solid #c3a46b;
-  border-radius: 5px;
+  border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+/* état coché */
 label.checkbox input[type="checkbox"]:checked {
   background: #c3a46b;
 }
@@ -224,8 +226,10 @@ label.checkbox input[type="checkbox"]:checked {
 label.checkbox input[type="checkbox"]:checked::after {
   content: "✓";
   color: white;
-  font-size: 14px;
+  font-size: 13px;
+  line-height: 1;
 }
+
 
 /* PROGRAM */
 .program {
