@@ -8,28 +8,28 @@
 </head>
 <body>
 
-<!-- MENU -->
 <nav id="floating-menu">
   <div class="menu-container">
     <div class="logo">Save the Date</div>
     <button id="menu-toggle">☰</button>
     <ul id="menu-links">
-      <li><a href="index.html#hero">Accueil</a></li>
-      <li><a href="index.html#programme">Programme</a></li>
-      <li><a href="index.html#lieu">Lieu</a></li>
-      <li><a href="index.html#itineraire">Itinéraire</a></li>
-      <li><a href="index.html#cagnotte">Cagnotte</a></li>
+      <li><a href="index.html">Accueil</a></li>
     </ul>
   </div>
 </nav>
 
 <section class="section hero visible">
   <h1>Confirmation de présence</h1>
-  <p>Merci de remplir ce formulaire pour confirmer votre venue.</p>
 
   <form id="rsvp-form">
 
-    <!-- Présence -->
+    <!-- NOM -->
+    <label>
+      Nom et prénom *
+      <input type="text" name="fullname" required>
+    </label>
+
+    <!-- PRÉSENCE -->
     <label>
       Présence ? *
       <select name="presence" required>
@@ -41,56 +41,62 @@
       </select>
     </label>
 
-    <!-- Nom / Prénom -->
-    <label>
-      Nom et prénom *
-      <input type="text" name="fullname" required>
-    </label>
+    <!-- BLOC PRÉSENCE OUI -->
+    <div id="presence-details" class="hidden">
 
-    <!-- Adresse / Code postal / Ville -->
-    <label>
-      Adresse postale
-      <input type="text" name="address">
-    </label>
+      <label>
+        Adresse postale *
+        <input type="text" name="address">
+      </label>
 
-    <label>
-      Code postal
-      <input type="text" name="zipcode" pattern="[0-9]{5}">
-    </label>
+      <label>
+        Code postal *
+        <input type="text" name="zipcode" pattern="[0-9]{5}">
+      </label>
 
-    <label>
-      Ville
-      <input type="text" name="city">
-    </label>
+      <label>
+        Ville *
+        <input type="text" name="city">
+      </label>
 
-    <!-- Dates -->
-    <label>
-      Date d’arrivée
-      <input type="date" name="arrival">
-    </label>
+      <label>
+        Restrictions alimentaires
+        <textarea name="dietary" rows="2"></textarea>
+      </label>
 
-    <label>
-      Date de départ
-      <input type="date" name="departure">
-    </label>
+      <!-- DORT SUR PLACE -->
+      <label class="checkbox">
+        <input type="checkbox" name="sleeping">
+        Dort sur le lieu du mariage
+      </label>
 
-    <!-- Restrictions alimentaires -->
-    <label>
-      Restrictions alimentaires
-      <textarea name="dietary" rows="2" placeholder="Ex : végétarien, allergies, etc."></textarea>
-    </label>
+      <!-- DATES -->
+      <div id="sleep-details" class="hidden">
+        <label>
+          Date d’arrivée
+          <input type="date" name="arrival">
+        </label>
 
-    <!-- Commentaires -->
+        <label>
+          Date de départ
+          <input type="date" name="departure">
+        </label>
+      </div>
+
+    </div>
+
+    <!-- COMMENTAIRES -->
     <label>
       Commentaires / questions
       <textarea name="comment" rows="4"></textarea>
     </label>
 
-    <!-- Boutons côte à côte -->
+    <!-- BOUTONS -->
     <div class="form-buttons">
       <button type="submit" class="btn">Envoyer</button>
       <a href="index.html" class="btn">Revenir à l'accueil</a>
     </div>
+
   </form>
 
   <p id="success-message" class="hidden">
@@ -98,48 +104,56 @@
   </p>
 </section>
 
-<!-- MENU MOBILE -->
 <script>
-const toggle = document.getElementById("menu-toggle");
-const links = document.getElementById("menu-links");
-toggle.addEventListener("click", () => links.classList.toggle("open"));
-</script>
+/* MENU MOBILE */
+document.getElementById("menu-toggle")
+  .addEventListener("click", () =>
+    document.getElementById("menu-links").classList.toggle("open")
+  );
 
-<!-- FORMULAIRE Google Sheet -->
-<script>
+/* LOGIQUE INTELLIGENTE */
 const form = document.getElementById("rsvp-form");
-const success = document.getElementById("success-message");
+const presence = form.presence;
+const presenceDetails = document.getElementById("presence-details");
+const sleepingCheckbox = form.sleeping;
+const sleepDetails = document.getElementById("sleep-details");
 
-const presenceField = form.presence;
-const addressField = form.address;
-const zipcodeField = form.zipcode;
-const cityField = form.city;
+presence.addEventListener("change", () => {
+  if (presence.value === "samedi" || presence.value === "dimanche brunch" || presence.value === "les deux") {
+    presenceDetails.classList.remove("hidden");
 
-// Adresse/code postal/ville non obligatoires si "pas possible"
-presenceField.addEventListener('change', () => {
-  if(presenceField.value === 'pas possible déso') {
-    addressField.removeAttribute('required');
-    zipcodeField.removeAttribute('required');
-    cityField.removeAttribute('required');
+    form.address.required = true;
+    form.zipcode.required = true;
+    form.city.required = true;
   } else {
-    addressField.setAttribute('required','required');
-    zipcodeField.setAttribute('required','required');
-    cityField.setAttribute('required','required');
+    presenceDetails.classList.add("hidden");
+    sleepDetails.classList.add("hidden");
+    sleepingCheckbox.checked = false;
+
+    form.address.required = false;
+    form.zipcode.required = false;
+    form.city.required = false;
   }
 });
 
-// Envoi des données vers Google Sheet
+sleepingCheckbox.addEventListener("change", () => {
+  sleepDetails.classList.toggle("hidden", !sleepingCheckbox.checked);
+});
+
+/* ENVOI GOOGLE SHEET */
 form.addEventListener("submit", e => {
   e.preventDefault();
+
   const data = {
     fullname: form.fullname.value,
+    presence: form.presence.value,
     address: form.address.value,
     zipcode: form.zipcode.value,
     city: form.city.value,
+    dietary: form.dietary.value,
+    sleeping: sleepingCheckbox.checked ? "oui" : "non",
     arrival: form.arrival.value,
     departure: form.departure.value,
-    presence: form.presence.value,
-    dietary: form.dietary.value,
     comment: form.comment.value
   };
 
@@ -152,11 +166,9 @@ form.addEventListener("submit", e => {
 
   form.reset();
   form.classList.add("hidden");
-  success.classList.remove("hidden");
+  document.getElementById("success-message").classList.remove("hidden");
 });
 </script>
 
 </body>
 </html>
-
-
