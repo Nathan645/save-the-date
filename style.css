@@ -1,168 +1,101 @@
-/* RESET */
-* {
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
-
 body {
   margin: 0;
-  background: #faf8f6;
+  font-family: 'Arial', sans-serif;
+  background: #fafafa;
   color: #333;
-  line-height: 1.6;
 }
 
-/* SECTIONS */
 .section {
   padding: 80px 20px;
-}
-
-.section > * {
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.section.light {
-  background: #fff;
-}
-
-/* HERO */
-.hero {
   text-align: center;
 }
 
-.hero h1 {
-  font-size: 3rem;
+.section.light {
+  background: #f3f3f3;
 }
 
-/* MENU */
-#floating-menu {
-  position: sticky;
+.hero h1 {
+  font-size: 3em;
+}
+
+.date {
+  margin-bottom: 20px;
+}
+
+.photo-placeholder {
+  margin-top: 30px;
+  padding: 60px;
+  background: #ddd;
+}
+
+#countdown {
+  font-size: 1.4em;
+  margin: 20px 0;
+}
+
+nav {
+  position: fixed;
   top: 0;
+  width: 100%;
   background: white;
-  border-bottom: 1px solid #eee;
   z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
 .menu-container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 15px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-#menu-toggle {
-  background: none;
-  border: none;
-  font-size: 26px;
+  padding: 15px 20px;
 }
 
 #menu-links {
   list-style: none;
-  display: none;
-  padding: 0;
-  margin: 0;
-}
-
-#menu-links.open {
-  display: block;
-}
-
-@media (min-width: 768px) {
-  #menu-toggle {
-    display: none;
-  }
-
-  #menu-links {
-    display: flex;
-    gap: 25px;
-  }
-}
-
-/* FORM */
-form {
-  background: white;
-  padding: 40px;
-  border-radius: 16px;
-  margin-top: 40px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-}
-
-label {
-  display: block;
-  margin-top: 25px;
-}
-
-input,
-select,
-textarea {
-  width: 100%;
-  padding: 14px;
-  margin-top: 8px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-}
-
-/* CHECKBOX */
-label.checkbox {
   display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-top: 20px;
+  gap: 20px;
 }
 
-/* BOUTONS */
+#menu-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  position: relative;
+}
+
+#menu-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #c3a46b;
+  transition: width 0.3s;
+}
+
+#menu-links a:hover::after {
+  width: 100%;
+}
+
 .btn {
   background: #c3a46b;
   color: white;
-  padding: 14px 30px;
+  padding: 12px 26px;
   border-radius: 30px;
   text-decoration: none;
   border: none;
   cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
 
-.btn.secondary {
-  background: #999;
-}
-
-.form-buttons,
-.buttons-center {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 40px;
-  flex-wrap: wrap;
-}
-
-/* ANIMATIONS */
-.hidden {
-  display: none;
-}
-
-.scroll-animate {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.scroll-animate.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* PULSE RSVP */
 .pulse {
   animation: pulse 2.5s infinite;
 }
@@ -173,13 +106,70 @@ label.checkbox {
   100% { box-shadow: 0 0 0 0 rgba(195,164,107,0); }
 }
 
-/* DIVERS */
-.photo-placeholder {
+.buttons-center {
+  display: flex;
+  justify-content: center;
   margin-top: 30px;
-  height: 220px;
-  background: #eee;
-  border-radius: 14px;
+}
+
+form {
+  max-width: 600px;
+  margin: auto;
+  text-align: left;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+label.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+label.checkbox input {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #c3a46b;
+  border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+label.checkbox input:checked {
+  background: #c3a46b;
+}
+
+label.checkbox input:checked::after {
+  content: "✓";
+  color: white;
+}
+
+.hidden {
+  display: none;
+}
+
+.animate {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.animate.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
