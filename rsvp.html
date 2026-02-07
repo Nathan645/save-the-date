@@ -41,7 +41,7 @@
       </select>
     </label>
 
-    <!-- BLOC PRÉSENCE OUI -->
+    <!-- DÉTAILS SI PRÉSENT -->
     <div id="presence-details" class="hidden">
 
       <label>
@@ -70,8 +70,19 @@
         Dort sur le lieu du mariage
       </label>
 
-      <!-- DATES -->
+      <!-- OPTIONS DORT SUR PLACE -->
       <div id="sleep-details" class="hidden">
+
+        <label class="checkbox">
+          <input type="checkbox" name="bedlinen">
+          Souhaitez-vous du linge de lit (6€ / lit)
+        </label>
+
+        <label class="checkbox">
+          <input type="checkbox" name="towels">
+          Souhaitez-vous un kit de serviettes (6€ / personne)
+        </label>
+
         <label>
           Date d’arrivée
           <input type="date" name="arrival">
@@ -81,8 +92,8 @@
           Date de départ
           <input type="date" name="departure">
         </label>
-      </div>
 
+      </div>
     </div>
 
     <!-- COMMENTAIRES -->
@@ -119,9 +130,8 @@ const sleepingCheckbox = form.sleeping;
 const sleepDetails = document.getElementById("sleep-details");
 
 presence.addEventListener("change", () => {
-  if (presence.value === "samedi" || presence.value === "dimanche brunch" || presence.value === "les deux") {
+  if (["samedi", "dimanche brunch", "les deux"].includes(presence.value)) {
     presenceDetails.classList.remove("hidden");
-
     form.address.required = true;
     form.zipcode.required = true;
     form.city.required = true;
@@ -129,7 +139,6 @@ presence.addEventListener("change", () => {
     presenceDetails.classList.add("hidden");
     sleepDetails.classList.add("hidden");
     sleepingCheckbox.checked = false;
-
     form.address.required = false;
     form.zipcode.required = false;
     form.city.required = false;
@@ -151,7 +160,9 @@ form.addEventListener("submit", e => {
     zipcode: form.zipcode.value,
     city: form.city.value,
     dietary: form.dietary.value,
-    sleeping: sleepingCheckbox.checked ? "oui" : "non",
+    sleeping: form.sleeping.checked ? "oui" : "non",
+    bedlinen: form.bedlinen.checked ? "oui" : "non",
+    towels: form.towels.checked ? "oui" : "non",
     arrival: form.arrival.value,
     departure: form.departure.value,
     comment: form.comment.value
