@@ -191,3 +191,24 @@ label.checkbox input[type="checkbox"] {
   height: 18px;
   margin: 0;
 }
+
+/* ===== ANIMATIONS D'APPARITION ===== */
+
+/* état caché */
+.hidden {
+  display: none;
+}
+
+/* base animable */
+.animate {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* état visible */
+.animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
