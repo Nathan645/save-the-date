@@ -57,6 +57,7 @@ if (sleeping) {
     nightsBlock.classList.toggle("hidden", !sleeping.checked);
   });
 }
+
 // ANIMATION AU SCROLL
 const elements = document.querySelectorAll(".animate");
 
