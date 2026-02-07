@@ -23,13 +23,11 @@
 
   <form id="rsvp-form">
 
-    <!-- NOM -->
     <label>
       Nom et prénom *
       <input type="text" name="fullname" required>
     </label>
 
-    <!-- PRÉSENCE -->
     <label>
       Présence ? *
       <select name="presence" required>
@@ -41,7 +39,6 @@
       </select>
     </label>
 
-    <!-- DÉTAILS SI PRÉSENT -->
     <div id="presence-details" class="hidden animate">
 
       <label>
@@ -64,45 +61,46 @@
         <textarea name="dietary" rows="2"></textarea>
       </label>
 
-      <!-- DORT SUR PLACE -->
       <label class="checkbox">
         <input type="checkbox" name="sleeping">
         Dort sur le lieu du mariage
       </label>
 
-      <!-- OPTIONS DORT SUR PLACE -->
       <div id="sleep-details" class="hidden animate">
 
         <label class="checkbox">
+          <input type="checkbox" name="night_friday">
+          Vendredi soir
+        </label>
+
+        <label class="checkbox">
+          <input type="checkbox" name="night_saturday">
+          Samedi soir
+        </label>
+
+        <label class="checkbox">
+          <input type="checkbox" name="night_sunday">
+          Dimanche soir
+        </label>
+
+        <label class="checkbox">
           <input type="checkbox" name="bedlinen">
-          Souhaitez-vous du linge de lit (6€ / lit)
+          Linge de lit (6€ / lit)
         </label>
 
         <label class="checkbox">
           <input type="checkbox" name="towels">
-          Souhaitez-vous un kit de serviettes (6€ / personne)
-        </label>
-
-        <label>
-          Date d’arrivée
-          <input type="date" name="arrival">
-        </label>
-
-        <label>
-          Date de départ
-          <input type="date" name="departure">
+          Kit serviettes (6€ / personne)
         </label>
 
       </div>
     </div>
 
-    <!-- COMMENTAIRES -->
     <label>
       Commentaires / questions
       <textarea name="comment" rows="4"></textarea>
     </label>
 
-    <!-- BOUTONS -->
     <div class="form-buttons">
       <button type="submit" class="btn">Envoyer</button>
       <a href="index.html" class="btn">Revenir à l'accueil</a>
@@ -115,109 +113,6 @@
   </p>
 </section>
 
-<script>
-/* =====================
-   MENU MOBILE
-===================== */
-const menuToggle = document.getElementById("menu-toggle");
-const menuLinks = document.getElementById("menu-links");
-
-menuToggle.addEventListener("click", () => {
-  menuLinks.classList.toggle("open");
-});
-
-/* =====================
-   FORMULAIRE INTELLIGENT
-===================== */
-const form = document.getElementById("rsvp-form");
-const presence = form.presence;
-const presenceDetails = document.getElementById("presence-details");
-const sleepingCheckbox = form.sleeping;
-const sleepDetails = document.getElementById("sleep-details");
-const successMessage = document.getElementById("success-message");
-
-/* --- Présence --- */
-presence.addEventListener("change", () => {
-  if (["samedi", "dimanche brunch", "les deux"].includes(presence.value)) {
-
-    // Affiche bloc présence
-    presenceDetails.classList.remove("hidden");
-    setTimeout(() => presenceDetails.classList.add("visible"), 10);
-
-    // Champs requis
-    form.address.required = true;
-    form.zipcode.required = true;
-    form.city.required = true;
-
-  } else {
-
-    // Cache tout
-    presenceDetails.classList.remove("visible");
-    sleepDetails.classList.remove("visible");
-    sleepingCheckbox.checked = false;
-
-    setTimeout(() => {
-      presenceDetails.classList.add("hidden");
-      sleepDetails.classList.add("hidden");
-    }, 300);
-
-    form.address.required = false;
-    form.zipcode.required = false;
-    form.city.required = false;
-  }
-});
-
-/* --- Dort sur place --- */
-sleepingCheckbox.addEventListener("change", () => {
-  if (sleepingCheckbox.checked) {
-    sleepDetails.classList.remove("hidden");
-    setTimeout(() => sleepDetails.classList.add("visible"), 10);
-  } else {
-    sleepDetails.classList.remove("visible");
-    setTimeout(() => sleepDetails.classList.add("hidden"), 300);
-  }
-});
-
-/* =====================
-   ENVOI GOOGLE SHEET
-===================== */
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  const data = {
-    fullname: form.fullname.value,
-    presence: form.presence.value,
-    address: form.address.value,
-    zipcode: form.zipcode.value,
-    city: form.city.value,
-    dietary: form.dietary.value,
-    sleeping: form.sleeping.checked ? "oui" : "non",
-    bedlinen: form.bedlinen.checked ? "oui" : "non",
-    towels: form.towels.checked ? "oui" : "non",
-    arrival: form.arrival.value,
-    departure: form.departure.value,
-    comment: form.comment.value
-  };
-
-  fetch("https://script.google.com/macros/s/AKfycbzUqmJoOrzTX9oP5u1uT5aUKCkJiZzztsoumFh7smDxmGu5z52CZkNA6R52kIQb73Im/exec", {
-    method: "POST",
-    mode: "no-cors",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data)
-  });
-
-  // Reset & message
-  form.reset();
-  presenceDetails.classList.add("hidden");
-  presenceDetails.classList.remove("visible");
-  sleepDetails.classList.add("hidden");
-  sleepDetails.classList.remove("visible");
-
-  form.classList.add("hidden");
-  successMessage.classList.remove("hidden");
-});
-</script>
-
-
+<script src="script.js"></script>
 </body>
 </html>
