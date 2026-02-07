@@ -34,24 +34,29 @@ if (countdown) {
 // RSVP LOGIC
 const presence = document.getElementById("presence");
 const addressBlock = document.getElementById("address-block");
+const sleepingBlock = document.getElementById("sleeping-block");
 const sleeping = document.getElementById("sleeping");
-const sleepingOptions = document.getElementById("sleeping-options");
+const nightsBlock = document.getElementById("nights-block");
 
 if (presence) {
   presence.addEventListener("change", () => {
-    addressBlock.classList.toggle(
-      "hidden",
-      presence.value === "non" || presence.value === ""
-    );
+    const isPresent = presence.value !== "non" && presence.value !== "";
+
+    addressBlock.classList.toggle("hidden", !isPresent);
+    sleepingBlock.classList.toggle("hidden", !isPresent);
+
+    if (!isPresent) {
+      sleeping.checked = false;
+      nightsBlock.classList.add("hidden");
+    }
   });
 }
 
 if (sleeping) {
   sleeping.addEventListener("change", () => {
-    sleepingOptions.classList.toggle("hidden", !sleeping.checked);
+    nightsBlock.classList.toggle("hidden", !sleeping.checked);
   });
 }
-
 // ANIMATION AU SCROLL
 const elements = document.querySelectorAll(".animate");
 
