@@ -1,4 +1,12 @@
-// MENU
+/*************************
+ * CONFIG
+ *************************/
+const SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbw88Xwb-Fozj33XCamVG4iny0c8oEczak4IST1SgPpqh1zII5q1P6nLnya-QYvuOiAx/exec";
+
+/*************************
+ * MENU
+ *************************/
 const toggle = document.getElementById("menu-toggle");
 const links = document.getElementById("menu-links");
 
@@ -8,7 +16,9 @@ if (toggle) {
   });
 }
 
-// COUNTDOWN
+/*************************
+ * COUNTDOWN
+ *************************/
 const countdown = document.getElementById("countdown");
 if (countdown) {
   const eventDate = new Date("July 10, 2027 15:00:00").getTime();
@@ -30,21 +40,23 @@ if (countdown) {
   setInterval(updateCountdown, 1000);
 }
 
-// RSVP LOGIC
+/*************************
+ * RSVP LOGIQUE FORMULAIRE
+ *************************/
 const presence = document.getElementById("presence");
 const addressBlock = document.getElementById("address-block");
 const sleepingBlock = document.getElementById("sleeping-block");
 const sleeping = document.getElementById("sleeping");
 const nightsBlock = document.getElementById("nights-block");
-const form = document.getElementById("rsvp-form");
-const message = document.getElementById("form-message");
 
 if (presence) {
   presence.addEventListener("change", () => {
-    const ok = presence.value && presence.value !== "non";
-    addressBlock.classList.toggle("hidden", !ok);
-    sleepingBlock.classList.toggle("hidden", !ok);
-    if (!ok) {
+    const present = presence.value && presence.value !== "non";
+
+    addressBlock.classList.toggle("hidden", !present);
+    sleepingBlock.classList.toggle("hidden", !present);
+
+    if (!present) {
       sleeping.checked = false;
       nightsBlock.classList.add("hidden");
     }
@@ -57,22 +69,48 @@ if (sleeping) {
   });
 }
 
+/*************************
+ * ENVOI GOOGLE SHEET
+ *************************/
+const form = document.getElementById("rsvp-form");
+const message = document.getElementById("form-message");
+
 if (form) {
-  form.addEventListener("submit", () => {
-    setTimeout(() => {
-      form.classList.add("hidden");
-      message.classList.remove("hidden");
-    }, 500);
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    fetch(SCRIPT_URL, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.text())
+      .then(() => {
+        form.classList.add("hidden");
+        message.classList.remove("hidden");
+      })
+      .catch((err) => {
+        alert("Erreur lors de l’envoi 😢");
+        console.error(err);
+      });
   });
 }
 
-// ANIMATION SCROLL
+/*************************
+ * ANIMATION AU SCROLL
+ *************************/
 const items = document.querySelectorAll(".animate");
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-    }
-  });
-});
-items.forEach(i => observer.observe(i));
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  },
+  { threshold: 0.2 }
+);
+
+items.forEach((item) => observer.observe(item));
