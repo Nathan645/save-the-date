@@ -1,93 +1,81 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>RSVP</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<nav id="floating-menu">
-  <div class="menu-container">
-    <div class="logo">RSVP</div>
-    <a href="index.html" class="btn small">Accueil</a>
-  </div>
-</nav>
-
-<section class="section animate">
-  <h3>Confirmation de présence</h3>
+<section class="section">
+  <h2>Confirmation de présence</h2>
 
   <form id="rsvp-form">
+    <label>
+      Nom / Prénom *
+      <input type="text" name="nom" required />
+    </label>
 
-    <label>Nom / Prénom *</label>
-    <input type="text" name="nom" required>
-
-    <label>Présence *</label>
-    <select id="presence" name="presence" required>
-      <option value="">—</option>
-      <option value="samedi">Samedi</option>
-      <option value="dimanche">Dimanche brunch</option>
-      <option value="les deux">Les deux</option>
-      <option value="non">Pas possible</option>
-    </select>
+    <label>
+      Présence *
+      <select name="presence" id="presence" required>
+        <option value="">—</option>
+        <option value="samedi">Samedi</option>
+        <option value="dimanche">Dimanche brunch</option>
+        <option value="les deux">Les deux</option>
+        <option value="non">Pas possible désolé</option>
+      </select>
+    </label>
 
     <div id="address-block" class="hidden">
-      <label>Adresse</label>
-      <input type="text" name="adresse">
-
-      <label>Code postal</label>
-      <input type="text" name="cp">
-
-      <label>Ville</label>
-      <input type="text" name="ville">
-
-      <label>Restrictions alimentaires</label>
-      <input type="text" name="restrictions">
+      <label>Adresse <input type="text" name="adresse" /></label>
+      <label>Code postal <input type="text" name="cp" /></label>
+      <label>Ville <input type="text" name="ville" /></label>
+      <label>Restrictions alimentaires <input type="text" name="restrictions" /></label>
     </div>
 
     <div id="sleeping-block" class="hidden">
       <label class="checkbox">
-        <input type="checkbox" id="sleeping">
+        <input type="checkbox" id="sleeping" name="dort_sur_place" value="oui" />
         <span>Dort sur le lieu du mariage</span>
       </label>
     </div>
 
     <div id="nights-block" class="hidden">
       <label class="checkbox">
-        <input type="checkbox" name="vendredi">
+        <input type="checkbox" name="nuits[]" value="vendredi" />
         <span>Vendredi soir</span>
       </label>
-
       <label class="checkbox">
-        <input type="checkbox" name="samedi_soir">
+        <input type="checkbox" name="nuits[]" value="samedi" />
         <span>Samedi soir</span>
       </label>
-
       <label class="checkbox">
-        <input type="checkbox" name="dimanche">
+        <input type="checkbox" name="nuits[]" value="dimanche" />
         <span>Dimanche soir</span>
       </label>
 
       <label class="checkbox">
-        <input type="checkbox" name="linge">
-        <span>Linge de lit (6€ / lit)</span>
+        <input type="checkbox" name="linge" value="oui" />
+        <span>Linge de lit (6€/lit)</span>
       </label>
 
       <label class="checkbox">
-        <input type="checkbox" name="serviette">
-        <span>Kit serviette (6€ / personne)</span>
+        <input type="checkbox" name="serviette" value="oui" />
+        <span>Kit serviette (6€/personne)</span>
       </label>
     </div>
 
-    <label>Commentaires</label>
-    <textarea name="commentaire"></textarea>
+    <label>
+      Commentaires
+      <textarea name="commentaires"></textarea>
+    </label>
 
     <div class="form-buttons">
       <button type="submit" class="btn">Envoyer</button>
-      <a href="index.html" class="btn">Revenir à l’accueil</a>
+      <a href="index.html" class="btn outline">Accueil</a>
     </div>
-
   </form>
 
   <p id="form-message" class="hidden">
