@@ -1,5 +1,5 @@
 const SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbw88Xwb-Fozj33XCamVG4iny0c8oEczak4IST1SgPpqh1zII5q1P6nLnya-QYvuOiAx/exec";
+  "https://script.google.com/macros/s/AKfycbxKLBi3t0h2Z_fO0FWgOnCHrmMkqt1V9QXAqbY6uq4-RAA4prXEaB9UFQcXtBJFsBdA/exec";
 
 /* MENU */
 const toggle = document.getElementById("menu-toggle");
@@ -43,17 +43,26 @@ if (sleeping) {
 }
 
 /* ENVOI FORM */
-const form = document.getElementById("rsvp-form");
-const msg = document.getElementById("form-message");
-
 if (form) {
-  form.onsubmit = (e) => {
+  form.addEventListener("submit", function (e) {
     e.preventDefault();
-    fetch(SCRIPT_URL, { method: "POST", body: new FormData(form) })
+
+    fetch(SCRIPT_URL, {
+      method: "POST",
+      body: new FormData(form),
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error("Erreur réseau");
+        return res.text();
+      })
       .then(() => {
         form.classList.add("hidden");
-        msg.classList.remove("hidden");
+        message.classList.remove("hidden");
       })
-      .catch(() => alert("Erreur d’envoi"));
-  };
+      .catch((err) => {
+        console.error(err);
+        alert("Erreur lors de l’envoi 😢");
+      });
+  });
 }
+
