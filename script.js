@@ -1,4 +1,4 @@
-// MENU MOBILE
+// MENU
 const toggle = document.getElementById("menu-toggle");
 const links = document.getElementById("menu-links");
 
@@ -16,7 +16,6 @@ if (countdown) {
   function updateCountdown() {
     const now = new Date().getTime();
     const diff = eventDate - now;
-
     if (diff < 0) return;
 
     const d = Math.floor(diff / (1000 * 60 * 60 * 24));
@@ -37,15 +36,15 @@ const addressBlock = document.getElementById("address-block");
 const sleepingBlock = document.getElementById("sleeping-block");
 const sleeping = document.getElementById("sleeping");
 const nightsBlock = document.getElementById("nights-block");
+const form = document.getElementById("rsvp-form");
+const message = document.getElementById("form-message");
 
 if (presence) {
   presence.addEventListener("change", () => {
-    const isPresent = presence.value !== "non" && presence.value !== "";
-
-    addressBlock.classList.toggle("hidden", !isPresent);
-    sleepingBlock.classList.toggle("hidden", !isPresent);
-
-    if (!isPresent) {
+    const ok = presence.value && presence.value !== "non";
+    addressBlock.classList.toggle("hidden", !ok);
+    sleepingBlock.classList.toggle("hidden", !ok);
+    if (!ok) {
       sleeping.checked = false;
       nightsBlock.classList.add("hidden");
     }
@@ -58,9 +57,17 @@ if (sleeping) {
   });
 }
 
-// ANIMATION AU SCROLL
-const elements = document.querySelectorAll(".animate");
+if (form) {
+  form.addEventListener("submit", () => {
+    setTimeout(() => {
+      form.classList.add("hidden");
+      message.classList.remove("hidden");
+    }, 500);
+  });
+}
 
+// ANIMATION SCROLL
+const items = document.querySelectorAll(".animate");
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -68,5 +75,4 @@ const observer = new IntersectionObserver(entries => {
     }
   });
 });
-
-elements.forEach(el => observer.observe(el));
+items.forEach(i => observer.observe(i));
