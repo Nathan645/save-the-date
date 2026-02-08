@@ -24,7 +24,7 @@
     <input type="text" name="nom" required>
 
     <label>Présence *</label>
-    <select name="presence" id="presence" required>
+    <select id="presence" name="presence" required>
       <option value="">—</option>
       <option value="samedi">Samedi</option>
       <option value="dimanche">Dimanche brunch</option>
@@ -32,7 +32,6 @@
       <option value="non">Pas possible</option>
     </select>
 
-    <!-- Adresse -->
     <div id="address-block" class="hidden">
       <label>Adresse</label>
       <input type="text" name="adresse">
@@ -47,7 +46,6 @@
       <input type="text" name="restrictions">
     </div>
 
-    <!-- Dort sur place -->
     <div id="sleeping-block" class="hidden">
       <label class="checkbox">
         <input type="checkbox" id="sleeping">
@@ -55,7 +53,6 @@
       </label>
     </div>
 
-    <!-- Options nuit -->
     <div id="nights-block" class="hidden">
       <label class="checkbox">
         <input type="checkbox" name="vendredi">
@@ -92,6 +89,10 @@
     </div>
 
   </form>
+
+  <p id="form-message" class="hidden">
+    Merci 💛 Votre réponse a bien été envoyée.
+  </p>
 </section>
 
 <script src="script.js"></script>
