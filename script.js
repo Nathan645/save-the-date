@@ -1,6 +1,6 @@
 /* URL GOOGLE APPS SCRIPT */
 const SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbwyYmVRYvi6d9QTVcCxh5oPp5iagaGoEY3Yfwg0oHeSiM14iGHt9imxD12sNtm9139h/exec";
+  "https://script.google.com/macros/s/AKfycbzB4KREFodMsNy6Z7VEyB1iv3qfrcBLlmSgEl1P99k_pkNugk7AIRPiEGjcuXjDrsRZ/exec";
 
 /* MENU */
 const toggle = document.getElementById("menu-toggle");
@@ -101,7 +101,8 @@ if (form && message) {
       submitBtn.disabled = true;
       submitBtn.textContent = "Envoi...";
     }
-
+    
+  console.log( "https://script.google.com/macros/s/AKfycbzB4KREFodMsNy6Z7VEyB1iv3qfrcBLlmSgEl1P99k_pkNugk7AIRPiEGjcuXjDrsRZ/exec", SCRIPT_URL);
     fetch(SCRIPT_URL, {
       method: "POST",
       body: new FormData(form),
