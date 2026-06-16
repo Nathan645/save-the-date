@@ -184,3 +184,13 @@ label.checkbox input[type="checkbox"] {
     cursor: pointer;
   }
 }
+
+#form-message {
+  text-align: center;
+  margin-top: 30px;
+  color: #c3a46b;
+}
+
+#form-message .btn {
+  margin-top: 20px;
+}
