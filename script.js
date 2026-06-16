@@ -1,6 +1,6 @@
 /* URL GOOGLE APPS SCRIPT */
 const SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbxsR8JrgfTeIRYaiQ2ZsWn8CB37O9lvcP4kwu0HIhxMgzRExcDdu4qiSxDWS2hoyqcF/exec";
+  "https://script.google.com/macros/s/AKfycbwyYmVRYvi6d9QTVcCxh5oPp5iagaGoEY3Yfwg0oHeSiM14iGHt9imxD12sNtm9139h/exec";
 
 /* MENU */
 const toggle = document.getElementById("menu-toggle");
