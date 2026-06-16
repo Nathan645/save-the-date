@@ -1,3 +1,6 @@
+console.log("VERSION TEST 16 JUIN");
+
+/* URL GOOGLE APPS SCRIPT */
 const SCRIPT_URL =
   "https://script.google.com/macros/s/AKfycbwXnQ2mO3hQYY5-_SyI_pMNB4fojfAKjzSDEwPp2gAStWI2pKBWu7j7OKW7x_BTTCul/exec";
 
@@ -32,7 +35,7 @@ if (countdown) {
   }, 1000);
 }
 
-/* RSVP LOGIQUE */
+/* RSVP */
 const presence = document.getElementById("presence");
 const addressBlock = document.getElementById("address-block");
 const sleepingBlock = document.getElementById("sleeping-block");
@@ -45,7 +48,10 @@ function clearBlock(block) {
   const fields = block.querySelectorAll("input, textarea, select");
 
   fields.forEach((field) => {
-    if (field.type === "checkbox" || field.type === "radio") {
+    if (
+      field.type === "checkbox" ||
+      field.type === "radio"
+    ) {
       field.checked = false;
     } else {
       field.value = "";
@@ -55,30 +61,45 @@ function clearBlock(block) {
 
 if (presence) {
   presence.onchange = () => {
-    const ok = presence.value && presence.value !== "non";
+    const ok =
+      presence.value &&
+      presence.value !== "non";
 
     if (addressBlock) {
-      addressBlock.classList.toggle("hidden", !ok);
-      if (!ok) clearBlock(addressBlock);
+      addressBlock.classList.toggle(
+        "hidden",
+        !ok
+      );
+
+      if (!ok) {
+        clearBlock(addressBlock);
+      }
     }
 
     if (sleepingBlock) {
-      sleepingBlock.classList.toggle("hidden", !ok);
-      if (!ok) clearBlock(sleepingBlock);
+      sleepingBlock.classList.toggle(
+        "hidden",
+        !ok
+      );
+
+      if (!ok) {
+        clearBlock(sleepingBlock);
+      }
     }
 
-    if (nightsBlock) {
-      if (!ok) {
-        nightsBlock.classList.add("hidden");
-        clearBlock(nightsBlock);
-      }
+    if (nightsBlock && !ok) {
+      nightsBlock.classList.add("hidden");
+      clearBlock(nightsBlock);
     }
   };
 }
 
 if (sleeping && nightsBlock) {
   sleeping.onchange = () => {
-    nightsBlock.classList.toggle("hidden", !sleeping.checked);
+    nightsBlock.classList.toggle(
+      "hidden",
+      !sleeping.checked
+    );
 
     if (!sleeping.checked) {
       clearBlock(nightsBlock);
@@ -88,27 +109,61 @@ if (sleeping && nightsBlock) {
 
 /* ENVOI FORM */
 const form = document.getElementById("rsvp-form");
-const message = document.getElementById("form-message");
+const message =
+  document.getElementById("form-message");
 
 if (form && message) {
   form.addEventListener("submit", function (e) {
     e.preventDefault();
+
+    console.log("Soumission formulaire");
+
+    const submitBtn =
+      form.querySelector('button[type="submit"]');
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Envoi...";
+    }
 
     fetch(SCRIPT_URL, {
       method: "POST",
       body: new FormData(form),
     })
       .then((res) => {
-        if (!res.ok) throw new Error("Erreur réseau");
+        console.log("Réponse reçue", res);
+
+        if (!res.ok) {
+          throw new Error(
+            "Erreur HTTP " + res.status
+          );
+        }
+
         return res.text();
       })
-      .then(() => {
+      .then((data) => {
+        console.log(
+          "Réponse Apps Script :",
+          data
+        );
+
         form.classList.add("hidden");
         message.classList.remove("hidden");
       })
       .catch((err) => {
-        console.error(err);
-        alert("Erreur lors de l’envoi 😢");
+        console.error(
+          "Erreur formulaire :",
+          err
+        );
+
+        alert(
+          "Erreur lors de l’envoi 😢\n\nRegarde la console F12."
+        );
+
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Envoyer";
+        }
       });
   });
 }
