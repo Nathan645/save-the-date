@@ -1,8 +1,6 @@
-console.log("VERSION TEST 16 JUIN");
-
 /* URL GOOGLE APPS SCRIPT */
 const SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbyijijdQnNZRzb003VEQ6CJPPedYQNwrtKn8oE-xU_heZ66kAHpVZ6mm_AjPI069wCa/exec";
+  "https://script.google.com/macros/s/AKfycbxsR8JrgfTeIRYaiQ2ZsWn8CB37O9lvcP4kwu0HIhxMgzRExcDdu4qiSxDWS2hoyqcF/exec";
 
 /* MENU */
 const toggle = document.getElementById("menu-toggle");
