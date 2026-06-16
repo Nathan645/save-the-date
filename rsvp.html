@@ -10,77 +10,93 @@
 
 <section class="section">
   <h2>Confirmation de présence</h2>
+<form id="rsvp-form">
+  <label>
+    Nom Prénom *
+    <input type="text" name="nom_prenom" required />
+  </label>
 
-  <form id="rsvp-form">
+  <label>
+    Présence *
+    <select name="presence" id="presence" required>
+      <option value="">—</option>
+      <option value="samedi">Samedi</option>
+      <option value="dimanche">Dimanche</option>
+      <option value="les deux">Les deux</option>
+      <option value="non">Pas possible désolé</option>
+    </select>
+  </label>
+
+  <div id="details-block" class="hidden">
     <label>
-      Nom / Prénom *
-      <input type="text" name="nom" required />
+      Adresse *
+      <input type="text" name="adresse" id="adresse" />
     </label>
 
     <label>
-      Présence *
-      <select name="presence" id="presence" required>
-        <option value="">—</option>
-        <option value="samedi">Samedi</option>
-        <option value="dimanche">Dimanche brunch</option>
-        <option value="les deux">Les deux</option>
-        <option value="non">Pas possible désolé</option>
-      </select>
+      Code postal *
+      <input type="text" name="code_postal" id="code_postal" />
     </label>
-
-    <div id="address-block" class="hidden">
-      <label>Adresse <input type="text" name="adresse" /></label>
-      <label>Code postal <input type="text" name="cp" /></label>
-      <label>Ville <input type="text" name="ville" /></label>
-      <label>Restrictions alimentaires <input type="text" name="restrictions" /></label>
-    </div>
-
-    <div id="sleeping-block" class="hidden">
-      <label class="checkbox">
-        <input type="checkbox" id="sleeping" name="dort_sur_place" value="oui" />
-        <span>Dort sur le lieu du mariage</span>
-      </label>
-    </div>
-
-    <div id="nights-block" class="hidden">
-      <label class="checkbox">
-        <input type="checkbox" name="nuits[]" value="vendredi" />
-        <span>Vendredi soir</span>
-      </label>
-      <label class="checkbox">
-        <input type="checkbox" name="nuits[]" value="samedi" />
-        <span>Samedi soir</span>
-      </label>
-      <label class="checkbox">
-        <input type="checkbox" name="nuits[]" value="dimanche" />
-        <span>Dimanche soir</span>
-      </label>
-
-      <label class="checkbox">
-        <input type="checkbox" name="linge" value="oui" />
-        <span>Linge de lit (6€/lit)</span>
-      </label>
-
-      <label class="checkbox">
-        <input type="checkbox" name="serviette" value="oui" />
-        <span>Kit serviette (6€/personne)</span>
-      </label>
-    </div>
 
     <label>
-      Commentaires
-      <textarea name="commentaires"></textarea>
+      Ville *
+      <input type="text" name="ville" id="ville" />
     </label>
 
-    <div class="form-buttons">
-      <button type="submit" class="btn">Envoyer</button>
-      <a href="index.html" class="btn outline">Accueil</a>
-    </div>
-  </form>
+    <label>
+      Restrictions alimentaires
+      <input type="text" name="restrictions_alimentaires" />
+    </label>
 
-  <p id="form-message" class="hidden">
-    Merci 💛 Votre réponse a bien été envoyée.
-  </p>
+    <label class="checkbox">
+      <input type="checkbox" name="dort_sur_lieu" id="dort_sur_lieu" value="oui" />
+      <span>Dort sur le lieu du mariage *</span>
+    </label>
+  </div>
+
+  <div id="hebergement-block" class="hidden">
+    <label class="checkbox">
+      <input type="checkbox" name="vendredi_soir" value="oui" />
+      <span>Vendredi soir</span>
+    </label>
+
+    <label class="checkbox">
+      <input type="checkbox" name="samedi_soir" value="oui" />
+      <span>Samedi soir</span>
+    </label>
+
+    <label class="checkbox">
+      <input type="checkbox" name="dimanche_soir" value="oui" />
+      <span>Dimanche soir</span>
+    </label>
+
+    <label class="checkbox">
+      <input type="checkbox" name="linge_de_lit" value="oui" />
+      <span>Linge de lit</span>
+    </label>
+
+    <label class="checkbox">
+      <input type="checkbox" name="kit_serviette" value="oui" />
+      <span>Kit serviette</span>
+    </label>
+  </div>
+
+  <label>
+    Commentaires
+    <textarea name="commentaires"></textarea>
+  </label>
+
+  <div class="form-buttons">
+    <button type="submit" class="btn">Envoyer</button>
+    <a href="index.html" class="btn outline">Accueil</a>
+  </div>
+</form>
+
+<p id="form-message" class="hidden">
+  Merci 💛 Votre réponse a bien été envoyée.
+</p>
+  
+ 
 </section>
 
 <script src="script.js"></script>
