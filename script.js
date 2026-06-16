@@ -1,5 +1,5 @@
 const SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbxKLBi3t0h2Z_fO0FWgOnCHrmMkqt1V9QXAqbY6uq4-RAA4prXEaB9UFQcXtBJFsBdA/exec";
+  "https://script.google.com/macros/s/AKfycbwXnQ2mO3hQYY5-_SyI_pMNB4fojfAKjzSDEwPp2gAStWI2pKBWu7j7OKW7x_BTTCul/exec";
 
 /* MENU */
 const toggle = document.getElementById("menu-toggle");
