@@ -2,7 +2,7 @@ console.log("VERSION TEST 16 JUIN");
 
 /* URL GOOGLE APPS SCRIPT */
 const SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbwXnQ2mO3hQYY5-_SyI_pMNB4fojfAKjzSDEwPp2gAStWI2pKBWu7j7OKW7x_BTTCul/exec";
+  "https://script.google.com/macros/s/AKfycbyijijdQnNZRzb003VEQ6CJPPedYQNwrtKn8oE-xU_heZ66kAHpVZ6mm_AjPI069wCa/exec";
 
 /* MENU */
 const toggle = document.getElementById("menu-toggle");
