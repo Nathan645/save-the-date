@@ -82,7 +82,7 @@ textarea {
   display: none;
 }
 
-/* ===== CHECKBOX (ANCIEN STYLE, SIMPLE) ===== */
+/* ===== CHECKBOX ===== */
 label.checkbox {
   display: flex;
   align-items: center;
@@ -144,18 +144,43 @@ label.checkbox input[type="checkbox"] {
 }
 
 @keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
+
+  .menu-container {
+    flex-wrap: wrap;
+  }
+
   .menu-container ul {
     display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  .menu-container ul.open {
+    display: flex;
   }
 
   #menu-toggle {
     display: block;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
   }
 }
