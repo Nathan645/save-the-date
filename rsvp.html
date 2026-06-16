@@ -30,17 +30,25 @@
   <div id="details-block" class="hidden">
     <label>
       Adresse *
-      <input type="text" name="adresse" id="adresse" />
+      <input type="text" name="adresse" id="adresse" required />
     </label>
 
     <label>
       Code postal *
-      <input type="text" name="code_postal" id="code_postal" />
+      <input
+        type="text"
+        name="code_postal"
+        id="code_postal"
+        required
+        pattern="[0-9]{5}"
+        maxlength="5"
+        inputmode="numeric"
+      />
     </label>
 
     <label>
       Ville *
-      <input type="text" name="ville" id="ville" />
+      <input type="text" name="ville" id="ville" required />
     </label>
 
     <label>
