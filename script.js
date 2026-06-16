@@ -35,21 +35,19 @@ if (countdown) {
 
 /* RSVP */
 const presence = document.getElementById("presence");
-const addressBlock = document.getElementById("address-block");
-const sleepingBlock = document.getElementById("sleeping-block");
-const sleeping = document.getElementById("sleeping");
-const nightsBlock = document.getElementById("nights-block");
+const detailsBlock = document.getElementById("details-block");
+const hebergementBlock = document.getElementById("hebergement-block");
+const dortSurLieu = document.getElementById("dort_sur_lieu");
+
+const adresse = document.getElementById("adresse");
+const codePostal = document.getElementById("code_postal");
+const ville = document.getElementById("ville");
 
 function clearBlock(block) {
   if (!block) return;
 
-  const fields = block.querySelectorAll("input, textarea, select");
-
-  fields.forEach((field) => {
-    if (
-      field.type === "checkbox" ||
-      field.type === "radio"
-    ) {
+  block.querySelectorAll("input, textarea, select").forEach((field) => {
+    if (field.type === "checkbox" || field.type === "radio") {
       field.checked = false;
     } else {
       field.value = "";
@@ -58,51 +56,31 @@ function clearBlock(block) {
 }
 
 if (presence) {
-  presence.onchange = () => {
-    const ok =
-      presence.value &&
-      presence.value !== "non";
+  presence.addEventListener("change", () => {
+    const vient = presence.value && presence.value !== "non";
 
-    if (addressBlock) {
-      addressBlock.classList.toggle(
-        "hidden",
-        !ok
-      );
+    detailsBlock.classList.toggle("hidden", !vient);
 
-      if (!ok) {
-        clearBlock(addressBlock);
-      }
+    adresse.required = vient;
+    codePostal.required = vient;
+    ville.required = vient;
+
+    if (!vient) {
+      clearBlock(detailsBlock);
+      clearBlock(hebergementBlock);
+      hebergementBlock.classList.add("hidden");
     }
-
-    if (sleepingBlock) {
-      sleepingBlock.classList.toggle(
-        "hidden",
-        !ok
-      );
-
-      if (!ok) {
-        clearBlock(sleepingBlock);
-      }
-    }
-
-    if (nightsBlock && !ok) {
-      nightsBlock.classList.add("hidden");
-      clearBlock(nightsBlock);
-    }
-  };
+  });
 }
 
-if (sleeping && nightsBlock) {
-  sleeping.onchange = () => {
-    nightsBlock.classList.toggle(
-      "hidden",
-      !sleeping.checked
-    );
+if (dortSurLieu) {
+  dortSurLieu.addEventListener("change", () => {
+    hebergementBlock.classList.toggle("hidden", !dortSurLieu.checked);
 
-    if (!sleeping.checked) {
-      clearBlock(nightsBlock);
+    if (!dortSurLieu.checked) {
+      clearBlock(hebergementBlock);
     }
-  };
+  });
 }
 
 /* ENVOI FORM */
