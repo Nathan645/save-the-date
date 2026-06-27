@@ -1,119 +1,249 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-    <meta charset="UTF-8">
-    <title>Claire & Nathan | Save the Date</title>
+  <meta charset="UTF-8" />
+  <title>Claire & Nathan — Save the Date</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <div class="header-inner">
 
-<header class="header">
+    <a href="index.html" class="brand">
+      <div class="brand-circle">
+        <span>C</span>
+        <span>N</span>
+      </div>
+      <p>10 • 07 • 2027</p>
+    </a>
 
-    <div class="logo">
+    <button id="menu-toggle" aria-label="Ouvrir le menu">
+      ☰
+    </button>
 
-        <div class="monogram">
-            <span>C</span>
-            <span>N</span>
-        </div>
-
-        <p>10 • 07 • 2027</p>
-
-    </div>
-
-    <nav>
-
-        <button id="menu-toggle">☰</button>
-
-        <ul id="menu-links">
-
-            <li><a href="#hero">Accueil</a></li>
-
-            <li><a href="#programme">Le week-end</a></li>
-
-            <li><a href="#domaine">Le domaine</a></li>
-
-            <li><a href="#infos">Informations</a></li>
-
-            <li><a href="#rsvp">RSVP</a></li>
-
-            <li><a href="#cagnotte">Liste de mariage</a></li>
-
-        </ul>
-
+    <nav class="main-nav">
+      <ul id="menu-links">
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#weekend">Le Week-end</a></li>
+        <li><a href="#domaine">Le Domaine</a></li>
+        <li><a href="#details">Détails pratiques</a></li>
+        <li><a href="rsvp.html">RSVP</a></li>
+      </ul>
     </nav>
 
+  </div>
 </header>
 
-<!-- ================= HERO ================= -->
+<main>
 
-<section class="hero" id="hero">
+<section class="hero" id="accueil">
+  <img src="images/hero.jpg" alt="Lieu du mariage" class="hero-img" />
 
-    <img src="images/hero.jpg" alt="Claire et Nathan">
+  <div class="hero-overlay"></div>
 
-    <div class="overlay"></div>
+  <div class="hero-content">
+    <h1>Claire<br>& Nathan</h1>
 
-    <div class="hero-content">
+    <div class="gold-line"></div>
 
-        <h1>Claire & Nathan</h1>
+    <p class="hero-text">
+      Le plaisir de vous accueillir pour<br>
+      un week-end de célébration
+    </p>
 
-        <div class="separator"></div>
+    <p class="hero-date">
+      8 • 10 • 11 JUILLET 2027
+    </p>
 
-        <p class="subtitle">
+    <p class="hero-place">
+      LAPARADE
+    </p>
+  </div>
+</section>
 
-            Le plaisir de vous accueillir pour
-            <br>
-            un week-end de célébration
+<section class="intro">
+  <h2>Nous avons hâte de partager<br>ces moments avec vous.</h2>
 
-        </p>
+  <div id="countdown" class="countdown">
+    <div class="countdown-item">
+      <span id="days">000</span>
+      <p>Jours</p>
+    </div>
 
-        <h2>
+    <div class="countdown-item">
+      <span id="hours">00</span>
+      <p>Heures</p>
+    </div>
 
-            8 • 10 • 11 JUILLET 2027
+    <div class="countdown-item">
+      <span id="minutes">00</span>
+      <p>Minutes</p>
+    </div>
 
-        </h2>
+    <div class="countdown-item">
+      <span id="seconds">00</span>
+      <p>Secondes</p>
+    </div>
+  </div>
 
-        <p class="place">
+  <a href="rsvp.html" class="btn primary">
+    Confirmer ma présence
+  </a>
+</section>
 
-            LAPARADE
+<section class="weekend" id="weekend">
+  <div class="section-heading">
+    <p>Programme</p>
+    <h2>Le Week-end</h2>
+  </div>
 
-        </p>
+  <div class="weekend-grid">
+
+    <article class="weekend-card">
+      <p class="day">Jeudi 8 juillet</p>
+      <div class="card-icon">🏛️</div>
+      <h3>Mariage civil</h3>
+      <p>
+        Une cérémonie civile en toute intimité,
+        entourés de nos proches.
+      </p>
+    </article>
+
+    <article class="weekend-card main-card">
+      <p class="day">Samedi 10 juillet</p>
+      <div class="card-icon">💍</div>
+      <h3>Le grand jour</h3>
+      <p>
+        Cérémonie, cocktail, dîner et soirée
+        pour célébrer notre mariage.
+      </p>
+    </article>
+
+    <article class="weekend-card">
+      <p class="day">Dimanche 11 juillet</p>
+      <div class="card-icon">☕</div>
+      <h3>Brunch</h3>
+      <p>
+        Un moment doux et convivial pour prolonger
+        le week-end ensemble.
+      </p>
+    </article>
+
+  </div>
+</section>
+
+<section class="domaine" id="domaine">
+
+    <div class="section-heading">
+        <p>Lieu de réception</p>
+        <h2>Le Domaine</h2>
+    </div>
+
+    <div class="domaine-content">
+
+        <img src="images/domaine.jpg" alt="Le Domaine">
+
+        <div class="domaine-text">
+
+            <h3>Domaine de Peyreguilhot</h3>
+
+            <p>
+                Situé au cœur du Lot-et-Garonne,
+                ce magnifique domaine nous accueillera
+                pour un week-end rempli d'amour,
+                de fête et de partage.
+            </p>
+
+            <a href="https://maps.google.com" target="_blank" class="btn secondary">
+                Voir sur Google Maps
+            </a>
+
+        </div>
 
     </div>
 
 </section>
 
-<!-- ================= COMPTE A REBOURS ================= -->
+<section class="details" id="details">
 
-<section class="countdown-section">
+    <div class="section-heading">
+        <p>Tout savoir</p>
+        <h2>Informations pratiques</h2>
+    </div>
 
-    <h2>
+    <div class="details-grid">
 
-        Nous avons hâte de partager
-        <br>
-        ces moments avec vous.
+        <div class="detail-card">
+            <h3>Hébergement</h3>
 
-    </h2>
+            <p>
+                Des hébergements seront disponibles directement
+                sur le domaine.
+                Vous pourrez préciser vos besoins
+                lors de votre RSVP.
+            </p>
+        </div>
 
-    <div id="countdown" class="countdown"></div>
+        <div class="detail-card">
+            <h3>Dress Code</h3>
 
-    <div class="buttons-center" id="rsvp">
+            <p>
+                Une tenue chic est souhaitée.
 
-        <a href="rsvp.html" class="btn">
+                Les couleurs pastel,
+                beige, bleu ou vert sauge
+                seront parfaitement dans le thème.
+            </p>
+        </div>
 
-            Confirmer ma présence
+        <div class="detail-card">
+            <h3>Parking</h3>
+
+            <p>
+                Un parking privé sera accessible
+                gratuitement à tous les invités.
+            </p>
+        </div>
+
+        <div class="detail-card">
+            <h3>Contact</h3>
+
+            <p>
+                Si vous avez la moindre question,
+                n'hésitez pas à nous contacter.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="gift">
+
+    <div class="gift-box">
+
+        <h2>Notre liste de mariage</h2>
+
+        <p>
+
+            Votre présence sera notre plus beau cadeau.
+
+            Pour ceux qui souhaitent participer à notre
+            voyage de noces, une cagnotte est disponible.
+
+        </p>
+
+        <a href="https://www.leetchi.com" class="btn primary" target="_blank">
+
+            Accéder à la cagnotte
 
         </a>
 
@@ -121,189 +251,42 @@
 
 </section>
 
-<!-- ================= PROGRAMME ================= -->
-
-<section class="programme" id="programme">
-
-    <h2 class="title-section">
-
-        Le Week-end
-
-    </h2>
-
-    <div class="cards">
-
-        <article class="card">
-
-            <h3>Jeudi 8 juillet</h3>
-
-            <div class="icon">🏛️</div>
-
-            <h4>Mariage civil</h4>
-
-            <p>
-
-                Une cérémonie intime entourée
-                de notre famille et de nos proches.
-
-            </p>
-
-        </article>
-
-        <article class="card">
-
-            <h3>Samedi 10 juillet</h3>
-
-            <div class="icon">⛪</div>
-
-            <h4>Le grand jour</h4>
-
-            <p>
-
-                Cérémonie,
-                Cocktail,
-                Dîner,
-                Soirée.
-
-            </p>
-
-        </article>
-
-        <article class="card">
-
-            <h3>Dimanche 11 juillet</h3>
-
-            <div class="icon">☕</div>
-
-            <h4>Brunch</h4>
-
-            <p>
-
-                Pour terminer ce merveilleux
-                week-end ensemble.
-
-            </p>
-
-        </article>
-
-    </div>
-
-</section>
-
-<!-- ================= DOMAINE ================= -->
-
-<section class="domaine" id="domaine">
-
-    <h2 class="title-section">
-
-        Le Domaine
-
-    </h2>
-
-    <img src="images/domaine.jpg" alt="Le Domaine">
-
-    <h3>
-
-        Domaine de Peyreguilhot
-
-    </h3>
-
-    <p>
-
-        Au cœur du Lot-et-Garonne,
-        le Domaine de Peyreguilhot sera le théâtre
-        de notre mariage.
-
-    </p>
-
-    <a href="https://maps.google.com" target="_blank" class="btn">
-
-        Voir sur Google Maps
-
-    </a>
-
-</section>
-
-<!-- ================= INFOS ================= -->
-
-<section class="infos" id="infos">
-
-    <h2 class="title-section">
-
-        Informations pratiques
-
-    </h2>
-
-    <div class="info-grid">
-
-        <div>
-
-            <h3>Hébergement</h3>
-
-            <p>
-
-                Le domaine propose plusieurs logements.
-
-                Toutes les informations seront disponibles
-                lors de votre confirmation.
-
-            </p>
-
-        </div>
-
-        <div>
-
-            <h3>Dress code</h3>
-
-            <p>
-
-                Chic & élégant.
-
-                Les couleurs pastel sont les bienvenues.
-
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ================= CAGNOTTE ================= -->
-
-<section class="cagnotte" id="cagnotte">
-
-    <h2>
-
-        Notre Cagnotte
-
-    </h2>
-
-    <p>
-
-        Votre présence est notre plus beau cadeau.
-
-        Si vous souhaitez participer à notre voyage,
-        vous pourrez le faire ici.
-
-    </p>
-
-    <a href="https://www.leetchi.com" class="btn">
-
-        Accéder à la cagnotte
-
-    </a>
-
-</section>
-
 <footer>
 
-    Claire & Nathan • 2027
+    <div class="footer-content">
+
+        <div class="footer-logo">
+
+            <div class="brand-circle">
+
+                <span>C</span>
+                <span>N</span>
+
+            </div>
+
+            <p>10 • 07 • 2027</p>
+
+        </div>
+
+        <p class="footer-text">
+
+            Claire & Nathan
+
+        </p>
+
+        <p class="footer-copy">
+
+            Merci de faire partie de cette belle aventure ❤️
+
+        </p>
+
+    </div>
 
 </footer>
+
+</main>
 
 <script src="script.js"></script>
 
 </body>
-
 </html>
