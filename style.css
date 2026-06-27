@@ -1,510 +1,725 @@
-/* ===== VARIABLES ===== */
-:root {
-  --blue: #123a6f;
-  --green: #4e7a57;
-  --pink: #e94f7a;
-  --red: #e6392f;
-  --orange: #f07a28;
-  --gold: #c79a2e;
-  --cream: #faf6f0;
-  --text: #123a6f;
-  --line: #ddd6cc;
+/* ===============================
+   POLICES
+================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+/* ===============================
+   VARIABLES
+================================== */
+
+:root{
+
+    --bleu:#173D73;
+    --bleu-clair:#3B5F91;
+
+    --beige:#F8F5F0;
+    --blanc:#ffffff;
+
+    --or:#C79B43;
+
+    --gris:#6b6b6b;
+
+    --ligne:#e6dfd5;
+
 }
 
-/* ===== BASE ===== */
-* {
-  box-sizing: border-box;
+/* ===============================
+   RESET
+================================== */
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
 }
 
-html {
-  scroll-behavior: smooth;
+html{
+
+    scroll-behavior:smooth;
+
 }
 
-body {
-  margin: 0;
-  background: var(--cream);
-  color: var(--text);
-  font-family: "Source Sans 3", Arial, sans-serif;
+body{
+
+    background:var(--beige);
+
+    font-family:"Montserrat",sans-serif;
+
+    color:var(--bleu);
+
+    line-height:1.7;
+
 }
 
-img {
-  max-width: 100%;
-  display: block;
+img{
+
+    display:block;
+    width:100%;
+
 }
 
-section {
-  padding: 45px 70px;
-  border-bottom: 1px solid var(--line);
+a{
+
+    text-decoration:none;
+
 }
 
-h1,
-h2,
-h3,
-h4 {
+/* ===============================
+   HEADER
+================================== */
+
+.site-header{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    background:rgba(248,245,240,.97);
+
+    backdrop-filter:blur(12px);
+
+    border-bottom:1px solid var(--ligne);
+
+}
+
+.header-inner{
+
+    max-width:1400px;
+
+    margin:auto;
+
+    padding:22px 40px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+/* ===============================
+   LOGO
+================================== */
+
+.brand{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    color:var(--bleu);
+
+}
+
+.brand-circle{
+
+    width:95px;
+
+    height:95px;
+
+    border:2px solid var(--bleu);
+
+    border-radius:50%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:34px;
+
+    margin-bottom:10px;
+
+}
+
+.brand p{
+
+    font-size:12px;
+
+    letter-spacing:3px;
+
+    font-weight:600;
+
+}
+
+/* ===============================
+   MENU
+================================== */
+
+.main-nav ul{
+
+    display:flex;
+
+    list-style:none;
+
+    gap:45px;
+
+}
+
+.main-nav a{
+
+    color:var(--bleu);
+
+    font-size:14px;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.main-nav a:hover{
+
+    color:var(--or);
+
+}
+
+#menu-toggle{
+
+    display:none;
+
+}
+
+/* ===============================
+   HERO
+================================== */
+
+.hero{
+
+    position:relative;
+
+    height:88vh;
+
+    overflow:hidden;
+
+}
+
+.hero-img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+.hero-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+
+        90deg,
+
+        rgba(0,0,0,.15),
+
+        rgba(0,0,0,.45)
+
+    );
+
+}
+
+.hero-content{
+
+    position:absolute;
+
+    top:50%;
+
+    right:8%;
+
+    transform:translateY(-50%);
+
+    width:470px;
+
+    text-align:center;
+
+    color:white;
+
+}
+
+.hero h1{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:74px;
+
+    font-weight:500;
+
+    line-height:1.05;
+
+}
+
+.gold-line{
+
+    width:90px;
+
+    height:2px;
+
+    background:var(--or);
+
+    margin:35px auto;
+
+}
+
+.hero-text{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:28px;
+
+    margin-bottom:35px;
+
+}
+
+.hero-date{
+
+    color:var(--or);
+
+    letter-spacing:5px;
+
+    font-size:20px;
+
+    margin-bottom:18px;
+
+}
+
+.hero-place{
+
+    font-size:22px;
+
+    letter-spacing:3px;
+
+}
+/* ===============================
+   INTRO + COMPTE À REBOURS
+================================== */
+
+.intro {
+  background: var(--blanc);
+  text-align: center;
+  padding: 90px 30px;
+}
+
+.intro h2 {
   font-family: "Playfair Display", serif;
+  font-size: 44px;
   font-weight: 500;
-  margin: 0;
-}
-
-p {
-  line-height: 1.7;
-}
-
-/* ===== HEADER ===== */
-.header {
-  height: 170px;
-  background: var(--cream);
-  display: flex;
-  align-items: center;
-  padding: 0 55px;
-  border-bottom: 1px solid var(--line);
-}
-
-.logo {
-  width: 130px;
-  text-align: center;
-  flex-shrink: 0;
-}
-
-.monogram {
-  width: 95px;
-  height: 95px;
-  margin: 0 auto 8px;
-  border: 2px solid var(--blue);
-  border-radius: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  color: var(--blue);
-  font-family: "Playfair Display", serif;
-  font-size: 32px;
-  line-height: 1;
-  position: relative;
-}
-
-.logo p {
-  margin: 0;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 3px;
-}
-
-nav {
-  width: 100%;
-}
-
-#menu-toggle {
-  display: none;
-}
-
-#menu-links {
-  display: flex;
-  justify-content: center;
-  gap: 55px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-#menu-links a {
-  text-decoration: none;
-  color: var(--blue);
-  font-size: 13px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-#menu-links a:hover,
-#menu-links a.active {
-  color: var(--gold);
-}
-
-/* ===== HERO ===== */
-.hero {
-  position: relative;
-  padding: 0;
-  height: 560px;
-  overflow: hidden;
-  border-bottom: none;
-}
-
-.hero img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 0.05),
-    rgba(0, 0, 0, 0.55)
-  );
-}
-
-.hero-content {
-  position: absolute;
-  top: 50%;
-  right: 9%;
-  transform: translateY(-50%);
-  width: 430px;
-  text-align: center;
-  color: white;
-}
-
-.hero-content h1 {
-  font-size: 58px;
-  line-height: 1.1;
-}
-
-.separator {
-  width: 95px;
-  height: 1px;
-  background: var(--gold);
-  margin: 28px auto;
-  position: relative;
-}
-
-.separator::after {
-  content: "";
-  width: 7px;
-  height: 7px;
-  background: var(--gold);
-  border-radius: 50%;
-  position: absolute;
-  top: -3px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.hero-content .subtitle {
-  font-family: "Playfair Display", serif;
-  font-size: 24px;
-  line-height: 1.45;
-  margin: 0 0 30px;
-}
-
-.hero-content h2 {
-  font-family: "Source Sans 3", Arial, sans-serif;
-  color: var(--gold);
-  font-size: 23px;
-  font-weight: 500;
-  letter-spacing: 5px;
-  margin-bottom: 20px;
-}
-
-.place {
-  font-family: "Playfair Display", serif;
-  font-size: 21px;
-  letter-spacing: 3px;
-  margin: 0;
-}
-
-/* ==========================
-   COMPTE À REBOURS
-========================== */
-
-.countdown-section {
-  text-align: center;
-  background: #ffffff;
-}
-
-.countdown-section h2 {
-  color: var(--blue);
-  font-size: 42px;
-  line-height: 1.3;
-  margin-bottom: 50px;
+  line-height: 1.25;
+  margin-bottom: 55px;
+  color: var(--bleu);
 }
 
 .countdown {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 28px;
   flex-wrap: wrap;
-  margin-bottom: 60px;
+  margin-bottom: 55px;
 }
 
-.time-box {
-  width: 120px;
-  height: 120px;
-  border: 2px solid var(--gold);
+.countdown-item {
+  width: 125px;
+  height: 125px;
+  border: 2px solid var(--or);
   border-radius: 50%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  color: var(--blue);
-}
-
-.time-box span:first-child {
-  font-size: 42px;
-  font-weight: 700;
-  font-family: "Playfair Display", serif;
-}
-
-.time-box span:last-child {
-  margin-top: 8px;
-  font-size: 13px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-/* ==========================
-   BOUTONS
-========================== */
-
-.buttons-center {
-  display: flex;
   justify-content: center;
+  background: var(--blanc);
 }
+
+.countdown-item span {
+  font-family: "Playfair Display", serif;
+  font-size: 42px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--bleu);
+}
+
+.countdown-item p {
+  margin-top: 10px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  color: var(--gris);
+}
+
+/* ===============================
+   BOUTONS
+================================== */
 
 .btn {
-  background: var(--blue);
-  color: white;
-  text-decoration: none;
-  padding: 18px 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 38px;
   border-radius: 40px;
+  font-size: 13px;
   font-weight: 700;
-  letter-spacing: 1px;
-  transition: .3s;
-  border: 2px solid var(--blue);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: 0.3s ease;
+  cursor: pointer;
 }
 
-.btn:hover {
-  background: white;
-  color: var(--blue);
+.btn.primary {
+  background: var(--bleu);
+  color: var(--blanc);
+  border: 2px solid var(--bleu);
 }
 
-/* ==========================
+.btn.primary:hover {
+  background: transparent;
+  color: var(--bleu);
+}
+
+.btn.secondary {
+  background: transparent;
+  color: var(--bleu);
+  border: 2px solid var(--or);
+}
+
+.btn.secondary:hover {
+  background: var(--or);
+  color: var(--blanc);
+}
+
+/* ===============================
    TITRES DE SECTION
-========================== */
+================================== */
 
-.title-section {
+.section-heading {
   text-align: center;
-  color: var(--blue);
-  font-size: 48px;
   margin-bottom: 60px;
-  position: relative;
 }
 
-.title-section::after {
+.section-heading p {
+  color: var(--or);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.section-heading h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 52px;
+  font-weight: 500;
+  color: var(--bleu);
+}
+
+.section-heading::after {
   content: "";
   display: block;
   width: 90px;
   height: 2px;
-  background: var(--gold);
-  margin: 25px auto 0;
+  background: var(--or);
+  margin: 28px auto 0;
 }
 
-/* ==========================
-   ESPACEMENT DES SECTIONS
-========================== */
-
-.programme,
-.domaine,
-.infos,
-.cagnotte {
-  padding-top: 90px;
-  padding-bottom: 90px;
-}
-
-/* ==========================
+/* ===============================
    LE WEEK-END
-========================== */
+================================== */
 
-.programme {
-  background: var(--cream);
+.weekend {
+  background: var(--beige);
+  padding: 95px 40px;
 }
 
-.cards {
+.weekend-grid {
+  max-width: 1150px;
+  margin: auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 35px;
-  max-width: 1150px;
-  margin: 0 auto;
+  gap: 34px;
 }
 
-.card {
-  background: white;
+.weekend-card {
+  background: var(--blanc);
+  border: 1px solid var(--ligne);
   padding: 45px 35px;
   text-align: center;
-  border: 1px solid var(--line);
-  min-height: 340px;
+  min-height: 335px;
 }
 
-.card h3 {
-  color: var(--gold);
-  font-size: 24px;
-  margin-bottom: 30px;
-}
-
-.card .icon {
-  font-size: 42px;
+.weekend-card .day {
+  color: var(--or);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
   margin-bottom: 28px;
 }
 
-.card h4 {
-  color: var(--blue);
-  font-size: 30px;
-  margin-bottom: 22px;
-}
-
-.card p {
-  color: var(--blue);
-  font-size: 17px;
-  margin: 0;
-}
-
-/* ==========================
-   DOMAINE
-========================== */
-
-.domaine {
-  background: white;
-  text-align: center;
-}
-
-.domaine img {
-  width: 100%;
-  max-width: 1050px;
-  height: 430px;
-  object-fit: cover;
-  margin: 0 auto 45px;
-}
-
-.domaine h3 {
-  color: var(--blue);
-  font-size: 38px;
+.card-icon {
+  font-size: 42px;
   margin-bottom: 25px;
 }
 
-.domaine p {
-  max-width: 720px;
-  margin: 0 auto 35px;
-  font-size: 18px;
-}
-
-/* ==========================
-   INFORMATIONS PRATIQUES
-========================== */
-
-.infos {
-  background: var(--cream);
-}
-
-.info-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 45px;
-  max-width: 950px;
-  margin: 0 auto;
-}
-
-.info-grid > div {
-  background: white;
-  padding: 40px;
-  border: 1px solid var(--line);
-  text-align: center;
-}
-
-.info-grid h3 {
-  color: var(--gold);
-  font-size: 30px;
+.weekend-card h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 31px;
+  font-weight: 500;
   margin-bottom: 20px;
+  color: var(--bleu);
 }
 
-.info-grid p {
-  margin: 0;
-  font-size: 17px;
+.weekend-card p {
+  color: var(--gris);
+  font-size: 15px;
 }
 
-/* ==========================
+.main-card {
+  border: 2px solid var(--or);
+}
+
+/* ===================================
+   LE DOMAINE
+=================================== */
+
+.domaine {
+    background: var(--blanc);
+    padding: 100px 40px;
+}
+
+.domaine-content {
+
+    max-width: 1250px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 60% 40%;
+    gap: 60px;
+
+    align-items: center;
+
+}
+
+.domaine-content img {
+
+    width: 100%;
+    height: 520px;
+
+    object-fit: cover;
+
+    border-radius: 4px;
+
+}
+
+.domaine-text h3 {
+
+    font-family: "Playfair Display", serif;
+    font-size: 42px;
+    font-weight: 500;
+
+    color: var(--bleu);
+
+    margin-bottom: 30px;
+
+}
+
+.domaine-text p {
+
+    font-size: 17px;
+
+    color: var(--gris);
+
+    margin-bottom: 40px;
+
+    line-height: 1.9;
+
+}
+
+
+/* ===================================
+   INFORMATIONS
+=================================== */
+
+.details {
+
+    background: var(--beige);
+
+    padding: 100px 40px;
+
+}
+
+.details-grid {
+
+    max-width: 1150px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(2,1fr);
+
+    gap: 35px;
+
+}
+
+.detail-card {
+
+    background: white;
+
+    padding: 45px;
+
+    border: 1px solid var(--ligne);
+
+    border-radius: 5px;
+
+    transition: .35s;
+
+}
+
+.detail-card:hover{
+
+    transform: translateY(-8px);
+
+    box-shadow:0 20px 35px rgba(0,0,0,.08);
+
+}
+
+.detail-card h3{
+
+    font-family:"Playfair Display",serif;
+
+    color:var(--bleu);
+
+    font-size:30px;
+
+    margin-bottom:20px;
+
+}
+
+.detail-card p{
+
+    color:var(--gris);
+
+    line-height:1.8;
+
+}
+
+/* ===============================
    CAGNOTTE
-========================== */
+================================== */
 
-.cagnotte {
-  background: white;
+.gift {
+  background: var(--blanc);
+  padding: 100px 30px;
   text-align: center;
 }
 
-.cagnotte h2 {
-  color: var(--blue);
+.gift-box {
+  max-width: 760px;
+  margin: auto;
+  padding: 60px 45px;
+  border: 2px solid var(--or);
+}
+
+.gift h2 {
+  font-family: "Playfair Display", serif;
   font-size: 46px;
-  margin-bottom: 30px;
+  font-weight: 500;
+  margin-bottom: 25px;
 }
 
-.cagnotte p {
-  max-width: 650px;
-  margin: 0 auto 35px;
-  font-size: 18px;
+.gift p {
+  color: var(--gris);
+  margin-bottom: 35px;
 }
 
-/* ==========================
+/* ===============================
    FOOTER
-========================== */
+================================== */
 
 footer {
-  background: var(--blue);
+  background: var(--bleu);
   color: white;
   text-align: center;
-  padding: 35px 20px;
+  padding: 55px 20px;
+}
+
+.footer-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-logo .brand-circle {
+  border-color: white;
+  color: white;
+}
+
+.footer-text {
   font-family: "Playfair Display", serif;
-  font-size: 18px;
-  letter-spacing: 2px;
+  font-size: 30px;
+  margin-top: 20px;
 }
 
-/* ==========================
-   ANIMATIONS
-========================== */
-
-.btn,
-.card,
-.info-grid > div,
-.domaine img {
-  transition: all 0.3s ease;
+.footer-copy {
+  font-size: 14px;
+  opacity: 0.85;
 }
 
-.card:hover,
-.info-grid > div:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-}
+/* ===============================
+   RESPONSIVE
+================================== */
 
-.btn:hover {
-  transform: translateY(-2px);
-}
-
-.domaine img:hover {
-  transform: scale(1.02);
-}
-
-/* ==========================
-   RESPONSIVE TABLETTE
-========================== */
-
-@media (max-width: 992px) {
-
-  section {
-    padding: 70px 35px;
-  }
-
-  .header {
-    flex-direction: column;
-    height: auto;
-    padding: 30px 20px;
-    gap: 25px;
-  }
-
-  #menu-links {
-    gap: 25px;
+@media (max-width: 900px) {
+  .header-inner {
     flex-wrap: wrap;
   }
 
+  #menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    color: var(--bleu);
+    font-size: 32px;
+    cursor: pointer;
+  }
+
+  .main-nav {
+    width: 100%;
+  }
+
+  .main-nav ul {
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    gap: 18px;
+    margin-top: 25px;
+  }
+
+  .main-nav ul.open {
+    display: flex;
+  }
+
   .hero {
-    height: 480px;
+    height: 620px;
   }
 
   .hero-content {
@@ -513,106 +728,68 @@ footer {
     transform: translate(50%, -50%);
   }
 
-  .hero-content h1 {
-    font-size: 48px;
+  .hero h1 {
+    font-size: 54px;
   }
 
-  .cards {
+  .hero-text {
+    font-size: 23px;
+  }
+
+  .weekend-grid,
+  .details-grid,
+  .domaine-content {
     grid-template-columns: 1fr;
-    max-width: 600px;
   }
 
-  .info-grid {
-    grid-template-columns: 1fr;
+  .domaine-content img {
+    height: 360px;
   }
-
 }
 
-/* ==========================
-   RESPONSIVE MOBILE
-========================== */
-
-@media (max-width: 768px) {
-
-  section {
-    padding: 60px 20px;
-  }
-
-  #menu-toggle {
-    display: block;
-    background: none;
-    border: none;
-    font-size: 32px;
-    color: var(--blue);
-    cursor: pointer;
-  }
-
-  nav {
-    width: 100%;
-  }
-
-  #menu-links {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    gap: 18px;
-    margin-top: 25px;
-  }
-
-  #menu-links.open {
-    display: flex;
+@media (max-width: 520px) {
+  .brand-circle {
+    width: 75px;
+    height: 75px;
+    font-size: 28px;
   }
 
   .hero {
-    height: 420px;
+    height: 560px;
   }
 
-  .hero-content {
-    width: 90%;
+  .hero h1 {
+    font-size: 44px;
   }
 
-  .hero-content h1 {
-    font-size: 38px;
-  }
-
-  .hero-content .subtitle {
-    font-size: 20px;
-  }
-
-  .hero-content h2 {
-    font-size: 18px;
+  .hero-date {
+    font-size: 15px;
     letter-spacing: 3px;
   }
 
-  .countdown-section h2 {
-    font-size: 32px;
+  .intro h2,
+  .section-heading h2,
+  .gift h2 {
+    font-size: 34px;
   }
 
-  .countdown {
-    gap: 15px;
+  .countdown-item {
+    width: 95px;
+    height: 95px;
   }
 
-  .time-box {
-    width: 90px;
-    height: 90px;
-  }
-
-  .time-box span:first-child {
+  .countdown-item span {
     font-size: 30px;
   }
 
-  .title-section {
-    font-size: 36px;
+  .weekend,
+  .domaine,
+  .details,
+  .gift {
+    padding: 70px 20px;
   }
 
-  .domaine img {
-    height: 260px;
+  .gift-box {
+    padding: 45px 25px;
   }
-
-  .btn {
-    width: 100%;
-    max-width: 320px;
-    justify-content: center;
-  }
-
 }
