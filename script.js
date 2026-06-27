@@ -1,37 +1,50 @@
-/* URL GOOGLE APPS SCRIPT */
 const SCRIPT_URL =
   "https://script.google.com/macros/s/AKfycbyVslzmvf_f2QXiDZI9qalE-93TTZ1xMK9h_1hvQcIZPzUCSY8LPqTrtcYpghDfbSqO/exec";
 
-/* MENU */
+/* MENU MOBILE */
 const toggle = document.getElementById("menu-toggle");
-const links = document.getElementById("menu-links");
+const menuLinks = document.getElementById("menu-links");
 
-if (toggle && links) {
-  toggle.onclick = () => links.classList.toggle("open");
+if (toggle && menuLinks) {
+  toggle.addEventListener("click", () => {
+    menuLinks.classList.toggle("open");
+  });
 }
 
 /* COUNTDOWN */
-const countdown = document.getElementById("countdown");
+const daysEl = document.getElementById("days");
+const hoursEl = document.getElementById("hours");
+const minutesEl = document.getElementById("minutes");
+const secondsEl = document.getElementById("seconds");
 
-if (countdown) {
-  const date = new Date("2027-07-10T15:00:00").getTime();
+function updateCountdown() {
+  if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
 
-  setInterval(() => {
-    const d = date - Date.now();
+  const weddingDate = new Date("2027-07-10T15:00:00").getTime();
+  const now = Date.now();
+  const diff = weddingDate - now;
 
-    if (d < 0) {
-      countdown.textContent = "C’est aujourd’hui 💛";
-      return;
-    }
+  if (diff <= 0) {
+    daysEl.textContent = "000";
+    hoursEl.textContent = "00";
+    minutesEl.textContent = "00";
+    secondsEl.textContent = "00";
+    return;
+  }
 
-    const j = Math.floor(d / 86400000);
-    const h = Math.floor((d / 3600000) % 24);
-    const m = Math.floor((d / 60000) % 60);
-    const s = Math.floor((d / 1000) % 60);
+  const days = Math.floor(diff / 86400000);
+  const hours = Math.floor((diff / 3600000) % 24);
+  const minutes = Math.floor((diff / 60000) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
 
-    countdown.textContent = `${j}j ${h}h ${m}m ${s}s`;
-  }, 1000);
+  daysEl.textContent = String(days).padStart(3, "0");
+  hoursEl.textContent = String(hours).padStart(2, "0");
+  minutesEl.textContent = String(minutes).padStart(2, "0");
+  secondsEl.textContent = String(seconds).padStart(2, "0");
 }
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
 
 /* RSVP */
 const presence = document.getElementById("presence");
@@ -55,7 +68,7 @@ function clearBlock(block) {
   });
 }
 
-if (presence) {
+if (presence && detailsBlock && adresse && codePostal && ville) {
   presence.addEventListener("change", () => {
     const vient = presence.value && presence.value !== "non";
 
@@ -67,13 +80,16 @@ if (presence) {
 
     if (!vient) {
       clearBlock(detailsBlock);
-      clearBlock(hebergementBlock);
-      hebergementBlock.classList.add("hidden");
+
+      if (hebergementBlock) {
+        clearBlock(hebergementBlock);
+        hebergementBlock.classList.add("hidden");
+      }
     }
   });
 }
 
-if (dortSurLieu) {
+if (dortSurLieu && hebergementBlock) {
   dortSurLieu.addEventListener("change", () => {
     hebergementBlock.classList.toggle("hidden", !dortSurLieu.checked);
 
@@ -83,59 +99,38 @@ if (dortSurLieu) {
   });
 }
 
-/* ENVOI FORM */
+/* ENVOI FORMULAIRE */
 const form = document.getElementById("rsvp-form");
-const message =
-  document.getElementById("form-message");
+const message = document.getElementById("form-message");
 
 if (form && message) {
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    console.log("Soumission formulaire");
-
-    const submitBtn =
-      form.querySelector('button[type="submit"]');
+    const submitBtn = form.querySelector('button[type="submit"]');
 
     if (submitBtn) {
       submitBtn.disabled = true;
       submitBtn.textContent = "Envoi...";
     }
-    
-  console.log( "https://script.google.com/macros/s/AKfycbzB4KREFodMsNy6Z7VEyB1iv3qfrcBLlmSgEl1P99k_pkNugk7AIRPiEGjcuXjDrsRZ/exec", SCRIPT_URL);
+
     fetch(SCRIPT_URL, {
       method: "POST",
       body: new FormData(form),
     })
       .then((res) => {
-        console.log("Réponse reçue", res);
-
         if (!res.ok) {
-          throw new Error(
-            "Erreur HTTP " + res.status
-          );
+          throw new Error("Erreur HTTP " + res.status);
         }
 
         return res.text();
       })
-      .then((data) => {
-        console.log(
-          "Réponse Apps Script :",
-          data
-        );
-
+      .then(() => {
         form.classList.add("hidden");
         message.classList.remove("hidden");
       })
-      .catch((err) => {
-        console.error(
-          "Erreur formulaire :",
-          err
-        );
-
-        alert(
-          "Erreur lors de l’envoi 😢\n\nRegarde la console F12."
-        );
+      .catch(() => {
+        alert("Erreur lors de l’envoi 😢 Merci de réessayer.");
 
         if (submitBtn) {
           submitBtn.disabled = false;
