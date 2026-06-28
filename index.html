@@ -25,17 +25,16 @@
       <p>10 • 07 • 2027</p>
     </a>
 
-    <button id="menu-toggle" aria-label="Ouvrir le menu">
-      ☰
-    </button>
+    <button id="menu-toggle" aria-label="Ouvrir le menu">☰</button>
 
     <nav class="main-nav">
       <ul id="menu-links">
         <li><a href="#accueil">Accueil</a></li>
         <li><a href="#weekend">Le Week-end</a></li>
         <li><a href="#domaine">Le Domaine</a></li>
-        <li><a href="#details">Détails pratiques</a></li>
+        <li><a href="#details">Informations</a></li>
         <li><a href="rsvp.html">RSVP</a></li>
+        <li><a href="#cagnotte">Liste de mariage</a></li>
       </ul>
     </nav>
 
@@ -44,13 +43,38 @@
 
 <main>
 
-<section class="hero" id="accueil">
-  <img src="images/hero.jpg" alt="Lieu du mariage" class="hero-img" />
+<section class="hero-carousel" id="accueil">
+
+  <div class="carousel-slides">
+    <img src="images/hero/hero1.jpg" class="hero-slide active" alt="Claire et Nathan">
+    <img src="images/hero/hero2.jpg" class="hero-slide" alt="Domaine du mariage">
+    <img src="images/hero/hero3.jpg" class="hero-slide" alt="Ambiance du mariage">
+    <img src="images/hero/hero4.jpg" class="hero-slide" alt="Laparade">
+    <img src="images/hero/hero5.jpg" class="hero-slide" alt="Réception">
+    <img src="images/hero/hero6.jpg" class="hero-slide" alt="Week-end de mariage">
+  </div>
+
+  <button class="carousel-btn prev" id="prev-slide" aria-label="Photo précédente">‹</button>
+  <button class="carousel-btn next" id="next-slide" aria-label="Photo suivante">›</button>
+
+  <div class="carousel-dots">
+    <button class="dot active" data-slide="0" aria-label="Photo 1"></button>
+    <button class="dot" data-slide="1" aria-label="Photo 2"></button>
+    <button class="dot" data-slide="2" aria-label="Photo 3"></button>
+    <button class="dot" data-slide="3" aria-label="Photo 4"></button>
+    <button class="dot" data-slide="4" aria-label="Photo 5"></button>
+    <button class="dot" data-slide="5" aria-label="Photo 6"></button>
+  </div>
 
   <div class="hero-overlay"></div>
 
   <div class="hero-content">
-    <h1>Claire<br>& Nathan</h1>
+    <div class="hero-monogram">
+      <span>C</span>
+      <span>N</span>
+    </div>
+
+    <h1>Claire & Nathan</h1>
 
     <div class="gold-line"></div>
 
@@ -59,14 +83,10 @@
       un week-end de célébration
     </p>
 
-    <p class="hero-date">
-      8 • 10 • 11 JUILLET 2027
-    </p>
-
-    <p class="hero-place">
-      LAPARADE
-    </p>
+    <p class="hero-date">8 • 10 • 11 JUILLET 2027</p>
+    <p class="hero-place">LAPARADE</p>
   </div>
+
 </section>
 
 <section class="intro">
@@ -94,9 +114,7 @@
     </div>
   </div>
 
-  <a href="rsvp.html" class="btn primary">
-    Confirmer ma présence
-  </a>
+  <a href="rsvp.html" class="btn primary">Confirmer ma présence</a>
 </section>
 
 <section class="weekend" id="weekend">
@@ -109,31 +127,57 @@
 
     <article class="weekend-card">
       <p class="day">Jeudi 8 juillet</p>
-      <div class="card-icon">🏛️</div>
+
+      <div class="hand-icon">
+        <svg viewBox="0 0 120 120" aria-hidden="true">
+          <path d="M25 85h70M35 85V48h50v37M30 48l30-25 30 25M48 85V62h24v23" />
+          <path d="M55 42h10M60 37v10" />
+        </svg>
+      </div>
+
       <h3>Mariage civil</h3>
       <p>
-        Une cérémonie civile en toute intimité,
-        entourés de nos proches.
+        Une cérémonie en petit comité entourés de notre famille
+        et de nos amis les plus proches.
       </p>
     </article>
 
     <article class="weekend-card main-card">
       <p class="day">Samedi 10 juillet</p>
-      <div class="card-icon">💍</div>
+
+      <div class="hand-icon">
+        <svg viewBox="0 0 120 120" aria-hidden="true">
+          <path d="M35 90h50M45 90V45h30v45M42 45l18-20 18 20M55 90V65h10v25" />
+          <path d="M50 55h20M50 62h20" />
+        </svg>
+      </div>
+
       <h3>Le grand jour</h3>
       <p>
-        Cérémonie, cocktail, dîner et soirée
-        pour célébrer notre mariage.
+        Cérémonie religieuse<br>
+        Cocktail<br>
+        Dîner<br>
+        Soirée<br>
+        … et plus si affinités !
       </p>
     </article>
 
     <article class="weekend-card">
-      <p class="day">Dimanche 11 juillet</p>
-      <div class="card-icon">☕</div>
+      <p class="day pink">Dimanche 11 juillet</p>
+
+      <div class="hand-icon pink-icon">
+        <svg viewBox="0 0 120 120" aria-hidden="true">
+          <path d="M35 60h45c0 18-10 28-23 28S35 78 35 60z" />
+          <path d="M80 64c12 0 12 16 0 16" />
+          <path d="M45 52c-6-8 6-11 0-19M60 52c-6-8 6-11 0-19M75 52c-6-8 6-11 0-19" />
+          <path d="M32 91h58" />
+        </svg>
+      </div>
+
       <h3>Brunch</h3>
       <p>
-        Un moment doux et convivial pour prolonger
-        le week-end ensemble.
+        Parce qu’on n’aura sûrement pas eu le temps de discuter avec tout le monde la veille…
+        Retrouvons-nous une dernière fois avant de nous dire au revoir.
       </p>
     </article>
 
@@ -141,152 +185,122 @@
 </section>
 
 <section class="domaine" id="domaine">
+  <div class="section-heading">
+    <p>Lieu de réception</p>
+    <h2>Le Domaine</h2>
+  </div>
 
-    <div class="section-heading">
-        <p>Lieu de réception</p>
-        <h2>Le Domaine</h2>
+  <div class="domaine-content">
+    <div class="domaine-image">
+      <img src="images/domaine/domaine.jpg" alt="Domaine de Peyreguilhot">
     </div>
 
-    <div class="domaine-content">
+    <div class="domaine-text">
+      <h3>Domaine de Peyreguilhot</h3>
 
-        <img src="images/domaine.jpg" alt="Le Domaine">
+      <p>
+        Au cœur du Lot-et-Garonne, le Domaine de Peyreguilhot sera le théâtre
+        de notre mariage. Entouré de nature, de vieilles pierres et de grands espaces,
+        c’est dans ce lieu chargé de charme que nous avons choisi de réunir ceux
+        que nous aimons pour célébrer cette journée si particulière.
+      </p>
 
-        <div class="domaine-text">
-
-            <h3>Domaine de Peyreguilhot</h3>
-
-            <p>
-                Situé au cœur du Lot-et-Garonne,
-                ce magnifique domaine nous accueillera
-                pour un week-end rempli d'amour,
-                de fête et de partage.
-            </p>
-
-            <a href="https://maps.google.com" target="_blank" class="btn secondary">
-                Voir sur Google Maps
-            </a>
-
-        </div>
-
+      <a
+        href="https://maps.app.goo.gl/nFMkLHgVJSHyVMQE6?g_st=ic"
+        target="_blank"
+        class="btn secondary">
+        Voir sur Google Maps
+      </a>
     </div>
-
+  </div>
 </section>
 
 <section class="details" id="details">
+  <div class="section-heading">
+    <p>Tout savoir</p>
+    <h2>Informations pratiques</h2>
+  </div>
 
-    <div class="section-heading">
-        <p>Tout savoir</p>
-        <h2>Informations pratiques</h2>
-    </div>
+  <div class="details-grid two-cards">
 
-    <div class="details-grid">
+    <article class="detail-card">
+      <div class="hand-icon small">
+        <svg viewBox="0 0 120 120" aria-hidden="true">
+          <path d="M25 78h70v18H25z" />
+          <path d="M32 78V50c0-10 8-18 18-18h20c10 0 18 8 18 18v28" />
+          <path d="M38 64h44" />
+        </svg>
+      </div>
 
-        <div class="detail-card">
-            <h3>Hébergement</h3>
+      <h3>Hébergement</h3>
+      <p>
+        Tout le monde peut dormir sur le domaine !<br>
+        Nous avons hâte de prolonger ces moments avec vous.
+      </p>
+      <ul>
+        <li>Nuits du jeudi et du dimanche : 20€ / nuit</li>
+        <li>Nuit du samedi : 40€ / nuit</li>
+      </ul>
+      <p>
+        Merci de nous indiquer vos besoins lors de votre confirmation.
+      </p>
+    </article>
 
-            <p>
-                Des hébergements seront disponibles directement
-                sur le domaine.
-                Vous pourrez préciser vos besoins
-                lors de votre RSVP.
-            </p>
-        </div>
+    <article class="detail-card">
+      <div class="hand-icon small">
+        <svg viewBox="0 0 120 120" aria-hidden="true">
+          <path d="M45 30h30l10 25-25 40-25-40z" />
+          <path d="M45 30l15 25 15-25" />
+        </svg>
+      </div>
 
-        <div class="detail-card">
-            <h3>Dress Code</h3>
+      <h3>Dress code</h3>
+      <p>
+        Tenue élégante et couleurs estivales bienvenues !
+      </p>
+      <p>
+        Cérémonie religieuse et cocktail en extérieur.
+        Prévoyez des chaussures adaptées au domaine.
+      </p>
+    </article>
 
-            <p>
-                Une tenue chic est souhaitée.
-
-                Les couleurs pastel,
-                beige, bleu ou vert sauge
-                seront parfaitement dans le thème.
-            </p>
-        </div>
-
-        <div class="detail-card">
-            <h3>Parking</h3>
-
-            <p>
-                Un parking privé sera accessible
-                gratuitement à tous les invités.
-            </p>
-        </div>
-
-        <div class="detail-card">
-            <h3>Contact</h3>
-
-            <p>
-                Si vous avez la moindre question,
-                n'hésitez pas à nous contacter.
-            </p>
-        </div>
-
-    </div>
-
+  </div>
 </section>
 
-<section class="gift">
-
-    <div class="gift-box">
-
-        <h2>Notre liste de mariage</h2>
-
-        <p>
-
-            Votre présence sera notre plus beau cadeau.
-
-            Pour ceux qui souhaitent participer à notre
-            voyage de noces, une cagnotte est disponible.
-
-        </p>
-
-        <a href="https://www.leetchi.com" class="btn primary" target="_blank">
-
-            Accéder à la cagnotte
-
-        </a>
-
+<section class="gift" id="cagnotte">
+  <div class="gift-box">
+    <div class="section-heading">
+      <p>Avec amour</p>
+      <h2>Notre cagnotte</h2>
     </div>
 
+    <p>
+      Votre présence est notre plus beau cadeau.
+      Si vous souhaitez participer à notre voyage de noces
+      ou à notre future vie à deux, vous pouvez le faire ici.
+    </p>
+
+    <a href="https://www.leetchi.com" target="_blank" class="btn primary">
+      Accéder à la cagnotte
+    </a>
+  </div>
 </section>
 
 <footer>
-
-    <div class="footer-content">
-
-        <div class="footer-logo">
-
-            <div class="brand-circle">
-
-                <span>C</span>
-                <span>N</span>
-
-            </div>
-
-            <p>10 • 07 • 2027</p>
-
-        </div>
-
-        <p class="footer-text">
-
-            Claire & Nathan
-
-        </p>
-
-        <p class="footer-copy">
-
-            Merci de faire partie de cette belle aventure ❤️
-
-        </p>
-
+  <div class="footer-logo">
+    <div class="brand-circle">
+      <span>C</span>
+      <span>N</span>
     </div>
+    <p>10 • 07 • 2027</p>
+  </div>
 
+  <p class="footer-text">Claire & Nathan</p>
+  <p class="footer-copy">Merci du fond du cœur.</p>
 </footer>
 
 </main>
 
 <script src="script.js"></script>
-
 </body>
 </html>
