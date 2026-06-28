@@ -1,254 +1,172 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
+  <meta charset="UTF-8" />
+  <title>RSVP — Claire & Nathan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <title>RSVP | Claire & Nathan</title>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="style.css">
-
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
 <header class="site-header">
+  <div class="header-inner">
 
-    <div class="header-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-circle">
+        <span>C</span>
+        <span>N</span>
+      </div>
+      <p>10 • 07 • 2027</p>
+    </a>
 
-        <a href="index.html" class="brand">
+    <button id="menu-toggle" aria-label="Ouvrir le menu">☰</button>
 
-            <div class="brand-circle">
+    <nav class="main-nav">
+      <ul id="menu-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="index.html#weekend">Le Week-end</a></li>
+        <li><a href="index.html#domaine">Le Domaine</a></li>
+        <li><a href="index.html#details">Informations</a></li>
+      </ul>
+    </nav>
 
-                <span>C</span>
-
-                <span>N</span>
-
-            </div>
-
-            <p>10 • 07 • 2027</p>
-
-        </a>
-
-        <nav class="main-nav">
-
-            <ul>
-
-                <li><a href="index.html">Retour à l'accueil</a></li>
-
-            </ul>
-
-        </nav>
-
-    </div>
-
+  </div>
 </header>
 
+<main>
+
 <section class="details">
+  <div class="section-heading">
+    <p>Réponse</p>
+    <h2>Confirmation de présence</h2>
+  </div>
 
-    <div class="section-heading">
+  <form id="rsvp-form" class="rsvp-form">
 
-        <p>Réponse</p>
+    <label>
+      Nom & prénom *
+      <input type="text" name="nom_prenom" required />
+    </label>
 
-        <h2>Confirmation de présence</h2>
+    <label>
+      Votre présence *
+      <select name="presence" id="presence" required>
+        <option value="">Choisir...</option>
+        <option value="samedi">Samedi</option>
+        <option value="dimanche">Dimanche</option>
+        <option value="les deux">Les deux</option>
+        <option value="non">Je ne pourrai malheureusement pas venir</option>
+      </select>
+    </label>
+
+    <div id="details-block" class="hidden">
+
+      <label>
+        Adresse *
+        <input type="text" name="adresse" id="adresse" />
+      </label>
+
+      <label>
+        Code postal *
+        <input
+          type="text"
+          name="code_postal"
+          id="code_postal"
+          pattern="[0-9]{5}"
+          maxlength="5"
+          inputmode="numeric"
+        />
+      </label>
+
+      <label>
+        Ville *
+        <input type="text" name="ville" id="ville" />
+      </label>
+
+      <label>
+        Restrictions alimentaires
+        <input type="text" name="restrictions_alimentaires" />
+      </label>
+
+      <label>
+        <input
+          type="checkbox"
+          name="dort_sur_lieu"
+          id="dort_sur_lieu"
+          value="oui"
+        />
+        Je souhaite dormir sur le domaine
+      </label>
 
     </div>
 
-    <form id="rsvp-form" class="rsvp-form">
-
-        <label>
-
-            Nom & prénom *
-
-            <input type="text" name="nom_prenom" required>
-
-        </label>
-
-        <label>
-
-            Votre présence *
-
-            <select name="presence" id="presence" required>
-
-                <option value="">Choisir...</option>
-
-                <option value="samedi">Samedi</option>
-
-                <option value="dimanche">Dimanche</option>
-
-                <option value="les deux">Les deux</option>
-
-                <option value="non">Je ne pourrai malheureusement pas venir</option>
-
-            </select>
-
-        </label>
-
-        <div id="details-block" class="hidden">
-
-            <label>
-
-                Adresse *
-
-                <input type="text" id="adresse" name="adresse">
-
-            </label>
-
-            <label>
-
-                Code postal *
-
-                <input
-                    type="text"
-                    id="code_postal"
-                    name="code_postal"
-                    maxlength="5"
-                    inputmode="numeric">
-
-            </label>
-
-            <label>
-
-                Ville *
-
-                <input type="text" id="ville" name="ville">
-
-            </label>
-
-            <label>
-
-                Restrictions alimentaires
-
-                <input
-                    type="text"
-                    name="restrictions_alimentaires">
-
-            </label>
-
-            <label>
-
-                <input
-                    type="checkbox"
-                    id="dort_sur_lieu"
-                    name="dort_sur_lieu"
-                    value="oui">
-
-                Je souhaite dormir sur le domaine
-
-            </label>
-
-        </div>
-
-        <div id="hebergement-block" class="hidden">
-
-            <label>
-
-                <input type="checkbox" name="vendredi_soir" value="oui">
-
-                Vendredi soir
-
-            </label>
-
-            <label>
-
-                <input type="checkbox" name="samedi_soir" value="oui">
-
-                Samedi soir
-
-            </label>
-
-            <label>
-
-                <input type="checkbox" name="dimanche_soir" value="oui">
-
-                Dimanche soir
-
-            </label>
-
-            <label>
-
-                <input type="checkbox" name="linge_de_lit" value="oui">
-
-                Linge de lit
-
-            </label>
-
-            <label>
-
-                <input type="checkbox" name="kit_serviette" value="oui">
-
-                Kit serviette
-
-            </label>
-
-        </div>
-
-        <label>
-
-            Commentaire
-
-            <textarea
-                name="commentaires"
-                rows="5"></textarea>
-
-        </label>
-
-        <div style="text-align:center;margin-top:40px;">
-
-            <button
-                class="btn primary"
-                type="submit">
-
-                Envoyer ma réponse
-
-            </button>
-
-        </div>
-
-    </form>
-
-    <div
-        id="form-message"
-        class="hidden"
-        style="text-align:center;">
-
-        <h2>
-
-            Merci ❤️
-
-        </h2>
-
-        <p>
-
-            Nous avons bien reçu votre réponse.
-
-        </p>
-
-        <br>
-
-        <a
-            href="index.html"
-            class="btn secondary">
-
-            Retour à l'accueil
-
-        </a>
+    <div id="hebergement-block" class="hidden">
+
+      <label>
+        <input type="checkbox" name="vendredi_soir" value="oui" />
+        Vendredi soir
+      </label>
+
+      <label>
+        <input type="checkbox" name="samedi_soir" value="oui" />
+        Samedi soir
+      </label>
+
+      <label>
+        <input type="checkbox" name="dimanche_soir" value="oui" />
+        Dimanche soir
+      </label>
+
+      <label>
+        <input type="checkbox" name="linge_de_lit" value="oui" />
+        Linge de lit
+      </label>
+
+      <label>
+        <input type="checkbox" name="kit_serviette" value="oui" />
+        Kit serviette
+      </label>
 
     </div>
 
+    <label>
+      Commentaire
+      <textarea name="commentaires" rows="5"></textarea>
+    </label>
+
+    <div style="text-align:center;margin-top:38px;">
+      <button type="submit" class="btn primary">
+        Envoyer ma réponse
+      </button>
+    </div>
+
+  </form>
+
+  <div id="form-message" class="hidden" style="text-align:center;">
+    <h2 style="font-family:'Playfair Display',serif;font-size:42px;margin-bottom:18px;">
+      Merci ❤️
+    </h2>
+
+    <p>
+      Nous avons bien reçu votre réponse.
+    </p>
+
+    <br>
+
+    <a href="index.html" class="btn secondary">
+      Retour à l’accueil
+    </a>
+  </div>
 </section>
 
+</main>
+
 <script src="script.js"></script>
-
 </body>
-
 </html>
