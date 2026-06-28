@@ -1,332 +1,336 @@
 /* ===============================
-   POLICES
+   IMPORTS
 ================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap");
 
 /* ===============================
    VARIABLES
 ================================== */
 
-:root{
-
-    --bleu:#173D73;
-    --bleu-clair:#3B5F91;
-
-    --beige:#F8F5F0;
-    --blanc:#ffffff;
-
-    --or:#C79B43;
-
-    --gris:#6b6b6b;
-
-    --ligne:#e6dfd5;
-
+:root {
+  --bleu: #123a6f;
+  --bleu-clair: #3b5f91;
+  --beige: #faf6f0;
+  --blanc: #ffffff;
+  --or: #c79a2e;
+  --rose: #e94f7a;
+  --gris: #5f6670;
+  --ligne: #e5ded4;
 }
 
 /* ===============================
-   RESET
+   BASE
 ================================== */
 
-*{
-
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html{
-
-    scroll-behavior:smooth;
-
+html {
+  scroll-behavior: smooth;
 }
 
-body{
-
-    background:var(--beige);
-
-    font-family:"Montserrat",sans-serif;
-
-    color:var(--bleu);
-
-    line-height:1.7;
-
+body {
+  background: var(--beige);
+  color: var(--bleu);
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.7;
 }
 
-img{
-
-    display:block;
-    width:100%;
-
+img {
+  width: 100%;
+  display: block;
 }
 
-a{
+a {
+  text-decoration: none;
+}
 
-    text-decoration:none;
-
+.hidden {
+  display: none !important;
 }
 
 /* ===============================
    HEADER
 ================================== */
 
-.site-header{
-
-    position:sticky;
-
-    top:0;
-
-    z-index:1000;
-
-    background:rgba(248,245,240,.97);
-
-    backdrop-filter:blur(12px);
-
-    border-bottom:1px solid var(--ligne);
-
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(250, 246, 240, 0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--ligne);
 }
 
-.header-inner{
+.header-inner {
+  max-width: 1400px;
+  margin: auto;
+  padding: 18px 42px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-    max-width:1400px;
+.brand {
+  color: var(--bleu);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
 
-    margin:auto;
+.brand-circle {
+  width: 92px;
+  height: 92px;
+  border: 2px solid var(--bleu);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
+  line-height: 0.95;
+}
 
-    padding:22px 40px;
+.brand p {
+  font-size: 12px;
+  letter-spacing: 3px;
+  font-weight: 700;
+}
 
-    display:flex;
+.main-nav ul {
+  display: flex;
+  gap: 42px;
+  list-style: none;
+}
 
-    justify-content:space-between;
+.main-nav a {
+  color: var(--bleu);
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  position: relative;
+}
 
-    align-items:center;
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -9px;
+  width: 0;
+  height: 2px;
+  background: var(--or);
+  transition: 0.3s ease;
+}
 
+.main-nav a:hover::after {
+  width: 100%;
+}
+
+#menu-toggle {
+  display: none;
 }
 
 /* ===============================
-   LOGO
+   HERO CAROUSEL
 ================================== */
 
-.brand{
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    color:var(--bleu);
-
+.hero-carousel {
+  position: relative;
+  height: 88vh;
+  min-height: 620px;
+  overflow: hidden;
 }
 
-.brand-circle{
-
-    width:95px;
-
-    height:95px;
-
-    border:2px solid var(--bleu);
-
-    border-radius:50%;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    font-family:"Playfair Display",serif;
-
-    font-size:34px;
-
-    margin-bottom:10px;
-
+.carousel-slides,
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
 }
 
-.brand p{
+.hero-slide {
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1);
+  transition: opacity 1.4s ease;
+}
 
-    font-size:12px;
+.hero-slide.active {
+  opacity: 1;
+  animation: kenBurns 7s ease forwards;
+}
 
-    letter-spacing:3px;
+@keyframes kenBurns {
+  from {
+    transform: scale(1);
+  }
 
-    font-weight:600;
+  to {
+    transform: scale(1.08);
+  }
+}
 
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.08),
+    rgba(0, 0, 0, 0.55)
+  );
+  z-index: 2;
+}
+
+.hero-content {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  right: 8%;
+  transform: translateY(-50%);
+  width: 520px;
+  text-align: center;
+  color: white;
+}
+
+.hero-monogram {
+  width: 92px;
+  height: 92px;
+  margin: 0 auto 28px;
+  border: 1.5px solid rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
+  line-height: 0.95;
+}
+
+.hero-content h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 68px;
+  font-weight: 500;
+  line-height: 1.05;
+}
+
+.gold-line {
+  width: 96px;
+  height: 1px;
+  background: var(--or);
+  margin: 30px auto;
+  position: relative;
+}
+
+.gold-line::after {
+  content: "";
+  width: 7px;
+  height: 7px;
+  background: var(--or);
+  border-radius: 50%;
+  position: absolute;
+  top: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.hero-text {
+  font-family: "Playfair Display", serif;
+  font-size: 26px;
+  line-height: 1.45;
+  margin-bottom: 34px;
+}
+
+.hero-date {
+  color: var(--or);
+  letter-spacing: 5px;
+  font-size: 20px;
+  margin-bottom: 14px;
+}
+
+.hero-place {
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.carousel-btn {
+  position: absolute;
+  z-index: 4;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 52px;
+  cursor: pointer;
+  opacity: 0.85;
+  transition: 0.3s ease;
+}
+
+.carousel-btn:hover {
+  opacity: 1;
+  color: var(--or);
+}
+
+.carousel-btn.prev {
+  left: 28px;
+}
+
+.carousel-btn.next {
+  right: 28px;
+}
+
+.carousel-dots {
+  position: absolute;
+  z-index: 4;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+}
+
+.dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.65);
+  cursor: pointer;
+}
+
+.dot.active {
+  background: var(--or);
 }
 
 /* ===============================
-   MENU
-================================== */
-
-.main-nav ul{
-
-    display:flex;
-
-    list-style:none;
-
-    gap:45px;
-
-}
-
-.main-nav a{
-
-    color:var(--bleu);
-
-    font-size:14px;
-
-    text-transform:uppercase;
-
-    letter-spacing:1px;
-
-    font-weight:600;
-
-    transition:.3s;
-
-}
-
-.main-nav a:hover{
-
-    color:var(--or);
-
-}
-
-#menu-toggle{
-
-    display:none;
-
-}
-
-/* ===============================
-   HERO
-================================== */
-
-.hero{
-
-    position:relative;
-
-    height:88vh;
-
-    overflow:hidden;
-
-}
-
-.hero-img{
-
-    width:100%;
-
-    height:100%;
-
-    object-fit:cover;
-
-}
-
-.hero-overlay{
-
-    position:absolute;
-
-    inset:0;
-
-    background:linear-gradient(
-
-        90deg,
-
-        rgba(0,0,0,.15),
-
-        rgba(0,0,0,.45)
-
-    );
-
-}
-
-.hero-content{
-
-    position:absolute;
-
-    top:50%;
-
-    right:8%;
-
-    transform:translateY(-50%);
-
-    width:470px;
-
-    text-align:center;
-
-    color:white;
-
-}
-
-.hero h1{
-
-    font-family:"Playfair Display",serif;
-
-    font-size:74px;
-
-    font-weight:500;
-
-    line-height:1.05;
-
-}
-
-.gold-line{
-
-    width:90px;
-
-    height:2px;
-
-    background:var(--or);
-
-    margin:35px auto;
-
-}
-
-.hero-text{
-
-    font-family:"Playfair Display",serif;
-
-    font-size:28px;
-
-    margin-bottom:35px;
-
-}
-
-.hero-date{
-
-    color:var(--or);
-
-    letter-spacing:5px;
-
-    font-size:20px;
-
-    margin-bottom:18px;
-
-}
-
-.hero-place{
-
-    font-size:22px;
-
-    letter-spacing:3px;
-
-}
-/* ===============================
-   INTRO + COMPTE À REBOURS
+   INTRO + COUNTDOWN
 ================================== */
 
 .intro {
   background: var(--blanc);
   text-align: center;
-  padding: 90px 30px;
+  padding: 80px 30px 90px;
+  border-bottom: 1px solid var(--ligne);
 }
 
 .intro h2 {
   font-family: "Playfair Display", serif;
-  font-size: 44px;
+  font-size: 42px;
   font-weight: 500;
-  line-height: 1.25;
+  line-height: 1.3;
   margin-bottom: 55px;
-  color: var(--bleu);
 }
 
 .countdown {
@@ -338,317 +342,291 @@ a{
 }
 
 .countdown-item {
-  width: 125px;
-  height: 125px;
-  border: 2px solid var(--or);
-  border-radius: 50%;
+  width: 128px;
+  height: 128px;
+  border-right: 1px solid var(--ligne);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: var(--blanc);
+}
+
+.countdown-item:last-child {
+  border-right: none;
 }
 
 .countdown-item span {
   font-family: "Playfair Display", serif;
-  font-size: 42px;
-  font-weight: 600;
-  line-height: 1;
+  font-size: 44px;
   color: var(--bleu);
+  line-height: 1;
 }
 
 .countdown-item p {
-  margin-top: 10px;
+  margin-top: 12px;
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 2px;
-  font-weight: 600;
-  color: var(--gris);
+  font-weight: 700;
 }
 
 /* ===============================
-   BOUTONS
+   BUTTONS
 ================================== */
 
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 16px 38px;
-  border-radius: 40px;
+  padding: 15px 38px;
   font-size: 13px;
   font-weight: 700;
-  letter-spacing: 1.5px;
   text-transform: uppercase;
-  transition: 0.3s ease;
+  letter-spacing: 1.6px;
   cursor: pointer;
+  transition: 0.3s ease;
 }
 
 .btn.primary {
-  background: var(--bleu);
-  color: var(--blanc);
-  border: 2px solid var(--bleu);
+  background: var(--or);
+  color: white;
+  border: 2px solid var(--or);
 }
 
 .btn.primary:hover {
   background: transparent;
-  color: var(--bleu);
+  color: var(--or);
 }
 
 .btn.secondary {
   background: transparent;
-  color: var(--bleu);
+  color: var(--or);
   border: 2px solid var(--or);
 }
 
 .btn.secondary:hover {
   background: var(--or);
-  color: var(--blanc);
+  color: white;
 }
 
 /* ===============================
-   TITRES DE SECTION
+   SECTION TITLES
 ================================== */
 
 .section-heading {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 58px;
 }
 
 .section-heading p {
   color: var(--or);
   text-transform: uppercase;
   letter-spacing: 4px;
-  font-size: 13px;
-  font-weight: 600;
-  margin-bottom: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 10px;
 }
 
 .section-heading h2 {
   font-family: "Playfair Display", serif;
-  font-size: 52px;
+  font-size: 48px;
   font-weight: 500;
-  color: var(--bleu);
 }
 
 .section-heading::after {
   content: "";
   display: block;
-  width: 90px;
-  height: 2px;
+  width: 86px;
+  height: 1px;
   background: var(--or);
-  margin: 28px auto 0;
+  margin: 24px auto 0;
 }
 
 /* ===============================
-   LE WEEK-END
+   WEEK-END
 ================================== */
 
 .weekend {
   background: var(--beige);
-  padding: 95px 40px;
+  padding: 90px 40px;
+  border-bottom: 1px solid var(--ligne);
 }
 
 .weekend-grid {
-  max-width: 1150px;
+  max-width: 1180px;
   margin: auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 34px;
 }
 
 .weekend-card {
-  background: var(--blanc);
-  border: 1px solid var(--ligne);
-  padding: 45px 35px;
+  background: transparent;
+  padding: 20px 42px 30px;
   text-align: center;
-  min-height: 335px;
+  min-height: 360px;
+  border-right: 1px solid var(--ligne);
+}
+
+.weekend-card:last-child {
+  border-right: none;
 }
 
 .weekend-card .day {
-  color: var(--or);
-  font-size: 14px;
+  color: var(--vert, #4e7a57);
+  font-size: 13px;
   font-weight: 700;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.8px;
   text-transform: uppercase;
   margin-bottom: 28px;
 }
 
-.card-icon {
-  font-size: 42px;
-  margin-bottom: 25px;
+.weekend-card .day.pink {
+  color: var(--rose);
 }
 
-.weekend-card h3 {
+.hand-icon {
+  width: 74px;
+  height: 74px;
+  margin: 0 auto 25px;
+}
+
+.hand-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: var(--bleu);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.weekend-card:first-child .hand-icon svg {
+  stroke: #4e7a57;
+}
+
+.pink-icon svg {
+  stroke: var(--rose);
+}
+
+.hand-icon.small {
+  width: 58px;
+  height: 58px;
+  margin-bottom: 24px;
+}
+
+.weekend-card h3,
+.detail-card h3 {
   font-family: "Playfair Display", serif;
-  font-size: 31px;
+  font-size: 29px;
   font-weight: 500;
   margin-bottom: 20px;
   color: var(--bleu);
 }
 
-.weekend-card p {
-  color: var(--gris);
+.weekend-card p,
+.detail-card p {
   font-size: 15px;
-}
-
-.main-card {
-  border: 2px solid var(--or);
-}
-
-/* ===================================
-   LE DOMAINE
-=================================== */
-
-.domaine {
-    background: var(--blanc);
-    padding: 100px 40px;
-}
-
-.domaine-content {
-
-    max-width: 1250px;
-    margin: auto;
-
-    display: grid;
-    grid-template-columns: 60% 40%;
-    gap: 60px;
-
-    align-items: center;
-
-}
-
-.domaine-content img {
-
-    width: 100%;
-    height: 520px;
-
-    object-fit: cover;
-
-    border-radius: 4px;
-
-}
-
-.domaine-text h3 {
-
-    font-family: "Playfair Display", serif;
-    font-size: 42px;
-    font-weight: 500;
-
-    color: var(--bleu);
-
-    margin-bottom: 30px;
-
-}
-
-.domaine-text p {
-
-    font-size: 17px;
-
-    color: var(--gris);
-
-    margin-bottom: 40px;
-
-    line-height: 1.9;
-
-}
-
-
-/* ===================================
-   INFORMATIONS
-=================================== */
-
-.details {
-
-    background: var(--beige);
-
-    padding: 100px 40px;
-
-}
-
-.details-grid {
-
-    max-width: 1150px;
-
-    margin: auto;
-
-    display: grid;
-
-    grid-template-columns: repeat(2,1fr);
-
-    gap: 35px;
-
-}
-
-.detail-card {
-
-    background: white;
-
-    padding: 45px;
-
-    border: 1px solid var(--ligne);
-
-    border-radius: 5px;
-
-    transition: .35s;
-
-}
-
-.detail-card:hover{
-
-    transform: translateY(-8px);
-
-    box-shadow:0 20px 35px rgba(0,0,0,.08);
-
-}
-
-.detail-card h3{
-
-    font-family:"Playfair Display",serif;
-
-    color:var(--bleu);
-
-    font-size:30px;
-
-    margin-bottom:20px;
-
-}
-
-.detail-card p{
-
-    color:var(--gris);
-
-    line-height:1.8;
-
+  color: var(--bleu);
 }
 
 /* ===============================
-   CAGNOTTE
+   DOMAINE
+================================== */
+
+.domaine {
+  background: var(--blanc);
+  padding: 90px 40px 100px;
+  border-bottom: 1px solid var(--ligne);
+}
+
+.domaine-content {
+  max-width: 1180px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.35fr 0.9fr;
+  gap: 58px;
+  align-items: center;
+}
+
+.domaine-image img {
+  height: 440px;
+  object-fit: cover;
+}
+
+.domaine-text h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 38px;
+  font-weight: 500;
+  margin-bottom: 28px;
+}
+
+.domaine-text p {
+  color: var(--bleu);
+  font-size: 16px;
+  line-height: 1.9;
+  margin-bottom: 35px;
+}
+
+/* ===============================
+   DETAILS
+================================== */
+
+.details {
+  background: var(--beige);
+  padding: 90px 40px;
+  border-bottom: 1px solid var(--ligne);
+}
+
+.details-grid {
+  max-width: 1050px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 34px;
+}
+
+.detail-card {
+  background: var(--blanc);
+  border: 1px solid var(--ligne);
+  padding: 42px;
+  text-align: center;
+}
+
+.detail-card ul {
+  text-align: left;
+  max-width: 430px;
+  margin: 18px auto;
+  color: var(--bleu);
+  font-size: 14px;
+}
+
+.detail-card li {
+  margin-bottom: 8px;
+}
+
+/* ===============================
+   GIFT
 ================================== */
 
 .gift {
   background: var(--blanc);
-  padding: 100px 30px;
+  padding: 90px 30px;
   text-align: center;
 }
 
 .gift-box {
-  max-width: 760px;
+  max-width: 780px;
   margin: auto;
-  padding: 60px 45px;
-  border: 2px solid var(--or);
 }
 
-.gift h2 {
-  font-family: "Playfair Display", serif;
-  font-size: 46px;
-  font-weight: 500;
-  margin-bottom: 25px;
+.gift .section-heading {
+  margin-bottom: 32px;
 }
 
 .gift p {
-  color: var(--gris);
-  margin-bottom: 35px;
+  max-width: 620px;
+  margin: 0 auto 34px;
+  color: var(--bleu);
 }
 
 /* ===============================
@@ -659,7 +637,7 @@ footer {
   background: var(--bleu);
   color: white;
   text-align: center;
-  padding: 55px 20px;
+  padding: 60px 20px;
 }
 
 .footer-logo {
@@ -673,22 +651,92 @@ footer {
   color: white;
 }
 
+.footer-logo p {
+  font-size: 12px;
+  letter-spacing: 3px;
+  font-weight: 700;
+}
+
 .footer-text {
   font-family: "Playfair Display", serif;
-  font-size: 30px;
-  margin-top: 20px;
+  font-size: 32px;
+  margin-top: 24px;
 }
 
 .footer-copy {
-  font-size: 14px;
   opacity: 0.85;
+  margin-top: 8px;
+}
+
+/* ===============================
+   RSVP FORM
+================================== */
+
+.rsvp-form {
+  max-width: 760px;
+  margin: auto;
+  background: var(--blanc);
+  border: 1px solid var(--ligne);
+  padding: 48px;
+}
+
+.rsvp-form label {
+  display: block;
+  margin-bottom: 22px;
+  color: var(--bleu);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.rsvp-form input,
+.rsvp-form select,
+.rsvp-form textarea {
+  width: 100%;
+  margin-top: 8px;
+  padding: 14px;
+  border: 1px solid var(--ligne);
+  background: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  color: var(--bleu);
+}
+
+.rsvp-form input[type="checkbox"] {
+  width: auto;
+  margin-right: 10px;
+}
+
+.rsvp-form textarea {
+  resize: vertical;
 }
 
 /* ===============================
    RESPONSIVE
 ================================== */
 
-@media (max-width: 900px) {
+@media (max-width: 1050px) {
+  .header-inner {
+    padding: 18px 28px;
+  }
+
+  .main-nav ul {
+    gap: 24px;
+  }
+
+  .hero-content {
+    right: 5%;
+  }
+
+  .domaine-content {
+    grid-template-columns: 1fr;
+  }
+
+  .domaine-text {
+    text-align: center;
+  }
+}
+
+@media (max-width: 850px) {
   .header-inner {
     flex-wrap: wrap;
   }
@@ -709,17 +757,17 @@ footer {
   .main-nav ul {
     display: none;
     flex-direction: column;
-    text-align: center;
+    align-items: center;
     gap: 18px;
-    margin-top: 25px;
+    margin-top: 24px;
   }
 
   .main-nav ul.open {
     display: flex;
   }
 
-  .hero {
-    height: 620px;
+  .hero-carousel {
+    height: 680px;
   }
 
   .hero-content {
@@ -728,68 +776,114 @@ footer {
     transform: translate(50%, -50%);
   }
 
-  .hero h1 {
-    font-size: 54px;
+  .hero-content h1 {
+    font-size: 52px;
   }
 
   .hero-text {
-    font-size: 23px;
+    font-size: 22px;
   }
 
-  .weekend-grid,
-  .details-grid,
-  .domaine-content {
+  .weekend-grid {
     grid-template-columns: 1fr;
   }
 
-  .domaine-content img {
-    height: 360px;
+  .weekend-card {
+    border-right: none;
+    border-bottom: 1px solid var(--ligne);
+  }
+
+  .weekend-card:last-child {
+    border-bottom: none;
+  }
+
+  .details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .carousel-btn {
+    display: none;
   }
 }
 
 @media (max-width: 520px) {
   .brand-circle {
-    width: 75px;
-    height: 75px;
-    font-size: 28px;
+    width: 72px;
+    height: 72px;
+    font-size: 26px;
   }
 
-  .hero {
-    height: 560px;
+  .brand p {
+    font-size: 10px;
   }
 
-  .hero h1 {
-    font-size: 44px;
+  .hero-carousel {
+    min-height: 590px;
+    height: 590px;
+  }
+
+  .hero-monogram {
+    width: 72px;
+    height: 72px;
+    font-size: 26px;
+  }
+
+  .hero-content h1 {
+    font-size: 42px;
   }
 
   .hero-date {
-    font-size: 15px;
+    font-size: 14px;
     letter-spacing: 3px;
   }
 
+  .hero-place {
+    font-size: 17px;
+  }
+
+  .intro,
+  .weekend,
+  .domaine,
+  .details,
+  .gift {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+
   .intro h2,
-  .section-heading h2,
-  .gift h2 {
+  .section-heading h2 {
     font-size: 34px;
   }
 
+  .countdown {
+    gap: 8px;
+  }
+
   .countdown-item {
-    width: 95px;
-    height: 95px;
+    width: 76px;
+    height: 92px;
   }
 
   .countdown-item span {
     font-size: 30px;
   }
 
-  .weekend,
-  .domaine,
-  .details,
-  .gift {
-    padding: 70px 20px;
+  .countdown-item p {
+    font-size: 10px;
+    letter-spacing: 1px;
   }
 
-  .gift-box {
-    padding: 45px 25px;
+  .domaine-image img {
+    height: 280px;
+  }
+
+  .detail-card,
+  .rsvp-form {
+    padding: 30px 22px;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 330px;
   }
 }
