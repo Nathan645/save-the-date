@@ -163,14 +163,14 @@ a {
   transition: opacity 1.2s ease;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-left: 9%;
 }
 
 .hero-slide.active {
   opacity: 1;
 }
 
-/* Image floutée en fond */
 .slide-bg {
   position: absolute;
   inset: 0;
@@ -179,14 +179,13 @@ a {
   object-fit: cover;
   filter: blur(24px);
   transform: scale(1.08);
-  opacity: 0.65;
+  opacity: 0.68;
 }
 
-/* Photo principale non coupée */
 .slide-photo {
   position: relative;
   z-index: 2;
-  max-width: 46vw;
+  max-width: 42vw;
   max-height: 78vh;
   width: auto;
   height: auto;
@@ -195,32 +194,92 @@ a {
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
 }
 
-/* voile sombre */
 .hero-overlay {
   position: absolute;
   inset: 0;
   z-index: 3;
   background: linear-gradient(
     90deg,
-    rgba(0, 0, 0, 0.35),
     rgba(0, 0, 0, 0.18),
-    rgba(0, 0, 0, 0.55)
+    rgba(0, 0, 0, 0.12),
+    rgba(0, 0, 0, 0.58)
   );
 }
 
-/* Texte */
 .hero-content {
   position: absolute;
   z-index: 4;
   top: 50%;
-  right: 7%;
+  right: 8%;
   transform: translateY(-50%);
-  width: 430px;
+  width: 520px;
   text-align: center;
   color: white;
 }
 
-/* Flèches */
+.hero-monogram {
+  width: 92px;
+  height: 92px;
+  margin: 0 auto 28px;
+  border: 1.5px solid rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
+  line-height: 0.95;
+}
+
+.hero-content h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 68px;
+  font-weight: 500;
+  line-height: 1.05;
+}
+
+.gold-line {
+  width: 96px;
+  height: 1px;
+  background: var(--or);
+  margin: 30px auto;
+  position: relative;
+}
+
+.gold-line::after {
+  content: "";
+  width: 7px;
+  height: 7px;
+  background: var(--or);
+  border-radius: 50%;
+  position: absolute;
+  top: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.hero-text {
+  font-family: "Playfair Display", serif;
+  font-size: 26px;
+  line-height: 1.45;
+  margin-bottom: 34px;
+}
+
+.hero-date {
+  color: var(--or);
+  letter-spacing: 5px;
+  font-size: 20px;
+  margin-bottom: 14px;
+}
+
+.hero-place {
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
 .carousel-btn {
   position: absolute;
   z-index: 5;
@@ -241,7 +300,6 @@ a {
   right: 28px;
 }
 
-/* Points */
 .carousel-dots {
   position: absolute;
   z-index: 5;
@@ -265,23 +323,37 @@ a {
   background: var(--or);
 }
 
-/* Mobile */
 @media (max-width: 850px) {
   .hero-carousel {
     height: 760px;
   }
 
+  .hero-slide {
+    justify-content: center;
+    padding-left: 0;
+    align-items: flex-start;
+    padding-top: 95px;
+  }
+
   .slide-photo {
     max-width: 78vw;
-    max-height: 58vh;
+    max-height: 48vh;
   }
 
   .hero-content {
     top: auto;
-    bottom: 95px;
+    bottom: 85px;
     right: 50%;
     transform: translateX(50%);
     width: 90%;
+  }
+
+  .hero-content h1 {
+    font-size: 48px;
+  }
+
+  .hero-text {
+    font-size: 21px;
   }
 }
 
