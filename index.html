@@ -4,11 +4,6 @@
   <meta charset="UTF-8" />
   <title>Claire & Nathan — Save the Date</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -16,7 +11,6 @@
 
 <header class="site-header">
   <div class="header-inner">
-
     <a href="index.html" class="brand">
       <div class="brand-circle">
         <span>C</span>
@@ -37,7 +31,6 @@
         <li><a href="#cagnotte">Liste de mariage</a></li>
       </ul>
     </nav>
-
   </div>
 </header>
 
@@ -46,49 +39,47 @@
 <section class="hero-carousel" id="accueil">
 
   <div class="carousel-slides">
+    <div class="hero-slide active">
+      <img src="images/hero/hero1.jpg" class="slide-bg" alt="">
+      <img src="images/hero/hero1.jpg" class="slide-photo" alt="Claire et Nathan">
+    </div>
 
-  <div class="hero-slide active">
-    <img src="images/hero/hero1.jpg" class="slide-bg" alt="">
-    <img src="images/hero/hero1.jpg" class="slide-photo" alt="Claire et Nathan">
+    <div class="hero-slide">
+      <img src="images/hero/hero2.jpg" class="slide-bg" alt="">
+      <img src="images/hero/hero2.jpg" class="slide-photo" alt="Claire et Nathan">
+    </div>
+
+    <div class="hero-slide">
+      <img src="images/hero/hero3.jpg" class="slide-bg" alt="">
+      <img src="images/hero/hero3.jpg" class="slide-photo" alt="Claire et Nathan">
+    </div>
+
+    <div class="hero-slide">
+      <img src="images/hero/hero4.jpg" class="slide-bg" alt="">
+      <img src="images/hero/hero4.jpg" class="slide-photo" alt="Claire et Nathan">
+    </div>
+
+    <div class="hero-slide">
+      <img src="images/hero/hero5.jpg" class="slide-bg" alt="">
+      <img src="images/hero/hero5.jpg" class="slide-photo" alt="Claire et Nathan">
+    </div>
+
+    <div class="hero-slide">
+      <img src="images/hero/hero6.jpg" class="slide-bg" alt="">
+      <img src="images/hero/hero6.jpg" class="slide-photo" alt="Claire et Nathan">
+    </div>
   </div>
 
-  <div class="hero-slide">
-    <img src="images/hero/hero2.jpg" class="slide-bg" alt="">
-    <img src="images/hero/hero2.jpg" class="slide-photo" alt="Claire et Nathan">
-  </div>
-
-  <div class="hero-slide">
-    <img src="images/hero/hero3.jpg" class="slide-bg" alt="">
-    <img src="images/hero/hero3.jpg" class="slide-photo" alt="Claire et Nathan">
-  </div>
-
-  <div class="hero-slide">
-    <img src="images/hero/hero4.jpg" class="slide-bg" alt="">
-    <img src="images/hero/hero4.jpg" class="slide-photo" alt="Claire et Nathan">
-  </div>
-
-  <div class="hero-slide">
-    <img src="images/hero/hero5.jpg" class="slide-bg" alt="">
-    <img src="images/hero/hero5.jpg" class="slide-photo" alt="Claire et Nathan">
-  </div>
-
-  <div class="hero-slide">
-    <img src="images/hero/hero6.jpg" class="slide-bg" alt="">
-    <img src="images/hero/hero6.jpg" class="slide-photo" alt="Claire et Nathan">
-  </div>
-
-</div>
-
-  <button class="carousel-btn prev" id="prev-slide" aria-label="Photo précédente">‹</button>
-  <button class="carousel-btn next" id="next-slide" aria-label="Photo suivante">›</button>
+  <button class="carousel-btn prev" id="prev-slide">‹</button>
+  <button class="carousel-btn next" id="next-slide">›</button>
 
   <div class="carousel-dots">
-    <button class="dot active" data-slide="0" aria-label="Photo 1"></button>
-    <button class="dot" data-slide="1" aria-label="Photo 2"></button>
-    <button class="dot" data-slide="2" aria-label="Photo 3"></button>
-    <button class="dot" data-slide="3" aria-label="Photo 4"></button>
-    <button class="dot" data-slide="4" aria-label="Photo 5"></button>
-    <button class="dot" data-slide="5" aria-label="Photo 6"></button>
+    <button class="dot active" data-slide="0"></button>
+    <button class="dot" data-slide="1"></button>
+    <button class="dot" data-slide="2"></button>
+    <button class="dot" data-slide="3"></button>
+    <button class="dot" data-slide="4"></button>
+    <button class="dot" data-slide="5"></button>
   </div>
 
   <div class="hero-overlay"></div>
@@ -100,7 +91,6 @@
     </div>
 
     <h1>Claire & Nathan</h1>
-
     <div class="gold-line"></div>
 
     <p class="hero-text">
@@ -117,26 +107,11 @@
 <section class="intro">
   <h2>Nous avons hâte de partager<br>ces moments avec vous.</h2>
 
-  <div id="countdown" class="countdown">
-    <div class="countdown-item">
-      <span id="days">000</span>
-      <p>Jours</p>
-    </div>
-
-    <div class="countdown-item">
-      <span id="hours">00</span>
-      <p>Heures</p>
-    </div>
-
-    <div class="countdown-item">
-      <span id="minutes">00</span>
-      <p>Minutes</p>
-    </div>
-
-    <div class="countdown-item">
-      <span id="seconds">00</span>
-      <p>Secondes</p>
-    </div>
+  <div class="countdown">
+    <div class="countdown-item"><span id="days">000</span><p>Jours</p></div>
+    <div class="countdown-item"><span id="hours">00</span><p>Heures</p></div>
+    <div class="countdown-item"><span id="minutes">00</span><p>Minutes</p></div>
+    <div class="countdown-item"><span id="seconds">00</span><p>Secondes</p></div>
   </div>
 
   <a href="rsvp.html" class="btn primary">Confirmer ma présence</a>
@@ -149,63 +124,23 @@
   </div>
 
   <div class="weekend-grid">
-
     <article class="weekend-card">
       <p class="day">Jeudi 8 juillet</p>
-
-      <div class="hand-icon">
-        <svg viewBox="0 0 120 120" aria-hidden="true">
-          <path d="M25 85h70M35 85V48h50v37M30 48l30-25 30 25M48 85V62h24v23" />
-          <path d="M55 42h10M60 37v10" />
-        </svg>
-      </div>
-
       <h3>Mariage civil</h3>
-      <p>
-        Une cérémonie en petit comité entourés de notre famille
-        et de nos amis les plus proches.
-      </p>
+      <p>Une cérémonie en petit comité entourés de notre famille et de nos amis les plus proches.</p>
     </article>
 
-    <article class="weekend-card main-card">
+    <article class="weekend-card">
       <p class="day">Samedi 10 juillet</p>
-
-      <div class="hand-icon">
-        <svg viewBox="0 0 120 120" aria-hidden="true">
-          <path d="M35 90h50M45 90V45h30v45M42 45l18-20 18 20M55 90V65h10v25" />
-          <path d="M50 55h20M50 62h20" />
-        </svg>
-      </div>
-
       <h3>Le grand jour</h3>
-      <p>
-        Cérémonie religieuse<br>
-        Cocktail<br>
-        Dîner<br>
-        Soirée<br>
-        … et plus si affinités !
-      </p>
+      <p>Cérémonie religieuse<br>Cocktail<br>Dîner<br>Soirée</p>
     </article>
 
     <article class="weekend-card">
       <p class="day pink">Dimanche 11 juillet</p>
-
-      <div class="hand-icon pink-icon">
-        <svg viewBox="0 0 120 120" aria-hidden="true">
-          <path d="M35 60h45c0 18-10 28-23 28S35 78 35 60z" />
-          <path d="M80 64c12 0 12 16 0 16" />
-          <path d="M45 52c-6-8 6-11 0-19M60 52c-6-8 6-11 0-19M75 52c-6-8 6-11 0-19" />
-          <path d="M32 91h58" />
-        </svg>
-      </div>
-
       <h3>Brunch</h3>
-      <p>
-        Parce qu’on n’aura sûrement pas eu le temps de discuter avec tout le monde la veille…
-        Retrouvons-nous une dernière fois avant de nous dire au revoir.
-      </p>
+      <p>Retrouvons-nous une dernière fois avant de nous dire au revoir.</p>
     </article>
-
   </div>
 </section>
 
@@ -222,20 +157,8 @@
 
     <div class="domaine-text">
       <h3>Domaine de Peyreguilhot</h3>
-
-      <p>
-        Au cœur du Lot-et-Garonne, le Domaine de Peyreguilhot sera le théâtre
-        de notre mariage. Entouré de nature, de vieilles pierres et de grands espaces,
-        c’est dans ce lieu chargé de charme que nous avons choisi de réunir ceux
-        que nous aimons pour célébrer cette journée si particulière.
-      </p>
-
-      <a
-        href="https://maps.app.goo.gl/nFMkLHgVJSHyVMQE6?g_st=ic"
-        target="_blank"
-        class="btn secondary">
-        Voir sur Google Maps
-      </a>
+      <p>Au cœur du Lot-et-Garonne, le Domaine de Peyreguilhot sera le théâtre de notre mariage. Entouré de nature, de vieilles pierres et de grands espaces, c’est dans ce lieu chargé de charme que nous avons choisi de réunir ceux que nous aimons.</p>
+      <a href="https://maps.app.goo.gl/nFMkLHgVJSHyVMQE6?g_st=ic" target="_blank" class="btn secondary">Voir sur Google Maps</a>
     </div>
   </div>
 </section>
@@ -246,49 +169,22 @@
     <h2>Informations pratiques</h2>
   </div>
 
-  <div class="details-grid two-cards">
-
+  <div class="details-grid">
     <article class="detail-card">
-      <div class="hand-icon small">
-        <svg viewBox="0 0 120 120" aria-hidden="true">
-          <path d="M25 78h70v18H25z" />
-          <path d="M32 78V50c0-10 8-18 18-18h20c10 0 18 8 18 18v28" />
-          <path d="M38 64h44" />
-        </svg>
-      </div>
-
       <h3>Hébergement</h3>
-      <p>
-        Tout le monde peut dormir sur le domaine !<br>
-        Nous avons hâte de prolonger ces moments avec vous.
-      </p>
+      <p>Tout le monde peut dormir sur le domaine ! Nous avons hâte de prolonger ces moments avec vous.</p>
       <ul>
         <li>Nuits du jeudi et du dimanche : 20€ / nuit</li>
         <li>Nuit du samedi : 40€ / nuit</li>
       </ul>
-      <p>
-        Merci de nous indiquer vos besoins lors de votre confirmation.
-      </p>
+      <p>Merci de nous indiquer vos besoins lors de votre confirmation.</p>
     </article>
 
     <article class="detail-card">
-      <div class="hand-icon small">
-        <svg viewBox="0 0 120 120" aria-hidden="true">
-          <path d="M45 30h30l10 25-25 40-25-40z" />
-          <path d="M45 30l15 25 15-25" />
-        </svg>
-      </div>
-
       <h3>Dress code</h3>
-      <p>
-        Tenue élégante et couleurs estivales bienvenues !
-      </p>
-      <p>
-        Cérémonie religieuse et cocktail en extérieur.
-        Prévoyez des chaussures adaptées au domaine.
-      </p>
+      <p>Tenue élégante et couleurs estivales bienvenues !</p>
+      <p>Cérémonie religieuse et cocktail en extérieur. Prévoyez des chaussures adaptées au domaine.</p>
     </article>
-
   </div>
 </section>
 
@@ -299,15 +195,9 @@
       <h2>Notre cagnotte</h2>
     </div>
 
-    <p>
-      Votre présence est notre plus beau cadeau.
-      Si vous souhaitez participer à notre voyage de noces
-      ou à notre future vie à deux, vous pouvez le faire ici.
-    </p>
+    <p>Votre présence est notre plus beau cadeau. Si vous souhaitez participer à notre voyage de noces ou à notre future vie à deux, vous pouvez le faire ici.</p>
 
-    <a href="https://www.leetchi.com" target="_blank" class="btn primary">
-      Accéder à la cagnotte
-    </a>
+    <a href="https://www.leetchi.com" target="_blank" class="btn primary">Accéder à la cagnotte</a>
   </div>
 </section>
 
