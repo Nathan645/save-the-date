@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>Claire & Nathan — Save the Date</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=4" />
 </head>
 
 <body>
@@ -37,8 +37,8 @@
 <main>
 
 <section class="hero-carousel" id="accueil">
-
   <div class="carousel-slides">
+
     <div class="hero-slide active">
       <img src="images/hero/hero1.jpg" class="slide-bg" alt="">
       <img src="images/hero/hero1.jpg" class="slide-photo" alt="Claire et Nathan">
@@ -68,18 +68,19 @@
       <img src="images/hero/hero6.jpg" class="slide-bg" alt="">
       <img src="images/hero/hero6.jpg" class="slide-photo" alt="Claire et Nathan">
     </div>
+
   </div>
 
-  <button class="carousel-btn prev" id="prev-slide">‹</button>
-  <button class="carousel-btn next" id="next-slide">›</button>
+  <button class="carousel-btn prev" id="prev-slide" aria-label="Photo précédente">‹</button>
+  <button class="carousel-btn next" id="next-slide" aria-label="Photo suivante">›</button>
 
   <div class="carousel-dots">
-    <button class="dot active" data-slide="0"></button>
-    <button class="dot" data-slide="1"></button>
-    <button class="dot" data-slide="2"></button>
-    <button class="dot" data-slide="3"></button>
-    <button class="dot" data-slide="4"></button>
-    <button class="dot" data-slide="5"></button>
+    <button class="dot active" data-slide="0" aria-label="Photo 1"></button>
+    <button class="dot" data-slide="1" aria-label="Photo 2"></button>
+    <button class="dot" data-slide="2" aria-label="Photo 3"></button>
+    <button class="dot" data-slide="3" aria-label="Photo 4"></button>
+    <button class="dot" data-slide="4" aria-label="Photo 5"></button>
+    <button class="dot" data-slide="5" aria-label="Photo 6"></button>
   </div>
 
   <div class="hero-overlay"></div>
@@ -101,7 +102,6 @@
     <p class="hero-date">8 • 10 • 11 JUILLET 2027</p>
     <p class="hero-place">LAPARADE</p>
   </div>
-
 </section>
 
 <section class="intro">
@@ -114,7 +114,7 @@
     <div class="countdown-item"><span id="seconds">00</span><p>Secondes</p></div>
   </div>
 
-  <a href="rsvp.html" class="btn primary">Confirmer ma présence</a>
+  <a href="rsvp.html" class="btn">Confirmer ma présence</a>
 </section>
 
 <section class="weekend" id="weekend">
@@ -157,8 +157,15 @@
 
     <div class="domaine-text">
       <h3>Domaine de Peyreguilhot</h3>
-      <p>Au cœur du Lot-et-Garonne, le Domaine de Peyreguilhot sera le théâtre de notre mariage. Entouré de nature, de vieilles pierres et de grands espaces, c’est dans ce lieu chargé de charme que nous avons choisi de réunir ceux que nous aimons.</p>
-      <a href="https://maps.app.goo.gl/nFMkLHgVJSHyVMQE6?g_st=ic" target="_blank" class="btn secondary">Voir sur Google Maps</a>
+      <p>
+        Au cœur du Lot-et-Garonne, le Domaine de Peyreguilhot sera le théâtre
+        de notre mariage. Entouré de nature, de vieilles pierres et de grands espaces,
+        c’est dans ce lieu chargé de charme que nous avons choisi de réunir ceux que nous aimons.
+      </p>
+
+      <a href="https://maps.app.goo.gl/nFMkLHgVJSHyVMQE6?g_st=ic" target="_blank" class="btn">
+        Voir sur Google Maps
+      </a>
     </div>
   </div>
 </section>
@@ -195,9 +202,15 @@
       <h2>Notre cagnotte</h2>
     </div>
 
-    <p>Votre présence est notre plus beau cadeau. Si vous souhaitez participer à notre voyage de noces ou à notre future vie à deux, vous pouvez le faire ici.</p>
+    <p>
+      Votre présence est notre plus beau cadeau.
+      Si vous souhaitez participer à notre voyage de noces ou à notre future vie à deux,
+      vous pouvez le faire ici.
+    </p>
 
-    <a href="https://www.leetchi.com" target="_blank" class="btn primary">Accéder à la cagnotte</a>
+    <a href="https://www.leetchi.com" target="_blank" class="btn">
+      Accéder à la cagnotte
+    </a>
   </div>
 </section>
 
@@ -216,6 +229,6 @@
 
 </main>
 
-<script src="script.js"></script>
+<script src="script.js?v=4"></script>
 </body>
 </html>
