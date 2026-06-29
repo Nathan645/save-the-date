@@ -185,6 +185,39 @@ if (slides.length) {
 }
 
 /* ======================================
+   SWIPE MOBILE CAROUSEL
+====================================== */
+
+const heroCarousel = document.querySelector(".hero-carousel");
+
+let touchStartX = 0;
+let touchEndX = 0;
+
+if (heroCarousel && slides.length) {
+  heroCarousel.addEventListener("touchstart", (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+
+  heroCarousel.addEventListener("touchend", (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+
+    const swipeDistance = touchEndX - touchStartX;
+
+    if (Math.abs(swipeDistance) < 50) return;
+
+    stopCarousel();
+
+    if (swipeDistance < 0) {
+      nextSlide();
+    } else {
+      prevSlide();
+    }
+
+    startCarousel();
+  });
+}
+
+/* ======================================
    RSVP
 ====================================== */
 
