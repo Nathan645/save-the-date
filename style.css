@@ -90,8 +90,8 @@ a {
 }
 
 .brand-logo {
-  width: 150px;
-  height: 150px;
+  width: 185px;
+  height: 185px;
   object-fit: contain;
   display: block;
 }
@@ -205,19 +205,19 @@ a {
   position: absolute;
   z-index: 4;
   top: 50%;
-  right: 8%;
+  right: 7%;
   transform: translateY(-50%);
-  width: 520px;
+  width: 560px;
   text-align: center;
   color: white;
 }
 
 .hero-logo {
-  width: 210px;
-  height: 210px;
+  width: 275px;
+  height: 275px;
   object-fit: contain;
   display: block;
-  margin: 0 auto 18px;
+  margin: 0 auto 20px;
 }
 
 .hero-content h1 {
@@ -608,8 +608,8 @@ footer {
 }
 
 .footer-logo-img {
-  width: 200px;
-  height: 200px;
+  width: 260px;
+  height: 260px;
   object-fit: contain;
   display: block;
   margin: 0 auto 18px;
@@ -672,8 +672,8 @@ footer {
   }
 
   .brand-logo {
-    width: 130px;
-    height: 130px;
+    width: 155px;
+    height: 155px;
   }
 
   .main-nav ul {
@@ -681,13 +681,13 @@ footer {
   }
 
   .hero-content {
-    right: 5%;
-    width: 470px;
+    right: 4%;
+    width: 500px;
   }
 
   .hero-logo {
-    width: 175px;
-    height: 175px;
+    width: 220px;
+    height: 220px;
   }
 
   .hero-content h1 {
@@ -723,8 +723,8 @@ footer {
   }
 
   .brand-logo {
-    width: 112px;
-    height: 112px;
+    width: 126px;
+    height: 126px;
   }
 
   #menu-toggle {
@@ -871,8 +871,8 @@ footer {
   }
 
   .hero-logo {
-    width: 135px;
-    height: 135px;
+    width: 155px;
+    height: 155px;
     object-fit: contain;
     display: block;
     margin: 0 auto 20px;
@@ -896,6 +896,11 @@ footer {
   .hero-place {
     color: var(--bleu);
     font-size: 18px;
+  }
+
+  .footer-logo-img {
+    width: 180px;
+    height: 180px;
   }
 
   .weekend-grid,
@@ -924,8 +929,8 @@ footer {
 
 @media (max-width: 520px) {
   .brand-logo {
-    width: 96px;
-    height: 96px;
+    width: 108px;
+    height: 108px;
   }
 
   .carousel-slides {
@@ -942,8 +947,8 @@ footer {
   }
 
   .hero-logo {
-    width: 118px;
-    height: 118px;
+    width: 135px;
+    height: 135px;
   }
 
   .hero-content h1 {
@@ -987,8 +992,8 @@ footer {
   }
 
   .footer-logo-img {
-    width: 140px;
-    height: 140px;
+    width: 170px;
+    height: 170px;
   }
 
   .detail-card,
