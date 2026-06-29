@@ -150,12 +150,16 @@ a {
   background: #000;
 }
 
-.carousel-slides,
-.hero-slide {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+.carousel-slides {
+    position: relative;
+    height: 540px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 35px 20px 60px;
+    border-radius: 22px;
+    background: transparent;
 }
 
 .hero-slide {
@@ -171,27 +175,38 @@ a {
   opacity: 1;
 }
 
-.slide-bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: blur(24px);
-  transform: scale(1.08);
-  opacity: 0.68;
+.slide-bg{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    filter:blur(28px);
+    transform:scale(1.15);
+    opacity:.72;
+    border-radius:22px;
+
 }
 
-.slide-photo {
-  position: relative;
-  z-index: 2;
-  max-width: 42vw;
-  max-height: 78vh;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  border-radius: 6px;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+.slide-photo{
+    position:relative;
+    z-index:2;
+    max-width:82vw;
+    max-height:460px;
+    width:auto;
+    height:auto;
+    object-fit:contain;
+    border-radius:18px;
+    box-shadow:
+    0 25px 60px rgba(0,0,0,.28);
+
+}
+
+.hero-carousel{
+
+    padding-top:20px;
+    padding-bottom:20px;
+
 }
 
 .hero-overlay {
