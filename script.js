@@ -2,6 +2,7 @@ const SCRIPT_URL =
   "https://script.google.com/macros/s/AKfycbyVslzmvf_f2QXiDZI9qalE-93TTZ1xMK9h_1hvQcIZPzUCSY8LPqTrtcYpghDfbSqO/exec";
 
 /* MENU */
+
 const toggle = document.getElementById("menu-toggle");
 const menu = document.getElementById("menu-links");
 
@@ -12,6 +13,7 @@ if (toggle && menu) {
 }
 
 /* COUNTDOWN */
+
 const weddingDate = new Date("2027-07-10T15:00:00").getTime();
 
 const days = document.getElementById("days");
@@ -42,6 +44,7 @@ updateCountdown();
 setInterval(updateCountdown, 1000);
 
 /* CAROUSEL */
+
 const slides = document.querySelectorAll(".hero-slide");
 const dots = document.querySelectorAll(".dot");
 const nextBtn = document.getElementById("next-slide");
@@ -107,7 +110,20 @@ if (slides.length) {
   });
 }
 
+/* ANIMATION DES FLÈCHES SUR MOBILE */
+
+if (window.innerWidth < 850 && prevBtn && nextBtn) {
+  prevBtn.classList.add("animate");
+  nextBtn.classList.add("animate");
+
+  setTimeout(() => {
+    prevBtn.classList.remove("animate");
+    nextBtn.classList.remove("animate");
+  }, 2600);
+}
+
 /* SWIPE MOBILE */
+
 let touchStartX = 0;
 let touchEndX = 0;
 
@@ -134,6 +150,7 @@ if (heroCarousel && slides.length) {
 }
 
 /* RSVP */
+
 const presence = document.getElementById("presence");
 const detailsBlock = document.getElementById("details-block");
 const hebergementBlock = document.getElementById("hebergement-block");
@@ -183,7 +200,8 @@ if (dort && hebergementBlock) {
   });
 }
 
-/* FORM */
+/* FORMULAIRE */
+
 const form = document.getElementById("rsvp-form");
 const message = document.getElementById("form-message");
 
@@ -192,6 +210,7 @@ if (form && message) {
     e.preventDefault();
 
     const button = form.querySelector("button[type='submit']");
+
     if (button) {
       button.disabled = true;
       button.textContent = "Envoi...";
