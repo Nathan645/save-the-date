@@ -1,7 +1,13 @@
+/* ==========================================================
+   CONFIG
+========================================================== */
+
 const SCRIPT_URL =
   "https://script.google.com/macros/s/AKfycbyVslzmvf_f2QXiDZI9qalE-93TTZ1xMK9h_1hvQcIZPzUCSY8LPqTrtcYpghDfbSqO/exec";
 
-/* MENU */
+/* ==========================================================
+   MENU MOBILE
+========================================================== */
 
 const toggle = document.getElementById("menu-toggle");
 const menu = document.getElementById("menu-links");
@@ -12,7 +18,9 @@ if (toggle && menu) {
   });
 }
 
-/* COUNTDOWN */
+/* ==========================================================
+   COMPTE À REBOURS
+========================================================== */
 
 const weddingDate = new Date("2027-07-10T15:00:00").getTime();
 
@@ -43,7 +51,9 @@ function updateCountdown() {
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
-/* CAROUSEL */
+/* ==========================================================
+   CAROUSEL HERO
+========================================================== */
 
 const slides = document.querySelectorAll(".hero-slide");
 const dots = document.querySelectorAll(".dot");
@@ -110,8 +120,7 @@ if (slides.length) {
   });
 }
 
-/* ANIMATION DES FLÈCHES SUR MOBILE */
-
+/* Animation des flèches sur mobile */
 if (window.innerWidth < 850 && prevBtn && nextBtn) {
   prevBtn.classList.add("animate");
   nextBtn.classList.add("animate");
@@ -122,8 +131,7 @@ if (window.innerWidth < 850 && prevBtn && nextBtn) {
   }, 2600);
 }
 
-/* SWIPE MOBILE */
-
+/* Swipe mobile */
 let touchStartX = 0;
 let touchEndX = 0;
 
@@ -149,7 +157,9 @@ if (heroCarousel && slides.length) {
   });
 }
 
-/* RSVP */
+/* ==========================================================
+   RSVP — AFFICHAGE CONDITIONNEL
+========================================================== */
 
 const presence = document.getElementById("presence");
 const detailsBlock = document.getElementById("details-block");
@@ -200,7 +210,9 @@ if (dort && hebergementBlock) {
   });
 }
 
-/* FORMULAIRE */
+/* ==========================================================
+   RSVP — ENVOI GOOGLE APPS SCRIPT
+========================================================== */
 
 const form = document.getElementById("rsvp-form");
 const message = document.getElementById("form-message");
