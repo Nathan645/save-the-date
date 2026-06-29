@@ -758,13 +758,16 @@ footer {
   }
 
   .carousel-dots {
-    position: absolute;
+    position: relative;
     z-index: 8;
-    left: 50%;
-    bottom: 24px;
-    transform: translateX(-50%);
+    left: auto;
+    bottom: auto;
+    transform: none;
     display: flex;
+    justify-content: center;
     gap: 10px;
+    margin-top: 22px;
+    margin-bottom: 32px;
   }
 
   .dot {
@@ -777,7 +780,8 @@ footer {
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 42%;
+    top: 280px;
+    transform: translateY(-50%);
     width: 42px;
     height: 42px;
     border-radius: 50%;
@@ -913,6 +917,10 @@ footer {
 
   .carousel-slides {
     height: 510px;
+  }
+
+  .carousel-btn {
+    top: 255px;
   }
 
   .slide-photo {
