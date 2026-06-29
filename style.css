@@ -930,3 +930,104 @@ footer {
     max-width: 330px;
   }
 }
+
+/* ===============================
+   MOBILE HERO AMÉLIORÉ
+================================== */
+
+@media (max-width: 850px) {
+  .hero-carousel {
+    height: auto;
+    min-height: 0;
+    padding-bottom: 0;
+    background: var(--beige);
+  }
+
+  .carousel-slides {
+    position: relative;
+    height: 520px;
+    overflow: hidden;
+    background: #000;
+  }
+
+  .hero-slide {
+    padding-left: 0;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .slide-photo {
+    max-width: 82vw;
+    max-height: 460px;
+  }
+
+  .hero-overlay {
+    display: none;
+  }
+
+  .hero-content {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    transform: none;
+    width: 100%;
+    padding: 42px 24px 70px;
+    color: var(--bleu);
+    background: var(--beige);
+  }
+
+  .hero-monogram {
+    border-color: var(--bleu);
+    color: var(--bleu);
+    margin-bottom: 22px;
+  }
+
+  .hero-content h1 {
+    color: var(--bleu);
+    font-size: 44px;
+  }
+
+  .hero-text {
+    color: var(--bleu);
+    font-size: 21px;
+  }
+
+  .hero-date {
+    color: var(--or);
+    font-size: 14px;
+    letter-spacing: 3px;
+  }
+
+  .hero-place {
+    color: var(--bleu);
+  }
+
+  .carousel-dots {
+    bottom: auto;
+    top: 485px;
+  }
+
+  .carousel-btn {
+    display: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .carousel-slides {
+    height: 470px;
+  }
+
+  .slide-photo {
+    max-width: 86vw;
+    max-height: 410px;
+  }
+
+  .carousel-dots {
+    top: 435px;
+  }
+
+  .hero-content {
+    padding-top: 38px;
+  }
+}
