@@ -8,6 +8,7 @@
   --rose: #e94f7a;
   --gris: #5f6670;
   --ligne: #e5ded4;
+  --ombre: rgba(0, 0, 0, 0.28);
 }
 
 * {
@@ -125,7 +126,7 @@ a {
 }
 
 /* ===============================
-   HERO CAROUSEL — DESKTOP
+   HERO DESKTOP
 ================================== */
 
 .hero-carousel {
@@ -133,7 +134,7 @@ a {
   height: 88vh;
   min-height: 620px;
   overflow: hidden;
-  background: #111;
+  background: var(--bleu);
 }
 
 .carousel-slides,
@@ -179,7 +180,7 @@ a {
   max-height: 78vh;
   object-fit: contain;
   border-radius: 10px;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 30px 80px var(--ombre);
 }
 
 .hero-overlay {
@@ -188,9 +189,9 @@ a {
   z-index: 3;
   background: linear-gradient(
     90deg,
-    rgba(0, 0, 0, 0.16),
+    rgba(0, 0, 0, 0.14),
     rgba(0, 0, 0, 0.12),
-    rgba(0, 0, 0, 0.6)
+    rgba(0, 0, 0, 0.62)
   );
 }
 
@@ -279,6 +280,7 @@ a {
   font-size: 52px;
   cursor: pointer;
   opacity: 0.85;
+  transition: 0.3s ease;
 }
 
 .carousel-btn:hover {
@@ -668,7 +670,7 @@ footer {
 }
 
 /* ===============================
-   RESPONSIVE TABLETTE
+   TABLETTE
 ================================== */
 
 @media (max-width: 1050px) {
@@ -699,13 +701,13 @@ footer {
 }
 
 /* ===============================
-   RESPONSIVE MOBILE
+   MOBILE HERO + MENU
 ================================== */
 
 @media (max-width: 850px) {
   .header-inner {
     flex-wrap: wrap;
-    padding: 18px 28px;
+    padding: 16px 24px;
   }
 
   #menu-toggle {
@@ -736,18 +738,17 @@ footer {
   .hero-carousel {
     height: auto;
     min-height: 0;
-    background: var(--beige);
     overflow: visible;
+    background: var(--beige);
   }
 
   .carousel-slides {
     position: relative;
     inset: auto;
     width: 100%;
-    height: 540px;
-    min-height: 0;
+    height: 560px;
     overflow: hidden;
-    background: #111;
+    background: var(--bleu);
   }
 
   .hero-slide {
@@ -766,14 +767,17 @@ footer {
   }
 
   .slide-bg {
-    display: none;
+    display: block;
+    filter: blur(26px) brightness(0.75);
+    transform: scale(1.16);
+    opacity: 0.7;
   }
 
   .slide-photo {
     width: auto;
     height: auto;
     max-width: 86vw;
-    max-height: 440px;
+    max-height: 430px;
     object-fit: contain;
     border-radius: 12px;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
@@ -783,20 +787,39 @@ footer {
     display: none;
   }
 
+  .carousel-dots {
+    position: absolute;
+    z-index: 8;
+    left: 50%;
+    bottom: 24px;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+  }
+
+  .dot {
+    width: 9px;
+    height: 9px;
+  }
+
   .hero-content {
     position: relative;
     top: auto;
     right: auto;
     transform: none;
     width: 100%;
-    padding: 48px 24px 74px;
+    padding: 46px 24px 74px;
     color: var(--bleu);
     background: var(--beige);
   }
 
   .hero-monogram {
+    width: 78px;
+    height: 78px;
+    font-size: 28px;
     border-color: var(--bleu);
     color: var(--bleu);
+    margin-bottom: 24px;
   }
 
   .hero-content h1 {
@@ -823,10 +846,6 @@ footer {
     display: none;
   }
 
-  .carousel-dots {
-    bottom: 24px;
-  }
-
   .weekend-grid,
   .details-grid,
   .domaine-content {
@@ -847,6 +866,10 @@ footer {
   }
 }
 
+/* ===============================
+   PETITS MOBILES
+================================== */
+
 @media (max-width: 520px) {
   .brand-circle {
     width: 72px;
@@ -859,12 +882,12 @@ footer {
   }
 
   .carousel-slides {
-    height: 500px;
+    height: 510px;
   }
 
   .slide-photo {
     max-width: 88vw;
-    max-height: 405px;
+    max-height: 395px;
   }
 
   .hero-content h1 {
