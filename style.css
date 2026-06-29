@@ -16,7 +16,9 @@
   box-sizing: border-box;
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   background: var(--beige);
@@ -30,11 +32,17 @@ img {
   max-width: 100%;
 }
 
-a { text-decoration: none; }
+a {
+  text-decoration: none;
+}
 
-.hidden { display: none !important; }
+.hidden {
+  display: none !important;
+}
 
-/* HEADER */
+/* ===============================
+   HEADER
+================================== */
 
 .site-header {
   position: sticky;
@@ -58,6 +66,7 @@ a { text-decoration: none; }
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .brand-circle {
@@ -93,18 +102,38 @@ a { text-decoration: none; }
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.8px;
+  position: relative;
 }
 
-#menu-toggle { display: none; }
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -9px;
+  width: 0;
+  height: 2px;
+  background: var(--or);
+  transition: 0.3s ease;
+}
 
-/* HERO */
+.main-nav a:hover::after {
+  width: 100%;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+/* ===============================
+   HERO CAROUSEL — DESKTOP
+================================== */
 
 .hero-carousel {
   position: relative;
   height: 88vh;
   min-height: 620px;
   overflow: hidden;
-  background: #000;
+  background: #111;
 }
 
 .carousel-slides,
@@ -117,14 +146,17 @@ a { text-decoration: none; }
 
 .hero-slide {
   opacity: 0;
-  transition: opacity 1.2s ease;
-  display: grid;
-  grid-template-columns: 48% 52%;
+  transition: opacity 1s ease;
+  display: flex;
   align-items: center;
-  padding: 0 7%;
+  justify-content: flex-start;
+  padding-left: 8%;
+  padding-right: 50%;
 }
 
-.hero-slide.active { opacity: 1; }
+.hero-slide.active {
+  opacity: 1;
+}
 
 .slide-bg {
   position: absolute;
@@ -133,22 +165,20 @@ a { text-decoration: none; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: blur(24px);
-  transform: scale(1.08);
-  opacity: 0.65;
+  filter: blur(30px) brightness(0.72);
+  transform: scale(1.12);
+  opacity: 0.9;
 }
 
 .slide-photo {
   position: relative;
   z-index: 2;
-  grid-column: 1;
-  justify-self: center;
   width: auto;
   height: auto;
   max-width: 42vw;
   max-height: 78vh;
   object-fit: contain;
-  border-radius: 8px;
+  border-radius: 10px;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
 }
 
@@ -158,9 +188,9 @@ a { text-decoration: none; }
   z-index: 3;
   background: linear-gradient(
     90deg,
-    rgba(0,0,0,.16),
-    rgba(0,0,0,.12),
-    rgba(0,0,0,.58)
+    rgba(0, 0, 0, 0.16),
+    rgba(0, 0, 0, 0.12),
+    rgba(0, 0, 0, 0.6)
   );
 }
 
@@ -179,7 +209,7 @@ a { text-decoration: none; }
   width: 92px;
   height: 92px;
   margin: 0 auto 28px;
-  border: 1.5px solid rgba(255,255,255,.9);
+  border: 1.5px solid rgba(255, 255, 255, 0.9);
   border-radius: 50%;
   display: flex;
   flex-direction: column;
@@ -187,7 +217,7 @@ a { text-decoration: none; }
   justify-content: center;
   font-family: "Playfair Display", serif;
   font-size: 32px;
-  line-height: .95;
+  line-height: 0.95;
 }
 
 .hero-content h1 {
@@ -248,10 +278,21 @@ a { text-decoration: none; }
   color: white;
   font-size: 52px;
   cursor: pointer;
+  opacity: 0.85;
 }
 
-.carousel-btn.prev { left: 28px; }
-.carousel-btn.next { right: 28px; }
+.carousel-btn:hover {
+  opacity: 1;
+  color: var(--or);
+}
+
+.carousel-btn.prev {
+  left: 28px;
+}
+
+.carousel-btn.next {
+  right: 28px;
+}
 
 .carousel-dots {
   position: absolute;
@@ -268,13 +309,17 @@ a { text-decoration: none; }
   height: 11px;
   border-radius: 50%;
   border: none;
-  background: rgba(255,255,255,.65);
+  background: rgba(255, 255, 255, 0.65);
   cursor: pointer;
 }
 
-.dot.active { background: var(--or); }
+.dot.active {
+  background: var(--or);
+}
 
-/* INTRO */
+/* ===============================
+   INTRO + COUNTDOWN
+================================== */
 
 .intro {
   background: var(--blanc);
@@ -309,11 +354,14 @@ a { text-decoration: none; }
   justify-content: center;
 }
 
-.countdown-item:last-child { border-right: none; }
+.countdown-item:last-child {
+  border-right: none;
+}
 
 .countdown-item span {
   font-family: "Playfair Display", serif;
   font-size: 44px;
+  line-height: 1;
 }
 
 .countdown-item p {
@@ -324,7 +372,9 @@ a { text-decoration: none; }
   font-weight: 700;
 }
 
-/* BUTTONS */
+/* ===============================
+   BUTTONS
+================================== */
 
 .btn {
   display: inline-flex;
@@ -336,7 +386,7 @@ a { text-decoration: none; }
   text-transform: uppercase;
   letter-spacing: 1.6px;
   cursor: pointer;
-  transition: .3s ease;
+  transition: 0.3s ease;
 }
 
 .btn.primary {
@@ -361,7 +411,9 @@ a { text-decoration: none; }
   color: white;
 }
 
-/* SECTIONS */
+/* ===============================
+   SECTION TITLES
+================================== */
 
 .section-heading {
   text-align: center;
@@ -392,8 +444,11 @@ a { text-decoration: none; }
   margin: 24px auto 0;
 }
 
-.weekend,
-.details {
+/* ===============================
+   WEEK-END
+================================== */
+
+.weekend {
   background: var(--beige);
   padding: 90px 40px;
   border-bottom: 1px solid var(--ligne);
@@ -413,7 +468,9 @@ a { text-decoration: none; }
   border-right: 1px solid var(--ligne);
 }
 
-.weekend-card:last-child { border-right: none; }
+.weekend-card:last-child {
+  border-right: none;
+}
 
 .weekend-card .day {
   color: #4e7a57;
@@ -424,7 +481,9 @@ a { text-decoration: none; }
   margin-bottom: 28px;
 }
 
-.weekend-card .day.pink { color: var(--rose); }
+.weekend-card .day.pink {
+  color: var(--rose);
+}
 
 .weekend-card h3,
 .detail-card h3 {
@@ -439,6 +498,10 @@ a { text-decoration: none; }
   font-size: 15px;
 }
 
+/* ===============================
+   DOMAINE
+================================== */
+
 .domaine {
   background: var(--blanc);
   padding: 90px 40px 100px;
@@ -449,7 +512,7 @@ a { text-decoration: none; }
   max-width: 1180px;
   margin: auto;
   display: grid;
-  grid-template-columns: 1.35fr .9fr;
+  grid-template-columns: 1.35fr 0.9fr;
   gap: 58px;
   align-items: center;
 }
@@ -471,6 +534,16 @@ a { text-decoration: none; }
   font-size: 16px;
   line-height: 1.9;
   margin-bottom: 35px;
+}
+
+/* ===============================
+   DETAILS
+================================== */
+
+.details {
+  background: var(--beige);
+  padding: 90px 40px;
+  border-bottom: 1px solid var(--ligne);
 }
 
 .details-grid {
@@ -495,6 +568,14 @@ a { text-decoration: none; }
   font-size: 14px;
 }
 
+.detail-card li {
+  margin-bottom: 8px;
+}
+
+/* ===============================
+   GIFT
+================================== */
+
 .gift {
   background: var(--blanc);
   padding: 90px 30px;
@@ -510,6 +591,10 @@ a { text-decoration: none; }
   max-width: 620px;
   margin: 0 auto 34px;
 }
+
+/* ===============================
+   FOOTER
+================================== */
 
 footer {
   background: var(--bleu);
@@ -542,11 +627,13 @@ footer {
 }
 
 .footer-copy {
-  opacity: .85;
+  opacity: 0.85;
   margin-top: 8px;
 }
 
-/* RSVP */
+/* ===============================
+   RSVP
+================================== */
 
 .rsvp-form {
   max-width: 760px;
@@ -580,7 +667,40 @@ footer {
   margin-right: 10px;
 }
 
-/* MOBILE */
+/* ===============================
+   RESPONSIVE TABLETTE
+================================== */
+
+@media (max-width: 1050px) {
+  .header-inner {
+    padding: 18px 28px;
+  }
+
+  .main-nav ul {
+    gap: 24px;
+  }
+
+  .hero-content {
+    right: 5%;
+    width: 470px;
+  }
+
+  .hero-content h1 {
+    font-size: 58px;
+  }
+
+  .domaine-content {
+    grid-template-columns: 1fr;
+  }
+
+  .domaine-text {
+    text-align: center;
+  }
+}
+
+/* ===============================
+   RESPONSIVE MOBILE
+================================== */
 
 @media (max-width: 850px) {
   .header-inner {
@@ -622,26 +742,41 @@ footer {
 
   .carousel-slides {
     position: relative;
+    inset: auto;
+    width: 100%;
     height: 540px;
+    min-height: 0;
     overflow: hidden;
-    background: #000;
+    background: #111;
   }
 
   .hero-slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0;
+  }
+
+  .hero-slide.active {
+    opacity: 1;
+  }
+
+  .slide-bg {
+    display: none;
   }
 
   .slide-photo {
-    grid-column: auto;
-    max-width: 86vw;
-    max-height: 440px;
     width: auto;
     height: auto;
+    max-width: 86vw;
+    max-height: 440px;
     object-fit: contain;
-    border-radius: 10px;
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
   }
 
   .hero-overlay {
