@@ -1,15 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap");
 
+/* ==========================================================
+   01. VARIABLES GLOBALES
+   Ici tu peux modifier les couleurs principales du site.
+========================================================== */
+
 :root {
   --bleu: #123a6f;
   --beige: #faf6f0;
   --blanc: #ffffff;
   --or: #c79a2e;
   --rose: #e94f7a;
+  --vert: #4e7a57;
   --gris: #5f6670;
   --ligne: #e5ded4;
   --ombre: rgba(0, 0, 0, 0.28);
 }
+
+/* ==========================================================
+   02. RESET + BASE
+   Base générale du site.
+========================================================== */
 
 * {
   margin: 0;
@@ -41,7 +52,19 @@ a {
   display: none !important;
 }
 
-/* HEADER */
+/* Décalage au clic sur les liens du menu sticky */
+#accueil,
+#weekend,
+#domaine,
+#details,
+#cagnotte {
+  scroll-margin-top: 150px;
+}
+
+/* ==========================================================
+   03. HEADER + MENU
+   Logo, menu desktop et menu mobile.
+========================================================== */
 
 .site-header {
   position: sticky;
@@ -123,7 +146,10 @@ a {
   display: none;
 }
 
-/* HERO */
+/* ==========================================================
+   04. HERO DESKTOP
+   Photo à gauche, texte à droite, fond flouté.
+========================================================== */
 
 .hero-carousel {
   position: relative;
@@ -265,6 +291,11 @@ a {
   text-transform: uppercase;
 }
 
+/* ==========================================================
+   05. CAROUSEL
+   Flèches et points du carousel.
+========================================================== */
+
 .carousel-btn {
   position: absolute;
   z-index: 5;
@@ -315,7 +346,9 @@ a {
   background: var(--or);
 }
 
-/* INTRO */
+/* ==========================================================
+   06. INTRO + COMPTE À REBOURS
+========================================================== */
 
 .intro {
   background: var(--blanc);
@@ -368,44 +401,39 @@ a {
   font-weight: 700;
 }
 
-/* BUTTONS */
+/* ==========================================================
+   07. BOUTONS PRINCIPAUX
+   Les 3 boutons du site utilisent le même style.
+========================================================== */
 
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  min-width: 260px;
   padding: 15px 38px;
+  background: var(--or);
+  color: white;
+  border: 2px solid var(--or);
   font-size: 13px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.6px;
   cursor: pointer;
   transition: 0.3s ease;
+  box-shadow: 0 10px 26px rgba(199, 154, 46, 0.18);
 }
 
-.btn.primary {
-  background: var(--or);
-  color: white;
-  border: 2px solid var(--or);
-}
-
-.btn.primary:hover {
+.btn:hover {
   background: transparent;
   color: var(--or);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(199, 154, 46, 0.25);
 }
 
-.btn.secondary {
-  background: transparent;
-  color: var(--or);
-  border: 2px solid var(--or);
-}
-
-.btn.secondary:hover {
-  background: var(--or);
-  color: white;
-}
-
-/* SECTIONS */
+/* ==========================================================
+   08. TITRES DE SECTION
+========================================================== */
 
 .section-heading {
   text-align: center;
@@ -436,7 +464,10 @@ a {
   margin: 24px auto 0;
 }
 
-/* WEEK-END */
+/* ==========================================================
+   09. SECTION LE WEEK-END
+   Zone future pour les icônes "fait main".
+========================================================== */
 
 .weekend {
   background: var(--beige);
@@ -463,7 +494,7 @@ a {
 }
 
 .weekend-card .day {
-  color: #4e7a57;
+  color: var(--vert);
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 1.8px;
@@ -488,7 +519,9 @@ a {
   font-size: 15px;
 }
 
-/* DOMAINE */
+/* ==========================================================
+   10. SECTION LE DOMAINE
+========================================================== */
 
 .domaine {
   background: var(--blanc);
@@ -524,7 +557,9 @@ a {
   margin-bottom: 35px;
 }
 
-/* DETAILS */
+/* ==========================================================
+   11. INFORMATIONS PRATIQUES
+========================================================== */
 
 .details {
   background: var(--beige);
@@ -558,7 +593,9 @@ a {
   margin-bottom: 8px;
 }
 
-/* CAGNOTTE */
+/* ==========================================================
+   12. CAGNOTTE
+========================================================== */
 
 .gift {
   background: var(--blanc);
@@ -576,7 +613,9 @@ a {
   margin: 0 auto 34px;
 }
 
-/* FOOTER */
+/* ==========================================================
+   13. FOOTER
+========================================================== */
 
 footer {
   background: var(--bleu);
@@ -613,7 +652,9 @@ footer {
   margin-top: 8px;
 }
 
-/* RSVP */
+/* ==========================================================
+   14. PAGE RSVP
+========================================================== */
 
 .rsvp-form {
   max-width: 760px;
@@ -647,7 +688,9 @@ footer {
   margin-right: 10px;
 }
 
-/* TABLETTE */
+/* ==========================================================
+   15. TABLETTE
+========================================================== */
 
 @media (max-width: 1050px) {
   .header-inner {
@@ -676,9 +719,20 @@ footer {
   }
 }
 
-/* MOBILE */
+/* ==========================================================
+   16. MOBILE
+   Hero mobile, menu burger, sections en une colonne.
+========================================================== */
 
 @media (max-width: 850px) {
+  #accueil,
+  #weekend,
+  #domaine,
+  #details,
+  #cagnotte {
+    scroll-margin-top: 140px;
+  }
+
   .header-inner {
     flex-wrap: wrap;
     padding: 16px 24px;
@@ -876,33 +930,9 @@ footer {
   }
 }
 
-/* ANIMATION FLÈCHES MOBILE */
-
-@keyframes hintLeft {
-  0% {
-    transform: translateY(-50%) translateX(0);
-  }
-  50% {
-    transform: translateY(-50%) translateX(-6px);
-  }
-  100% {
-    transform: translateY(-50%) translateX(0);
-  }
-}
-
-@keyframes hintRight {
-  0% {
-    transform: translateY(-50%) translateX(0);
-  }
-  50% {
-    transform: translateY(-50%) translateX(6px);
-  }
-  100% {
-    transform: translateY(-50%) translateX(0);
-  }
-}
-
-/* PETITS MOBILES */
+/* ==========================================================
+   17. PETITS MOBILES
+========================================================== */
 
 @media (max-width: 520px) {
   .brand-circle {
@@ -976,5 +1006,34 @@ footer {
   .btn {
     width: 100%;
     max-width: 330px;
+    min-width: 0;
+  }
+}
+
+/* ==========================================================
+   18. ANIMATIONS
+========================================================== */
+
+@keyframes hintLeft {
+  0% {
+    transform: translateY(-50%) translateX(0);
+  }
+  50% {
+    transform: translateY(-50%) translateX(-6px);
+  }
+  100% {
+    transform: translateY(-50%) translateX(0);
+  }
+}
+
+@keyframes hintRight {
+  0% {
+    transform: translateY(-50%) translateX(0);
+  }
+  50% {
+    transform: translateY(-50%) translateX(6px);
+  }
+  100% {
+    transform: translateY(-50%) translateX(0);
   }
 }
