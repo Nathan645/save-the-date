@@ -514,6 +514,24 @@ a {
   font-size: 15px;
 }
 
+.program-icon {
+  display: block;
+  font-size: 30px;
+  line-height: 1;
+  margin-bottom: 14px;
+}
+
+.day-blue {
+  color: var(--bleu) !important;
+}
+
+.program-note {
+  margin-top: 18px;
+  font-size: 14px;
+  font-style: italic;
+  color: rgba(18, 58, 111, 0.68);
+}
+
 /* ==========================================================
    10. SECTION LE DOMAINE
 ========================================================== */
