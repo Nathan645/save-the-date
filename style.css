@@ -610,7 +610,7 @@ a {
 }
 
 .footer-logo img{
-    width:190px;
+    width:300px;
     display:block;
 }
 
@@ -627,13 +627,13 @@ a {
 
 .footer-text h3{
     font-family:"Cormorant Garamond",serif;
-    font-size:56px;
+    font-size:64px;
     font-weight:500;
     margin-bottom:20px;
 }
 
 .footer-text p{
-    font-size:28px;
+    font-size:30px;
     color:rgba(255,255,255,.85);
     margin-bottom:35px;
 }
