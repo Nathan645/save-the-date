@@ -590,42 +590,71 @@ a {
   margin: 0 auto 34px;
 }
 
-/* ==========================================================
+/* ===========================
    13. FOOTER
-========================================================== */
+=========================== */
 
-footer {
-  background: var(--bleu);
-  color: white;
-  text-align: center;
-  padding: 60px 20px;
+.footer{
+    background:#0f3c79;
+    padding:90px 40px;
 }
 
-.footer-logo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.footer-content{
+    max-width:1200px;
+    margin:auto;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:70px;
 }
 
-.footer-logo-img {
-  width: 260px;
-  height: 260px;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto 18px;
+.footer-logo img{
+    width:190px;
+    display:block;
 }
 
-.footer-text {
-  font-family: "Playfair Display", serif;
-  font-size: 32px;
-  margin-top: 8px;
+.footer-divider{
+    width:1px;
+    height:180px;
+    background:rgba(255,255,255,.35);
 }
 
-.footer-copy {
-  opacity: 0.85;
-  margin-top: 8px;
+.footer-text{
+    color:white;
+    text-align:left;
 }
 
+.footer-text h3{
+    font-family:"Cormorant Garamond",serif;
+    font-size:56px;
+    font-weight:500;
+    margin-bottom:20px;
+}
+
+.footer-text p{
+    font-size:28px;
+    color:rgba(255,255,255,.85);
+    margin-bottom:35px;
+}
+
+.footer-separator{
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+.footer-separator span{
+    width:80px;
+    height:2px;
+    background:rgba(255,255,255,.45);
+}
+
+.footer-separator i{
+    font-style:normal;
+    color:white;
+    font-size:14px;
+}
 /* ==========================================================
    14. PAGE RSVP
 ========================================================== */
@@ -921,6 +950,46 @@ footer {
   .domaine-text {
     text-align: center;
   }
+}
+/* ==========================================================
+   17. MOBILE plus petit
+========================================================== */
+@media (max-width:768px){
+
+.footer{
+    padding:70px 30px;
+}
+
+.footer-content{
+    flex-direction:column;
+    gap:35px;
+}
+
+.footer-divider{
+    width:140px;
+    height:1px;
+}
+
+.footer-logo img{
+    width:140px;
+}
+
+.footer-text{
+    text-align:center;
+}
+
+.footer-text h3{
+    font-size:38px;
+}
+
+.footer-text p{
+    font-size:22px;
+}
+
+.footer-separator{
+    justify-content:center;
+}
+
 }
 
 /* ==========================================================
