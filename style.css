@@ -19,7 +19,7 @@
 
 /* ==========================================================
    02. RESET + BASE
-   Base gÃ©nÃ©rale du site.
+   Base gÃƒÂ©nÃƒÂ©rale du site.
 ========================================================== */
 
 * {
@@ -52,7 +52,7 @@ a {
   display: none !important;
 }
 
-/* DÃ©calage au clic sur les liens du menu sticky */
+/* DÃƒÂ©calage au clic sur les liens du menu sticky */
 #accueil,
 #weekend,
 #domaine,
@@ -132,7 +132,7 @@ a {
 
 /* ==========================================================
    04. HERO DESKTOP
-   Photo Ã  gauche, texte/logo Ã  droite, fond floutÃ©.
+   Photo Ãƒ  gauche, texte/logo Ãƒ  droite, fond floutÃƒÂ©.
 ========================================================== */
 
 .hero-carousel {
@@ -207,17 +207,31 @@ a {
   top: 50%;
   right: 7%;
   transform: translateY(-50%);
-  width: 560px;
+  width: 620px;
   text-align: center;
   color: white;
 }
 
+/* Logo du hero : blanc/or sur desktop, bleu/or sur mobile */
+.hero-logo-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .hero-logo {
-  width: 300px;
-  height: 300px;
   object-fit: contain;
   display: block;
-  margin: 0 auto 20px;
+}
+
+.hero-logo-desktop {
+  width: 360px;
+  height: 360px;
+  margin-bottom: -10px;
+}
+
+.hero-logo-mobile {
+  display: none;
 }
 
 .hero-content h1 {
@@ -270,7 +284,7 @@ a {
 
 /* ==========================================================
    05. CAROUSEL
-   FlÃ¨ches et points du carousel.
+   FlÃƒÂ¨ches et points du carousel.
 ========================================================== */
 
 .carousel-btn {
@@ -324,7 +338,7 @@ a {
 }
 
 /* ==========================================================
-   06. INTRO + COMPTE Ã€ REBOURS
+   06. INTRO + COMPTE Ãƒâ‚¬ REBOURS
 ========================================================== */
 
 .intro {
@@ -380,7 +394,7 @@ a {
 
 /* ==========================================================
    07. BOUTONS PRINCIPAUX
-   Les 3 boutons du site utilisent le mÃªme style.
+   Les 3 boutons du site utilisent le mÃƒÂªme style.
 ========================================================== */
 
 .btn {
@@ -443,7 +457,7 @@ a {
 
 /* ==========================================================
    09. SECTION LE WEEK-END
-   Zone future pour les icÃ´nes "fait main".
+   Zone future pour les icÃƒÂ´nes "fait main".
 ========================================================== */
 
 .weekend {
@@ -714,9 +728,10 @@ a {
     width: 500px;
   }
 
-  .hero-logo {
-    width: 220px;
-    height: 220px;
+  .hero-logo-desktop {
+    width: 290px;
+    height: 290px;
+    margin-bottom: -8px;
   }
 
   .hero-content h1 {
@@ -899,12 +914,15 @@ a {
     background: var(--beige);
   }
 
-  .hero-logo {
-    width: 155px;
-    height: 155px;
-    object-fit: contain;
+  .hero-logo-desktop {
+    display: none;
+  }
+
+  .hero-logo-mobile {
     display: block;
-    margin: 0 auto 20px;
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 18px;
   }
 
   .hero-content h1 {
@@ -1015,9 +1033,9 @@ a {
     max-height: 395px;
   }
 
-  .hero-logo {
-    width: 135px;
-    height: 135px;
+  .hero-logo-mobile {
+    width: 120px;
+    height: 120px;
   }
 
   .hero-content h1 {
