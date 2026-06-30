@@ -224,11 +224,12 @@ a {
   display: block;
 }
 
-.hero-logo-desktop {
-  width: 360px;
-  height: 360px;
-  margin-bottom: -10px;
+.hero-logo-desktop{
+    width:430px;
+    height:auto;
+    margin-bottom:-70px;
 }
+
 
 .hero-logo-mobile {
   display: none;
@@ -650,6 +651,14 @@ a {
     font-size:30px;
     color:rgba(255,255,255,.85);
     margin-bottom:35px;
+}
+
+.footer-right{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
 }
 
 .footer-separator{
