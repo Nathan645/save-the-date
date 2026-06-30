@@ -203,36 +203,36 @@ a {
 .hero-content {
   position: absolute;
   z-index: 4;
-  top: 50%;
+  top: 54%;
   right: 6%;
   transform: translateY(-50%);
   width: 650px;
   text-align: center;
   color: white;
-  padding-top: 150px;
+  padding-top: 120px;
 }
 
 .hero-logo-wrapper {
   position: absolute;
-  top: -145px;
+  top: -105px;
   left: 50%;
   transform: translateX(-50%);
-  width: 520px;
-  height: 260px;
+  width: 480px;
+  height: 240px;
   display: flex;
   align-items: center;
   justify-content: center;
   pointer-events: none;
 }
 
+.hero-logo-desktop {
+  width: 480px;
+  height: auto;
+}
+
 .hero-logo {
   display: block;
   object-fit: contain;
-}
-
-.hero-logo-desktop {
-  width: 520px;
-  height: auto;
 }
 
 .hero-logo-mobile {
