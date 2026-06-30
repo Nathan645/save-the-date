@@ -132,7 +132,6 @@ a {
 
 /* ==========================================================
    04. HERO DESKTOP
-   Photo Ãƒ  gauche, texte/logo Ãƒ  droite, fond floutÃƒÂ©.
 ========================================================== */
 
 .hero-carousel {
@@ -205,39 +204,39 @@ a {
   position: absolute;
   z-index: 4;
   top: 50%;
-  right: 7%;
+  right: 6%;
   transform: translateY(-50%);
-  width: 620px;
+  width: 650px;
   text-align: center;
   color: white;
+  padding-top: 150px;
 }
 
-/* ==========================================================
-   LOGO HERO
-========================================================== */
-
-.hero-logo-wrapper{
-    position:relative;
-    height:330px;
-    margin-bottom:10px;
+.hero-logo-wrapper {
+  position: absolute;
+  top: -145px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 520px;
+  height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
 }
 
-.hero-logo{
-    object-fit:contain;
-    display:block;
+.hero-logo {
+  display: block;
+  object-fit: contain;
 }
 
-.hero-logo-desktop{
-    position:absolute;
-    left:50%;
-    top:38%;
-    transform:translate(-50%, -50%);
-    width:430px;
-    height:430px;
+.hero-logo-desktop {
+  width: 520px;
+  height: auto;
 }
 
-.hero-logo-mobile{
-    display:none;
+.hero-logo-mobile {
+  display: none;
 }
 
 .hero-content h1 {
@@ -290,7 +289,6 @@ a {
 
 /* ==========================================================
    05. CAROUSEL
-   FlÃƒÂ¨ches et points du carousel.
 ========================================================== */
 
 .carousel-btn {
