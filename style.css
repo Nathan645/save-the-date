@@ -212,27 +212,32 @@ a {
   color: white;
 }
 
-/* Logo du hero : blanc/or sur desktop, bleu/or sur mobile */
-.hero-logo-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* ==========================================================
+   LOGO HERO
+========================================================== */
+
+.hero-logo-wrapper{
+    position:relative;
+    height:330px;
+    margin-bottom:10px;
 }
 
-.hero-logo {
-  object-fit: contain;
-  display: block;
+.hero-logo{
+    object-fit:contain;
+    display:block;
 }
 
 .hero-logo-desktop{
+    position:absolute;
+    left:50%;
+    top:38%;
+    transform:translate(-50%, -50%);
     width:430px;
-    height:auto;
-    margin-bottom:-70px;
+    height:430px;
 }
 
-
-.hero-logo-mobile {
-  display: none;
+.hero-logo-mobile{
+    display:none;
 }
 
 .hero-content h1 {
@@ -637,7 +642,10 @@ a {
 
 .footer-text{
     color:white;
-    text-align:left;
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
 }
 
 .footer-text h3{
@@ -923,16 +931,23 @@ a {
     background: var(--beige);
   }
 
-  .hero-logo-desktop {
-    display: none;
-  }
+ .hero-logo-wrapper{
+    height:auto;
+    margin-bottom:18px;
+}
 
-  .hero-logo-mobile {
-    display: block;
-    width: 140px;
-    height: 140px;
-    margin: 0 auto 18px;
-  }
+.hero-logo-desktop{
+    display:none;
+}
+
+.hero-logo-mobile{
+    display:block;
+    position:static;
+    transform:none;
+    width:140px;
+    height:140px;
+    margin:0 auto;
+}
 
   .hero-content h1 {
     color: var(--bleu);
