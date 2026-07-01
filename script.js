@@ -16,6 +16,12 @@ if (toggle && menu) {
   toggle.addEventListener("click", () => {
     menu.classList.toggle("open");
   });
+
+  menu.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      menu.classList.remove("open");
+    });
+  });
 }
 
 /* ==========================================================
@@ -120,7 +126,8 @@ if (slides.length) {
   });
 }
 
-/* Animation des flèches sur mobile */
+/* Animation discrète des flèches sur mobile */
+
 if (window.innerWidth < 850 && prevBtn && nextBtn) {
   prevBtn.classList.add("animate");
   nextBtn.classList.add("animate");
@@ -132,6 +139,7 @@ if (window.innerWidth < 850 && prevBtn && nextBtn) {
 }
 
 /* Swipe mobile */
+
 let touchStartX = 0;
 let touchEndX = 0;
 
@@ -156,6 +164,34 @@ if (heroCarousel && slides.length) {
     startCarousel();
   });
 }
+
+/* ==========================================================
+   APPARITIONS AU SCROLL
+========================================================== */
+
+const revealTargets = document.querySelectorAll(
+  ".intro, .weekend, .domaine, .details, .gift, .footer"
+);
+
+revealTargets.forEach((element) => {
+  element.classList.add("reveal");
+});
+
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.14 }
+);
+
+revealTargets.forEach((element) => {
+  revealObserver.observe(element);
+});
 
 /* ==========================================================
    RSVP — AFFICHAGE CONDITIONNEL
