@@ -1137,7 +1137,7 @@ a {
 
 .program-icon{
     position:absolute;
-    top:-95px;
+    top:-125px;
     left:50%;
     transform:translateX(-50%);
     width:200px;
