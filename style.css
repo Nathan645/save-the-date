@@ -1193,3 +1193,31 @@ a {
     height: 115px;
   }
 }
+
+/* Jours */
+.weekend-card .day {
+    margin-bottom: 20px !important;
+}
+
+/* Icônes */
+.program-icon {
+    width: 95px !important;
+    height: 95px !important;
+    top: -90px !important;
+}
+
+/* Titres */
+.weekend-card h3 {
+    margin-top: 95px !important;
+    margin-bottom: 24px !important;
+}
+
+/* Cartes */
+.weekend-card {
+    min-height: 250px !important;
+    padding: 10px 35px 30px !important;
+}
+
+.weekend-card:nth-child(2) .day {
+    color: #214b86 !important;
+}
