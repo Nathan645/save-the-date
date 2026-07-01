@@ -1140,8 +1140,8 @@ a {
     top:-95px;
     left:50%;
     transform:translateX(-50%);
-    width:86px;
-    height:86px;
+    width:120px;
+    height:120px;
     display:flex;
     justify-content:center;
     align-items:center;
