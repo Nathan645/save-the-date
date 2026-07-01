@@ -132,6 +132,7 @@ a {
 
 /* ==========================================================
    04. HERO DESKTOP
+   Photo Ãƒ  gauche, texte/logo Ãƒ  droite, fond floutÃƒÂ©.
 ========================================================== */
 
 .hero-carousel {
@@ -203,31 +204,30 @@ a {
 .hero-content {
   position: absolute;
   z-index: 4;
-  top: 54%;
-  right: 6%;
+  top: 50%;
+  right: 7%;
   transform: translateY(-50%);
-  width: 650px;
+  width: 620px;
   text-align: center;
   color: white;
-  padding-top: 120px;
 }
 
+/* Logo du hero : blanc/or sur desktop, bleu/or sur mobile */
 .hero-logo-wrapper {
-  position: absolute;
-  top: -105px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 480px;
-  height: 240px;
   display: flex;
-  align-items: center;
   justify-content: center;
-  pointer-events: none;
+  align-items: center;
+}
+
+.hero-logo {
+  object-fit: contain;
+  display: block;
 }
 
 .hero-logo-desktop {
-  width: 300px;
-  height: auto;
+  width: 360px;
+  height: 360px;
+  margin-bottom: -10px;
 }
 
 .hero-logo-mobile {
@@ -284,6 +284,7 @@ a {
 
 /* ==========================================================
    05. CAROUSEL
+   FlÃƒÂ¨ches et points du carousel.
 ========================================================== */
 
 .carousel-btn {
@@ -509,24 +510,6 @@ a {
   font-size: 15px;
 }
 
-.program-icon {
-  display: block;
-  font-size: 30px;
-  line-height: 1;
-  margin-bottom: 14px;
-}
-
-.day-blue {
-  color: var(--bleu) !important;
-}
-
-.program-note {
-  margin-top: 18px;
-  font-size: 14px;
-  font-style: italic;
-  color: rgba(18, 58, 111, 0.68);
-}
-
 /* ==========================================================
    10. SECTION LE DOMAINE
 ========================================================== */
@@ -653,10 +636,7 @@ a {
 
 .footer-text{
     color:white;
-    text-align:center;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
+    text-align:left;
 }
 
 .footer-text h3{
@@ -670,12 +650,6 @@ a {
     font-size:30px;
     color:rgba(255,255,255,.85);
     margin-bottom:35px;
-}
-
-.footer-right{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
 }
 
 .footer-separator{
@@ -940,21 +914,16 @@ a {
     background: var(--beige);
   }
 
- .hero-logo-wrapper{
-    height:auto;
-    margin-bottom:18px;
-}
+  .hero-logo-desktop {
+    display: none;
+  }
 
-.hero-logo-desktop{
-    display:none;
-}
-
-.hero-logo-mobile{
-    display:block;
-    width:140px;
-    height:140px;
-    margin:0 auto;
-}
+  .hero-logo-mobile {
+    display: block;
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 18px;
+  }
 
   .hero-content h1 {
     color: var(--bleu);
@@ -1124,58 +1093,6 @@ a {
     max-width: 330px;
     min-width: 0;
   }
-}
-
-/* ==========================================================
-   EMOJIS PERSONNALISÉS
-========================================================== */
-
-.weekend-card h3{
-    position:relative;
-    margin-top:105px;
-}
-
-.program-icon{
-    position:absolute;
-    top:-150px;
-    left:50%;
-    transform:translateX(-50%);
-    width:200px;
-    height:200px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-
-.program-icon img{
-    width:100%;
-    height:100%;
-    object-fit:contain;
-}
-
-.info-icon{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    margin-bottom:22px;
-}
-
-.info-icon img{
-    width:62px;
-    height:62px;
-    object-fit:contain;
-}
-
-.dress-icons{
-    display:flex;
-    justify-content:center;
-    gap:18px;
-}
-
-.dress-icons img{
-    width:56px;
-    height:56px;
-    object-fit:contain;
 }
 
 /* ==========================================================
