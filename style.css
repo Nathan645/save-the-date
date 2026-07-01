@@ -2,11 +2,11 @@
 
 /* ==========================================================
    01. VARIABLES GLOBALES
-   Ici tu peux modifier les couleurs principales du site.
 ========================================================== */
 
 :root {
   --bleu: #123a6f;
+  --bleu-samedi: #214b86;
   --beige: #faf6f0;
   --blanc: #ffffff;
   --or: #c79a2e;
@@ -15,11 +15,14 @@
   --gris: #5f6670;
   --ligne: #e5ded4;
   --ombre: rgba(0, 0, 0, 0.28);
+
+  --radius: 10px;
+  --shadow-photo: 0 30px 80px rgba(0, 0, 0, 0.28);
+  --shadow-soft: 0 16px 36px rgba(18, 58, 111, 0.08);
 }
 
 /* ==========================================================
    02. RESET + BASE
-   Base gÃƒÂ©nÃƒÂ©rale du site.
 ========================================================== */
 
 * {
@@ -37,6 +40,7 @@ body {
   color: var(--bleu);
   font-family: "Montserrat", sans-serif;
   line-height: 1.7;
+  overflow-x: hidden;
 }
 
 img {
@@ -52,7 +56,6 @@ a {
   display: none !important;
 }
 
-/* DÃƒÂ©calage au clic sur les liens du menu sticky */
 #accueil,
 #weekend,
 #domaine,
@@ -63,7 +66,6 @@ a {
 
 /* ==========================================================
    03. HEADER + MENU
-   Logo, menu desktop et menu mobile.
 ========================================================== */
 
 .site-header {
@@ -72,6 +74,7 @@ a {
   z-index: 1000;
   background: rgba(250, 246, 240, 0.97);
   border-bottom: 1px solid var(--ligne);
+  backdrop-filter: blur(10px);
 }
 
 .header-inner {
@@ -93,7 +96,6 @@ a {
   width: 185px;
   height: 185px;
   object-fit: contain;
-  display: block;
 }
 
 .main-nav ul {
@@ -119,7 +121,7 @@ a {
   width: 0;
   height: 2px;
   background: var(--or);
-  transition: 0.3s ease;
+  transition: width 0.3s ease;
 }
 
 .main-nav a:hover::after {
@@ -132,13 +134,12 @@ a {
 
 /* ==========================================================
    04. HERO DESKTOP
-   Photo Ãƒ  gauche, texte/logo Ãƒ  droite, fond floutÃƒÂ©.
 ========================================================== */
 
 .hero-carousel {
   position: relative;
-  height: 88vh;
-  min-height: 620px;
+  height: 82vh;
+  min-height: 560px;
   overflow: hidden;
   background: var(--bleu);
 }
@@ -175,6 +176,11 @@ a {
   filter: blur(30px) brightness(0.72);
   transform: scale(1.12);
   opacity: 0.9;
+  transition: transform 6s ease;
+}
+
+.hero-slide.active .slide-bg {
+  transform: scale(1.18);
 }
 
 .slide-photo {
@@ -185,8 +191,12 @@ a {
   max-width: 42vw;
   max-height: 78vh;
   object-fit: contain;
-  border-radius: 10px;
-  box-shadow: 0 30px 80px var(--ombre);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-photo);
+}
+
+.hero-slide.active .slide-photo {
+  animation: photoEnter 1.1s ease both;
 }
 
 .hero-overlay {
@@ -212,7 +222,6 @@ a {
   color: white;
 }
 
-/* Logo du hero : blanc/or sur desktop, bleu/or sur mobile */
 .hero-logo-wrapper {
   display: flex;
   justify-content: center;
@@ -225,9 +234,10 @@ a {
 }
 
 .hero-logo-desktop {
-  width: 360px;
-  height: 360px;
-  margin-bottom: -10px;
+  width: 245px;
+  height: auto;
+  margin-bottom: 8px;
+  animation: floatLogo 6s ease-in-out infinite;
 }
 
 .hero-logo-mobile {
@@ -284,7 +294,6 @@ a {
 
 /* ==========================================================
    05. CAROUSEL
-   FlÃƒÂ¨ches et points du carousel.
 ========================================================== */
 
 .carousel-btn {
@@ -298,7 +307,7 @@ a {
   font-size: 52px;
   cursor: pointer;
   opacity: 0.85;
-  transition: 0.3s ease;
+  transition: opacity 0.3s ease, color 0.3s ease;
 }
 
 .carousel-btn:hover {
@@ -331,6 +340,11 @@ a {
   border: none;
   background: rgba(255, 255, 255, 0.65);
   cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.dot:hover {
+  transform: scale(1.2);
 }
 
 .dot.active {
@@ -338,7 +352,7 @@ a {
 }
 
 /* ==========================================================
-   06. INTRO + COMPTE Ãƒâ‚¬ REBOURS
+   06. INTRO + COMPTE Ã€ REBOURS
 ========================================================== */
 
 .intro {
@@ -394,7 +408,6 @@ a {
 
 /* ==========================================================
    07. BOUTONS PRINCIPAUX
-   Les 3 boutons du site utilisent le mÃƒÂªme style.
 ========================================================== */
 
 .btn {
@@ -411,14 +424,14 @@ a {
   text-transform: uppercase;
   letter-spacing: 1.6px;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: 0.35s ease;
   box-shadow: 0 10px 26px rgba(199, 154, 46, 0.18);
 }
 
 .btn:hover {
   background: transparent;
   color: var(--or);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   box-shadow: 0 14px 32px rgba(199, 154, 46, 0.25);
 }
 
@@ -453,16 +466,23 @@ a {
   height: 1px;
   background: var(--or);
   margin: 24px auto 0;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.8s ease;
+}
+
+.reveal.is-visible .section-heading::after,
+.section-heading.is-visible::after {
+  transform: scaleX(1);
 }
 
 /* ==========================================================
    09. SECTION LE WEEK-END
-   Zone future pour les icÃƒÂ´nes "fait main".
 ========================================================== */
 
 .weekend {
   background: var(--beige);
-  padding: 90px 40px;
+  padding: 72px 40px 82px;
   border-bottom: 1px solid var(--ligne);
 }
 
@@ -476,8 +496,13 @@ a {
 .weekend-card {
   padding: 20px 42px 30px;
   text-align: center;
-  min-height: 280px;
+  min-height: 300px;
   border-right: 1px solid var(--ligne);
+  transition: transform 0.35s ease;
+}
+
+.weekend-card:hover {
+  transform: translateY(-4px);
 }
 
 .weekend-card:last-child {
@@ -490,7 +515,12 @@ a {
   font-weight: 700;
   letter-spacing: 1.8px;
   text-transform: uppercase;
-  margin-bottom: 28px;
+  margin-bottom: 95px;
+}
+
+.weekend-card:nth-child(2) .day,
+.weekend-card .day.day-blue {
+  color: var(--bleu-samedi);
 }
 
 .weekend-card .day.pink {
@@ -505,13 +535,82 @@ a {
   margin-bottom: 20px;
 }
 
+.weekend-card h3 {
+  position: relative;
+  margin-top: 0;
+}
+
 .weekend-card p,
 .detail-card p {
   font-size: 15px;
 }
 
+.program-note {
+  margin-top: 18px;
+  font-size: 14px;
+  font-style: italic;
+  color: rgba(18, 58, 111, 0.68);
+}
+
 /* ==========================================================
-   10. SECTION LE DOMAINE
+   10. EMOJIS PERSONNALISÃ‰S
+========================================================== */
+
+.program-icon {
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  width: 95px;
+  height: 95px;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.program-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.35s ease;
+}
+
+.weekend-card:hover .program-icon img {
+  transform: scale(1.04);
+}
+
+.info-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.info-icon img {
+  width: 62px;
+  height: 62px;
+  object-fit: contain;
+  transition: transform 0.35s ease;
+}
+
+.detail-card:hover .info-icon img {
+  transform: scale(1.06);
+}
+
+.dress-icons {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+}
+
+.dress-icons img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+}
+
+/* ==========================================================
+   11. SECTION LE DOMAINE
 ========================================================== */
 
 .domaine {
@@ -529,10 +628,19 @@ a {
   align-items: center;
 }
 
+.domaine-image {
+  overflow: hidden;
+}
+
 .domaine-image img {
   width: 100%;
   height: 440px;
   object-fit: cover;
+  transition: transform 1s ease;
+}
+
+.domaine-image:hover img {
+  transform: scale(1.04);
 }
 
 .domaine-text h3 {
@@ -549,7 +657,7 @@ a {
 }
 
 /* ==========================================================
-   11. INFORMATIONS PRATIQUES
+   12. INFORMATIONS PRATIQUES
 ========================================================== */
 
 .details {
@@ -571,6 +679,12 @@ a {
   border: 1px solid var(--ligne);
   padding: 42px;
   text-align: center;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.detail-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-soft);
 }
 
 .detail-card ul {
@@ -585,7 +699,7 @@ a {
 }
 
 /* ==========================================================
-   12. CAGNOTTE
+   13. CAGNOTTE
 ========================================================== */
 
 .gift {
@@ -604,73 +718,73 @@ a {
   margin: 0 auto 34px;
 }
 
-/* ===========================
-   13. FOOTER
-=========================== */
-
-.footer{
-    background:#0f3c79;
-    padding:90px 40px;
-}
-
-.footer-content{
-    max-width:1200px;
-    margin:auto;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:70px;
-}
-
-.footer-logo img{
-    width:400px;
-    display:block;
-}
-
-.footer-divider{
-    width:1px;
-    height:180px;
-    background:rgba(255,255,255,.35);
-}
-
-.footer-text{
-    color:white;
-    text-align:left;
-}
-
-.footer-text h3{
-    font-family:"Cormorant Garamond",serif;
-    font-size:64px;
-    font-weight:500;
-    margin-bottom:20px;
-}
-
-.footer-text p{
-    font-size:30px;
-    color:rgba(255,255,255,.85);
-    margin-bottom:35px;
-}
-
-.footer-separator{
-    display:flex;
-    align-items:center;
-    gap:18px;
-}
-
-.footer-separator span{
-    width:80px;
-    height:2px;
-    background:rgba(255,255,255,.45);
-}
-
-.footer-separator i{
-    font-style:normal;
-    color:white;
-    font-size:14px;
-}
 /* ==========================================================
-   14. PAGE RSVP
+   14. FOOTER
+========================================================== */
+
+.footer {
+  background: #0f3c79;
+  padding: 90px 40px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 70px;
+}
+
+.footer-logo img {
+  width: 400px;
+}
+
+.footer-divider {
+  width: 1px;
+  height: 180px;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.footer-text {
+  color: white;
+  text-align: center;
+}
+
+.footer-text h3 {
+  font-family: "Cormorant Garamond", "Playfair Display", serif;
+  font-size: 64px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.footer-text p {
+  font-size: 30px;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 35px;
+}
+
+.footer-separator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+
+.footer-separator span {
+  width: 80px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.footer-separator i {
+  font-style: normal;
+  color: white;
+  font-size: 14px;
+}
+
+/* ==========================================================
+   15. PAGE RSVP
 ========================================================== */
 
 .rsvp-form {
@@ -706,7 +820,49 @@ a {
 }
 
 /* ==========================================================
-   15. TABLETTE
+   16. ANIMATIONS AU SCROLL
+========================================================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal .weekend-card,
+.reveal .detail-card {
+  opacity: 0;
+  transform: translateY(34px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+
+.reveal.is-visible .weekend-card,
+.reveal.is-visible .detail-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal.is-visible .weekend-card:nth-child(1),
+.reveal.is-visible .detail-card:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.reveal.is-visible .weekend-card:nth-child(2),
+.reveal.is-visible .detail-card:nth-child(2) {
+  transition-delay: 0.25s;
+}
+
+.reveal.is-visible .weekend-card:nth-child(3) {
+  transition-delay: 0.4s;
+}
+
+/* ==========================================================
+   17. RESPONSIVE TABLETTE
 ========================================================== */
 
 @media (max-width: 1050px) {
@@ -729,9 +885,7 @@ a {
   }
 
   .hero-logo-desktop {
-    width: 290px;
-    height: 290px;
-    margin-bottom: -8px;
+    width: 235px;
   }
 
   .hero-content h1 {
@@ -748,8 +902,7 @@ a {
 }
 
 /* ==========================================================
-   16. MOBILE
-   Hero mobile, menu burger, sections en une colonne.
+   18. RESPONSIVE MOBILE
 ========================================================== */
 
 @media (max-width: 850px) {
@@ -828,6 +981,10 @@ a {
     filter: blur(26px) brightness(0.75);
     transform: scale(1.16);
     opacity: 0.7;
+  }
+
+  .hero-slide.active .slide-bg {
+    transform: scale(1.16);
   }
 
   .slide-photo {
@@ -945,9 +1102,8 @@ a {
     font-size: 18px;
   }
 
-  .footer-logo-img {
-    width: 220px;
-    height: 180px;
+  .weekend {
+    padding: 60px 22px;
   }
 
   .weekend-grid,
@@ -957,6 +1113,8 @@ a {
   }
 
   .weekend-card {
+    min-height: auto;
+    padding: 36px 24px 48px;
     border-right: none;
     border-bottom: 1px solid var(--ligne);
   }
@@ -965,53 +1123,63 @@ a {
     border-bottom: none;
   }
 
+  .weekend-card .day {
+    margin-bottom: 85px;
+  }
+
+  .program-icon {
+    top: -105px;
+    width: 85px;
+    height: 85px;
+  }
+
   .domaine-text {
     text-align: center;
   }
 }
+
 /* ==========================================================
-   17. MOBILE plus petit
+   19. RESPONSIVE MOBILE FOOTER
 ========================================================== */
-@media (max-width:768px){
 
-.footer{
-    padding:70px 30px;
-}
+@media (max-width: 768px) {
+  .footer {
+    padding: 70px 30px;
+  }
 
-.footer-content{
-    flex-direction:column;
-    gap:35px;
-}
+  .footer-content {
+    flex-direction: column;
+    gap: 35px;
+  }
 
-.footer-divider{
-    width:140px;
-    height:1px;
-}
+  .footer-divider {
+    width: 140px;
+    height: 1px;
+  }
 
-.footer-logo img{
-    width:140px;
-}
+  .footer-logo img {
+    width: 140px;
+  }
 
-.footer-text{
-    text-align:center;
-}
+  .footer-text {
+    text-align: center;
+  }
 
-.footer-text h3{
-    font-size:38px;
-}
+  .footer-text h3 {
+    font-size: 38px;
+  }
 
-.footer-text p{
-    font-size:22px;
-}
+  .footer-text p {
+    font-size: 22px;
+  }
 
-.footer-separator{
-    justify-content:center;
-}
-
+  .footer-separator {
+    justify-content: center;
+  }
 }
 
 /* ==========================================================
-   17. PETITS MOBILES
+   20. PETITS MOBILES
 ========================================================== */
 
 @media (max-width: 520px) {
@@ -1078,11 +1246,6 @@ a {
     height: 280px;
   }
 
-  .footer-logo-img {
-    width: 170px;
-    height: 170px;
-  }
-
   .detail-card,
   .rsvp-form {
     padding: 30px 22px;
@@ -1096,16 +1259,18 @@ a {
 }
 
 /* ==========================================================
-   18. ANIMATIONS
+   21. KEYFRAMES
 ========================================================== */
 
 @keyframes hintLeft {
   0% {
     transform: translateY(-50%) translateX(0);
   }
+
   50% {
     transform: translateY(-50%) translateX(-6px);
   }
+
   100% {
     transform: translateY(-50%) translateX(0);
   }
@@ -1115,109 +1280,49 @@ a {
   0% {
     transform: translateY(-50%) translateX(0);
   }
+
   50% {
     transform: translateY(-50%) translateX(6px);
   }
+
   100% {
     transform: translateY(-50%) translateX(0);
   }
 }
 
+@keyframes floatLogo {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes photoEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(14px) scale(0.985);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 /* ==========================================================
-   CORRECTIONS FINALES HERO + PROGRAMME
+   22. ACCESSIBILITÃ‰
 ========================================================== */
 
-/* HERO : moins haut, logo plus contenu */
-.hero-carousel {
-  height: 82vh;
-  min-height: 560px;
-}
-
-.hero-content {
-  top: 50%;
-  padding-top: 70px;
-}
-
-.hero-logo-wrapper {
-  top: -70px;
-  height: 180px;
-}
-
-.hero-logo-desktop {
-  width: 245px;
-}
-
-/* PROGRAMME : emojis moins énormes + texte moins bas */
-.weekend {
-  padding: 80px 40px;
-}
-
-.weekend-card {
-  min-height: 360px;
-  padding-top: 10px;
-}
-
-.weekend-card h3 {
-  margin-top: 145px;
-}
-
-.program-icon {
-  top: -130px;
-  width: 135px;
-  height: 135px;
-}
-
-/* Version mobile : éviter que les icônes prennent trop de place */
-@media (max-width: 850px) {
-  .hero-carousel {
-    height: auto;
-    min-height: 0;
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
   }
-
-  .hero-content {
-    padding-top: 46px;
-  }
-
-  .weekend-card {
-    min-height: auto;
-    padding: 55px 24px 50px;
-  }
-
-  .weekend-card h3 {
-    margin-top: 115px;
-  }
-
-  .program-icon {
-    top: -105px;
-    width: 115px;
-    height: 115px;
-  }
-}
-
-/* Jours */
-.weekend-card .day {
-    margin-bottom: 20px !important;
-}
-
-/* Icônes */
-.program-icon {
-    width: 95px !important;
-    height: 95px !important;
-    top: -90px !important;
-}
-
-/* Titres */
-.weekend-card h3 {
-    margin-top: 95px !important;
-    margin-bottom: 24px !important;
-}
-
-/* Cartes */
-.weekend-card {
-    min-height: 250px !important;
-    padding: 10px 35px 30px !important;
-}
-
-.weekend-card:nth-child(2) .day {
-    color: #214b86 !important;
 }
