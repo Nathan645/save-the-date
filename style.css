@@ -1122,3 +1122,74 @@ a {
     transform: translateY(-50%) translateX(0);
   }
 }
+
+/* ==========================================================
+   CORRECTIONS FINALES HERO + PROGRAMME
+========================================================== */
+
+/* HERO : moins haut, logo plus contenu */
+.hero-carousel {
+  height: 82vh;
+  min-height: 560px;
+}
+
+.hero-content {
+  top: 50%;
+  padding-top: 70px;
+}
+
+.hero-logo-wrapper {
+  top: -70px;
+  height: 180px;
+}
+
+.hero-logo-desktop {
+  width: 245px;
+}
+
+/* PROGRAMME : emojis moins énormes + texte moins bas */
+.weekend {
+  padding: 80px 40px;
+}
+
+.weekend-card {
+  min-height: 360px;
+  padding-top: 10px;
+}
+
+.weekend-card h3 {
+  margin-top: 145px;
+}
+
+.program-icon {
+  top: -130px;
+  width: 135px;
+  height: 135px;
+}
+
+/* Version mobile : éviter que les icônes prennent trop de place */
+@media (max-width: 850px) {
+  .hero-carousel {
+    height: auto;
+    min-height: 0;
+  }
+
+  .hero-content {
+    padding-top: 46px;
+  }
+
+  .weekend-card {
+    min-height: auto;
+    padding: 55px 24px 50px;
+  }
+
+  .weekend-card h3 {
+    margin-top: 115px;
+  }
+
+  .program-icon {
+    top: -105px;
+    width: 115px;
+    height: 115px;
+  }
+}
