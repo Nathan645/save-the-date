@@ -1135,6 +1135,43 @@ a {
   }
 }
 
+/* ===== Emojis personnalisés ===== */
+
+.program-icon{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:18px 0 28px;
+}
+
+.program-icon img{
+    width:68px;
+    height:68px;
+    object-fit:contain;
+}
+
+.info-icon{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:22px;
+}
+
+.info-icon img{
+    width:62px;
+    height:62px;
+    object-fit:contain;
+}
+
+.dress-icons{
+    gap:18px;
+}
+
+.dress-icons img{
+    width:56px;
+    height:56px;
+}
+
 /* ==========================================================
    18. ANIMATIONS
 ========================================================== */
