@@ -874,6 +874,16 @@ a {
   transition-delay: 0.4s;
 }
 
+.secret-link {
+  color: inherit;
+  text-decoration: none;
+  cursor: default;
+}
+
+.secret-link:hover {
+  color: var(--or);
+}
+
 
 /* ==========================================================
    17. RESPONSIVE TABLETTE
@@ -1382,12 +1392,4 @@ a {
   }
 }
 
-.secret-link {
-  color: inherit;
-  text-decoration: none;
-  cursor: default;
-}
 
-.secret-link:hover {
-  color: var(--or);
-}
