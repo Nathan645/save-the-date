@@ -98,7 +98,7 @@ function prevSlide() {
 
 function startCarousel() {
   stopCarousel();
-  carouselInterval = setInterval(nextSlide, 6000);
+  carouselInterval = setInterval(nextSlide, 5000);
 }
 
 function stopCarousel() {
