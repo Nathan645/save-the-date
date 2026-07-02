@@ -879,6 +879,13 @@ a {
   .hero-place {
     margin-bottom: 42px;
   }
+   
+    .hero-content{
+        left: 56%;
+        transform: translate(-50%, -50%);
+    }
+
+}
 }
 
 @media (max-width: 1050px) {
