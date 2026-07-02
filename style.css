@@ -352,7 +352,7 @@ a {
 }
 
 /* ==========================================================
-   06. INTRO + COMPTE Ãƒâ‚¬ REBOURS
+   06. INTRO + COMPTE ÃƒÆ’Ã¢â€šÂ¬ REBOURS
 ========================================================== */
 
 .intro {
@@ -553,7 +553,7 @@ a {
 }
 
 /* ==========================================================
-   10. EMOJIS PERSONNALISÃƒâ€°S
+   10. EMOJIS PERSONNALISÃƒÆ’Ã¢â‚¬Â°S
 ========================================================== */
 
 .program-icon {
@@ -895,10 +895,9 @@ a {
    
     .hero-content{
         left: 75%;
+        right: auto;
         transform: translate(-50%, -50%);
     }
-
-}
 }
 
 @media (max-width: 1050px) {
@@ -948,6 +947,11 @@ a {
   #details,
   #cagnotte {
     scroll-margin-top: 140px;
+  }
+
+  .domaine-gallery {
+    grid-template-columns: 1fr;
+    grid-template-rows: 260px 210px 210px;
   }
 
   .domaine-photo-large {
@@ -1282,8 +1286,8 @@ a {
     letter-spacing: 1px;
   }
 
-  .domaine-image img {
-    height: 280px;
+  .domaine-gallery {
+    grid-template-rows: 240px 190px 190px;
   }
 
   .detail-card,
@@ -1354,7 +1358,7 @@ a {
 }
 
 /* ==========================================================
-   22. ACCESSIBILITÃƒâ€°
+   22. ACCESSIBILITÃƒÆ’Ã¢â‚¬Â°
 ========================================================== */
 
 @media (prefers-reduced-motion: reduce) {
