@@ -628,18 +628,31 @@ a {
   align-items: center;
 }
 
-.domaine-image {
-  overflow: hidden;
+.domaine-gallery {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  grid-template-rows: 260px 260px;
+  gap: 14px;
 }
 
-.domaine-image img {
+.domaine-photo {
+  overflow: hidden;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+}
+
+.domaine-photo-large {
+  grid-row: span 2;
+}
+
+.domaine-photo img {
   width: 100%;
-  height: 440px;
+  height: 100%;
   object-fit: cover;
   transition: transform 1s ease;
 }
 
-.domaine-image:hover img {
+.domaine-photo:hover img {
   transform: scale(1.04);
 }
 
@@ -935,6 +948,10 @@ a {
   #details,
   #cagnotte {
     scroll-margin-top: 140px;
+  }
+
+  .domaine-photo-large {
+    grid-row: auto;
   }
 
   .header-inner {
