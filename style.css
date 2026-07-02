@@ -1077,10 +1077,10 @@ a {
 
   .hero-logo-mobile {
     display: block;
-    width: 140px;
-    height: 140px;
+    width: 170px;
+    height: 170px;
     margin: 0 auto 18px;
-  }
+}
 
   .hero-content h1 {
     color: var(--bleu);
@@ -1128,7 +1128,7 @@ a {
   }
 
   .program-icon {
-    top: -105px;
+    top: -85px;
     width: 105px;
     height: 105px;
   }
@@ -1158,7 +1158,7 @@ a {
   }
 
   .footer-logo img {
-    width: 140px;
+    width: 180px;
   }
 
   .footer-text {
