@@ -861,9 +861,25 @@ a {
   transition-delay: 0.4s;
 }
 
+
 /* ==========================================================
    17. RESPONSIVE TABLETTE
 ========================================================== */
+@media (min-width: 851px) and (max-width: 1200px) {
+  .dot {
+    width: 9px;
+    height: 9px;
+  }
+
+  .carousel-dots {
+    gap: 9px;
+    bottom: 18px;
+  }
+
+  .hero-place {
+    margin-bottom: 42px;
+  }
+}
 
 @media (max-width: 1050px) {
   .header-inner {
