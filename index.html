@@ -1,27 +1,49 @@
 <!DOCTYPE html>
 <html lang="fr">
-  
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+
   <title>Claire & Nathan — Mariage | 10 juillet 2027</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <meta
     name="description"
     content="Bienvenue sur le site du mariage de Claire & Nathan. Retrouvez toutes les informations du week-end, le programme, le domaine et confirmez votre présence."
-  >
+  />
+
   <meta
     name="keywords"
     content="Claire Nathan mariage, mariage 2027, Domaine de Peyreguilhot, mariage Lot-et-Garonne"
-  >
+  />
+
+  <meta name="author" content="Claire & Nathan" />
+  <meta name="theme-color" content="#123a6f" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Claire & Nathan — Mariage" />
   <meta
-    name="author"
-    content="Claire & Nathan"
-  >
+    property="og:description"
+    content="Toutes les informations concernant notre mariage du 10 juillet 2027."
+  />
+  <meta property="og:image" content="https://nathan645.github.io/images/share.jpg" />
+  <meta property="og:url" content="https://nathan645.github.io/" />
+  <meta property="og:locale" content="fr_FR" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Claire & Nathan — Mariage" />
   <meta
-    name="theme-color"
-    content="#123a6f"
-  >
-  <link rel="stylesheet" href="style.css?v=6">
+    name="twitter:description"
+    content="Bienvenue sur notre site de mariage."
+  />
+  <meta name="twitter:image" content="https://nathan645.github.io/images/share.jpg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/logo/favicon.png" />
+
+  <link rel="stylesheet" href="style.css?v=7" />
 </head>
 
 <body>
@@ -55,111 +77,97 @@
 
 <main>
 
-<!-- ==========================================================
-     HERO
-========================================================== -->
-
 <section class="hero-carousel" id="accueil">
 
-    <div class="carousel-slides">
+  <div class="carousel-slides">
 
-        <div class="hero-slide active">
-            <img src="images/hero/hero1.jpg" class="slide-bg" alt="">
-            <img src="images/hero/hero1.jpg" class="slide-photo" alt="Claire et Nathan">
-        </div>
+    <div class="hero-slide active">
+      <img src="images/hero/hero1.jpg" class="slide-bg" alt="">
+      <img src="images/hero/hero1.jpg" class="slide-photo" alt="Claire et Nathan">
+    </div>
 
-        <div class="hero-slide">
-            <img src="images/hero/hero2.jpg" class="slide-bg" alt="">
-            <img src="images/hero/hero2.jpg" class="slide-photo" alt="Claire et Nathan">
-        </div>
+    <div class="hero-slide">
+      <img src="images/hero/hero2.jpg" class="slide-bg" alt="">
+      <img src="images/hero/hero2.jpg" class="slide-photo" alt="Claire et Nathan">
+    </div>
 
-        <div class="hero-slide">
-            <img src="images/hero/hero3.jpg" class="slide-bg" alt="">
-            <img src="images/hero/hero3.jpg" class="slide-photo" alt="Claire et Nathan">
-        </div>
+    <div class="hero-slide">
+      <img src="images/hero/hero3.jpg" class="slide-bg" alt="">
+      <img src="images/hero/hero3.jpg" class="slide-photo" alt="Claire et Nathan">
+    </div>
 
-        <div class="hero-slide">
-            <img src="images/hero/hero4.jpg" class="slide-bg" alt="">
-            <img src="images/hero/hero4.jpg" class="slide-photo" alt="Claire et Nathan">
-        </div>
+    <div class="hero-slide">
+      <img src="images/hero/hero4.jpg" class="slide-bg" alt="">
+      <img src="images/hero/hero4.jpg" class="slide-photo" alt="Claire et Nathan">
+    </div>
 
-        <div class="hero-slide">
-            <img src="images/hero/hero5.jpg" class="slide-bg" alt="">
-            <img src="images/hero/hero5.jpg" class="slide-photo" alt="Claire et Nathan">
-        </div>
+    <div class="hero-slide">
+      <img src="images/hero/hero5.jpg" class="slide-bg" alt="">
+      <img src="images/hero/hero5.jpg" class="slide-photo" alt="Claire et Nathan">
+    </div>
 
-        <div class="hero-slide">
-            <img src="images/hero/hero6.jpg" class="slide-bg" alt="">
-            <img src="images/hero/hero6.jpg" class="slide-photo" alt="Claire et Nathan">
-        </div>
+    <div class="hero-slide">
+      <img src="images/hero/hero6.jpg" class="slide-bg" alt="">
+      <img src="images/hero/hero6.jpg" class="slide-photo" alt="Claire et Nathan">
+    </div>
+
+  </div>
+
+  <button class="carousel-btn prev" id="prev-slide" aria-label="Photo précédente">
+    &#10094;
+  </button>
+
+  <button class="carousel-btn next" id="next-slide" aria-label="Photo suivante">
+    &#10095;
+  </button>
+
+  <div class="carousel-dots">
+    <button class="dot active" data-slide="0"></button>
+    <button class="dot" data-slide="1"></button>
+    <button class="dot" data-slide="2"></button>
+    <button class="dot" data-slide="3"></button>
+    <button class="dot" data-slide="4"></button>
+    <button class="dot" data-slide="5"></button>
+  </div>
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+
+    <div class="hero-logo-wrapper">
+
+      <img
+        src="images/logo/logo-cn-white-gold.png"
+        alt="Claire & Nathan"
+        class="hero-logo hero-logo-desktop"
+      >
+
+      <img
+        src="images/logo/logo-cn-blue-gold.png"
+        alt="Claire & Nathan"
+        class="hero-logo hero-logo-mobile"
+      >
 
     </div>
 
-    <!-- Flèches -->
+    <h1>Claire & Nathan</h1>
 
-    <button class="carousel-btn prev" id="prev-slide" aria-label="Photo précédente">
-        &#10094;
-    </button>
+    <div class="gold-line"></div>
 
-    <button class="carousel-btn next" id="next-slide" aria-label="Photo suivante">
-        &#10095;
-    </button>
+    <p class="hero-text">
+      Ont le plaisir de vous accueillir pour<br>
+      un week-end de célébration
+    </p>
 
-    <!-- Points -->
+    <p class="hero-date">
+      8 • 10 • 11 JUILLET 2027
+    </p>
 
-    <div class="carousel-dots">
-        <button class="dot active" data-slide="0"></button>
-        <button class="dot" data-slide="1"></button>
-        <button class="dot" data-slide="2"></button>
-        <button class="dot" data-slide="3"></button>
-        <button class="dot" data-slide="4"></button>
-        <button class="dot" data-slide="5"></button>
-    </div>
+    <p class="hero-place">
+      LAPARADE • 47260
+    </p>
 
-    <!-- Dégradé -->
-
-    <div class="hero-overlay"></div>
-
-    <!-- Texte -->
-
-    <div class="hero-content">
-
-        <div class="hero-logo-wrapper">
-
-            <!-- Version Desktop -->
-
-            <img
-                src="images/logo/logo-cn-white-gold.png"
-                alt="Claire & Nathan"
-                class="hero-logo hero-logo-desktop">
-
-            <!-- Version Mobile -->
-
-            <img
-                src="images/logo/logo-cn-blue-gold.png"
-                alt="Claire & Nathan"
-                class="hero-logo hero-logo-mobile">
-
-        </div>
-
-        <h1>Claire & Nathan</h1>
-
-        <div class="gold-line"></div>
-
-        <p class="hero-text">
-            Ont le plaisir de vous accueillir pour<br>
-            un week-end de célébration
-        </p>
-
-        <p class="hero-date">
-            8 • 10 • 11 JUILLET 2027
-        </p>
-
-        <p class="hero-place">
-            LAPARADE • 47260
-        </p>
-
-    </div>
+  </div>
 
 </section>
 
@@ -207,7 +215,7 @@
 
       <h3>
         <span class="program-icon">
-        <img src="images/emoji/mairie.png" alt="Mairie">
+          <img src="images/emoji/mairie.png" alt="Mairie">
         </span>
         Mariage civil
       </h3>
@@ -223,7 +231,7 @@
 
       <h3>
         <span class="program-icon">
-        <img src="images/emoji/eglise.png" alt="Église">
+          <img src="images/emoji/eglise.png" alt="Église">
         </span>
         Le grand jour
       </h3>
@@ -243,7 +251,7 @@
 
       <h3>
         <span class="program-icon">
-        <img src="images/emoji/croissant.png" alt="Brunch">
+          <img src="images/emoji/croissant.png" alt="Brunch">
         </span>
         Brunch
       </h3>
@@ -269,6 +277,7 @@
       <img
         src="images/domaine/domaine.jpg"
         alt="Domaine de Peyreguilhot"
+        loading="lazy"
       >
     </div>
 
@@ -276,14 +285,15 @@
       <h3>Domaine de Peyreguilhot</h3>
 
       <p>
-        Au cœur du Lot-et-Garonne, le Domaine de Peyreguilhot nous accueillera pour célébrer cette journée si particulière. 
-        C'est dans ce cadre paisible et chaleureux que nous avons choisi de réunir tous ceux qui nous sont 
+        Au cœur du Lot-et-Garonne, le Domaine de Peyreguilhot nous accueillera pour célébrer cette journée si particulière.
+        C'est dans ce cadre paisible et chaleureux que nous avons choisi de réunir tous ceux qui nous sont
         chers pour partager un moment de bonheur, de rires et d'émotions.
       </p>
 
       <a
         href="https://maps.app.goo.gl/nFMkLHgVJSHyVMQE6?g_st=ic"
         target="_blank"
+        rel="noopener noreferrer"
         class="btn"
       >
         Voir sur Google Maps
@@ -305,15 +315,15 @@
       <h3>Hébergement</h3>
 
       <p>
-       Bonne nouvelle ! Le domaine peut accueillir l'ensemble de nos invités sur place. <br>
-       Si vous souhaitez en profiter, merci de nous indiquer vos besoins en hébergement lors de votre confirmation de présence.
+        Bonne nouvelle ! Le domaine peut accueillir l'ensemble de nos invités sur place. <br>
+        Si vous souhaitez en profiter, merci de nous indiquer vos besoins en hébergement lors de votre confirmation de présence.
       </p>
 
       <ul>
         <li>Nuit du samedi : 40€ / nuit / personne</li>
         <li>Nuits du jeudi, vendredi et dimanche : 20€ / nuit / personne</li>
       </ul>
-      
+
     </article>
 
     <article class="detail-card">
@@ -351,6 +361,7 @@
     <a
       href="https://www.leetchi.com"
       target="_blank"
+      rel="noopener noreferrer"
       class="btn"
     >
       Accéder à la cagnotte
@@ -367,6 +378,7 @@
         src="images/logo/logo-cn-white.png"
         alt="Logo Claire et Nathan"
         class="footer-logo-img"
+        loading="lazy"
       />
     </div>
 
@@ -388,6 +400,6 @@
 
 </main>
 
-<script src="script.js?v=6"></script>
+<script src="script.js?v=7"></script>
 </body>
 </html>
