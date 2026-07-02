@@ -560,8 +560,8 @@ a {
   position: absolute;
   top: -105px;
   left: 50%;
-  width: 160px;
-  height: 160px;
+  width: 180px;
+  height: 180px;
   transform: translateX(-50%);
   display: flex;
   justify-content: center;
