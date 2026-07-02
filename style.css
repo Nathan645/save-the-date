@@ -1,5 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap");
 
+<!-- Open Graph -->
+
+<meta property="og:type" content="website">
+
+<meta property="og:title"
+content="Claire & Nathan — Mariage">
+
+<meta property="og:description"
+content="Toutes les informations concernant notre mariage du 10 juillet 2027.">
+
+<meta property="og:image"
+content="https://nathan645.github.io/images/share.jpg">
+
+<meta property="og:url"
+content="https://nathan645.github.io/">
+
+<meta property="og:locale"
+content="fr_FR">
+
 /* ==========================================================
    01. VARIABLES GLOBALES
 ========================================================== */
