@@ -884,6 +884,93 @@ a {
   color: var(--or);
 }
 
+/* ===============================
+   BONUS
+================================ */
+
+.bonus {
+
+    max-width: 1300px;
+    margin: 180px auto 100px;
+    padding: 0 40px;
+    text-align: center;
+}
+
+.bonus h1{
+    font-size:3.8rem;
+    color:var(--bleu);
+    margin-bottom:10px;
+}
+
+.bonus h2{
+    font-size:2rem;
+    margin-bottom:30px;
+    color:var(--bleu);
+}
+
+.bonus p{
+    max-width:700px;
+    margin:0 auto 60px;
+    font-size:1.15rem;
+    line-height:1.8;
+}
+
+.bonus-gallery{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+.bonus-gallery img{
+    width:100%;
+    height:650px;
+    object-fit:cover;
+    border-radius:20px;
+    box-shadow:0 20px 50px rgba(0,0,0,.15);
+    transition:.4s;
+}
+
+.bonus-gallery img:hover{
+    transform:scale(1.02);
+}
+
+.bonus-end{
+    margin-top:50px;
+    font-style:italic;
+    opacity:.8;
+}
+
+@media (max-width:900px){
+
+.bonus{
+margin-top:140px;
+padding:0 20px;
+
+}
+
+.bonus-gallery{
+
+grid-template-columns:1fr;
+
+}
+
+.bonus-gallery img{
+height:420px;
+
+}
+
+.bonus h1{
+font-size:2.8rem;
+
+}
+
+.bonus h2{
+font-size:1.6rem;
+
+}
+
+}
+
 
 /* ==========================================================
    17. RESPONSIVE TABLETTE
