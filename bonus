@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Claire & Nathan — Surprise</title>
+
+    <link rel="icon" href="images/logo/favicon.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="site-header">
+    <div class="header-inner">
+
+        <a href="index.html" class="brand">
+            <img
+                src="images/logo/logo-cn-blue-gold.jpg"
+                alt="Claire et Nathan"
+                class="brand-logo">
+        </a>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Retour au site</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+
+<section class="bonus">
+
+    <h1>🎉 Bravo !</h1>
+
+    <h2>Tu as trouvé le lien surprise.</h2>
+
+    <p>
+        Comme tu fais partie des curieux, tu as gagné le droit
+        d'admirer quelques pépites de notre galerie secrète...
+    </p>
+
+    <div class="bonus-gallery">
+
+        <img src="images/bonus/photo1.jpg" alt="Photo dossier">
+
+        <img src="images/bonus/photo2.jpg" alt="Photo dossier">
+
+    </div>
+
+    <p class="bonus-end">
+        Promis... elles ne seront pas diffusées le jour du mariage. 🤫
+    </p>
+
+</section>
+
+</body>
+</html>
