@@ -61,7 +61,7 @@ a {
 #domaine,
 #details,
 #cagnotte {
-  scroll-margin-top: 150px;
+  scroll-margin-top: 115px;
 }
 
 /* ==========================================================
@@ -80,7 +80,7 @@ a {
 .header-inner {
   max-width: 1400px;
   margin: auto;
-  padding: 14px 42px;
+  padding: 8px 42px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -93,8 +93,8 @@ a {
 }
 
 .brand-logo {
-  width: 185px;
-  height: 185px;
+  width: 125px;
+  height: 125px;
   object-fit: contain;
 }
 
@@ -352,7 +352,7 @@ a {
 }
 
 /* ==========================================================
-   06. INTRO + COMPTE ÃƒÆ’Ã¢â€šÂ¬ REBOURS
+   06. INTRO + COMPTE ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ REBOURS
 ========================================================== */
 
 .intro {
@@ -553,7 +553,7 @@ a {
 }
 
 /* ==========================================================
-   10. EMOJIS PERSONNALISÃƒÆ’Ã¢â‚¬Â°S
+   10. EMOJIS PERSONNALISÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â°S
 ========================================================== */
 
 .program-icon {
@@ -891,7 +891,7 @@ a {
 .bonus {
 
     max-width: 1300px;
-    margin: 180px auto 100px;
+    margin: 120px auto 100px;
     padding: 0 40px;
     text-align: center;
 }
@@ -943,7 +943,7 @@ a {
 @media (max-width:900px){
 
 .bonus{
-margin-top:140px;
+margin-top:100px;
 padding:0 20px;
 
 }
@@ -999,12 +999,12 @@ font-size:1.6rem;
 
 @media (max-width: 1050px) {
   .header-inner {
-    padding: 14px 28px;
+    padding: 8px 28px;
   }
 
   .brand-logo {
-    width: 155px;
-    height: 155px;
+    width: 112px;
+    height: 112px;
   }
 
   .main-nav ul {
@@ -1043,7 +1043,7 @@ font-size:1.6rem;
   #domaine,
   #details,
   #cagnotte {
-    scroll-margin-top: 140px;
+    scroll-margin-top: 110px;
   }
 
 .domaine-gallery {
@@ -1068,12 +1068,12 @@ font-size:1.6rem;
 
   .header-inner {
     flex-wrap: wrap;
-    padding: 12px 24px;
+    padding: 8px 24px;
   }
 
   .brand-logo {
-    width: 126px;
-    height: 126px;
+    width: 105px;
+    height: 105px;
   }
 
   #menu-toggle {
@@ -1336,8 +1336,8 @@ font-size:1.6rem;
 
 @media (max-width: 520px) {
   .brand-logo {
-    width: 108px;
-    height: 108px;
+    width: 92px;
+    height: 92px;
   }
 
   .carousel-slides {
@@ -1466,7 +1466,7 @@ font-size:1.6rem;
 }
 
 /* ==========================================================
-   22. ACCESSIBILITÃƒÆ’Ã¢â‚¬Â°
+   22. ACCESSIBILITÉ
 ========================================================== */
 
 @media (prefers-reduced-motion: reduce) {
@@ -1478,5 +1478,3 @@ font-size:1.6rem;
     scroll-behavior: auto !important;
   }
 }
-
-
