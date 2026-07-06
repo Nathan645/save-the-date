@@ -343,12 +343,16 @@ giftModalForm?.addEventListener("submit", (e) => {
   e.preventDefault();
 
   const amount = giftAmount.value;
+  const giftName = modalGiftTitle.textContent;
+  const displayName =
+    giftModalForm.querySelector('[name="nom_affichage"]')?.value || "Merci";
 
   closeGiftModal();
 
-  document.getElementById("gift-thanks-title").textContent = "Merci beaucoup ❤️";
-  document.getElementById("gift-thanks-text").textContent =
-    `Votre participation de ${amount} € a bien été enregistrée.`;
+  document.getElementById("gift-thanks-text").innerHTML =
+    `<strong>${displayName}</strong>, votre participation de <strong>${amount} €</strong>
+     pour <strong>${giftName}</strong> a bien été enregistrée.<br>
+     Il ne reste plus qu'à choisir votre moyen de paiement.`;
 
   document.getElementById("gift-thanks-modal").classList.remove("hidden");
   document.body.style.overflow = "hidden";
@@ -362,4 +366,28 @@ document.getElementById("gift-thanks-close")?.addEventListener("click", () => {
 document.getElementById("gift-thanks-button")?.addEventListener("click", () => {
   document.getElementById("gift-thanks-modal").classList.add("hidden");
   document.body.style.overflow = "";
+});
+
+function closeThanksModal() {
+  document.getElementById("gift-thanks-modal")?.classList.add("hidden");
+  document.body.style.overflow = "";
+}
+
+document.getElementById("gift-thanks-button")?.addEventListener("click", closeThanksModal);
+document.getElementById("gift-thanks-x")?.addEventListener("click", closeThanksModal);
+document.getElementById("gift-thanks-close")?.addEventListener("click", closeThanksModal);
+
+document.querySelectorAll(".copy-btn").forEach((button) => {
+  button.addEventListener("click", () => {
+    navigator.clipboard.writeText(button.dataset.copy);
+
+    const oldText = button.textContent;
+    button.textContent = "Copié ✓";
+    button.classList.add("copied");
+
+    setTimeout(() => {
+      button.textContent = oldText;
+      button.classList.remove("copied");
+    }, 1800);
+  });
 });
