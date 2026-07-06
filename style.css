@@ -1644,22 +1644,27 @@ font-size:1.6rem;
   overflow: hidden;
   border-radius: var(--radius);
   background: var(--blanc);
+  display: flex;
+  flex-direction: column;
 }
 
 .gift-card-photo img {
   width: 100%;
-  height: 185px;
+  height: 190px;
   object-fit: cover;
 }
 
 .gift-card-body {
   padding: 20px 22px 24px;
-  text-align: left;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .gift-card-photo h3 {
   font-family: "Montserrat", sans-serif;
-  min-height: 48px;
+  min-height: 52px;
   font-size: 14px;
   line-height: 1.45;
   font-weight: 700;
@@ -1671,11 +1676,18 @@ font-size:1.6rem;
 .gift-price {
   font-family: "Playfair Display", serif;
   color: var(--or);
-  font-size: 28px;
+  font-size: 30px;
   font-weight: 600;
-  text-align: center;
-  padding-top: 14px;
+  margin: 0 auto 20px;
+  padding-top: 16px;
+  width: 80%;
   border-top: 1px solid rgba(199, 154, 46, 0.45);
+}
+
+.gift-card-photo .gift-btn {
+  margin-top: auto;
+  align-self: center;
+  min-width: 170px;
 }
 
 @media (max-width: 1100px) {
