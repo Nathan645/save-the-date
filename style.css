@@ -1990,3 +1990,27 @@ font-size:1.6rem;
 .gift-card-photo {
   position: relative;
 }
+
+.gift-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 35px auto 0;
+}
+
+.gift-tabs a {
+  border: 1px solid var(--or);
+  color: var(--bleu);
+  padding: 11px 22px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.gift-tabs a:hover {
+  background: var(--or);
+  color: white;
+}
