@@ -84,7 +84,13 @@
       <div class="gift-card-body">
         <h3>Nuit dans un bungalow sur pilotis</h3>
         <div class="gift-price">250 €</div>
-        <button class="gift-btn">Participer</button>
+        <button
+          class="gift-btn open-gift-modal"
+          data-title="Nuit dans un bungalow sur pilotis"
+          data-price="250"
+        >
+  Participer
+</button>
       </div>
     </article>
 
@@ -381,6 +387,85 @@
   </div>
 </footer>
 
+    <div class="gift-modal hidden" id="gift-modal">
+  <div class="gift-modal-overlay" id="gift-modal-close"></div>
+
+  <div class="gift-modal-box">
+    <button class="gift-modal-x" id="gift-modal-x" aria-label="Fermer">
+      ×
+    </button>
+
+    <div class="gift-modal-header">
+      <p>Participation</p>
+      <h2 id="modal-gift-title">Cadeau</h2>
+      <span id="modal-gift-price">0 €</span>
+    </div>
+
+    <form class="gift-modal-form" id="gift-modal-form">
+
+      <div class="form-row">
+        <label>
+          Prénom *
+          <input type="text" name="prenom" required placeholder="ex : Marie">
+        </label>
+
+        <label>
+          Nom *
+          <input type="text" name="nom" required placeholder="ex : Dupont">
+        </label>
+      </div>
+
+      <label>
+        Email
+        <input type="email" name="email" placeholder="ex : marie@email.com">
+      </label>
+
+      <label class="checkbox-line">
+        <input type="checkbox" id="with-plus-one">
+        Nous participons à deux
+      </label>
+
+      <div id="plus-one-fields" class="hidden">
+        <div class="form-row">
+          <label>
+            Prénom du +1
+            <input type="text" name="prenom_plus_one">
+          </label>
+
+          <label>
+            Nom du +1
+            <input type="text" name="nom_plus_one">
+          </label>
+        </div>
+      </div>
+
+      <label class="checkbox-line">
+        <input type="checkbox" id="full-gift">
+        Je finance ce cadeau en entier
+      </label>
+
+      <label>
+        Montant (€) *
+        <input type="number" name="montant" id="gift-amount" min="1" required>
+      </label>
+
+      <label>
+        Un petit mot
+        <textarea name="message" rows="4" placeholder="Avec tout notre amour..."></textarea>
+      </label>
+
+      <label class="checkbox-line">
+        <input type="checkbox" name="anonymous">
+        Je souhaite rester anonyme
+      </label>
+
+      <button type="submit" class="btn">
+        Confirmer ma participation
+      </button>
+
+    </form>
+  </div>
+</div>
 </main>
 
 <script src="script.js?v=9"></script>
