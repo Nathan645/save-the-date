@@ -352,7 +352,7 @@ a {
 }
 
 /* ==========================================================
-   06. INTRO + COMPTE ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ REBOURS
+   06. INTRO + COMPTE Ã€ REBOURS
 ========================================================== */
 
 .intro {
@@ -553,7 +553,7 @@ a {
 }
 
 /* ==========================================================
-   10. EMOJIS PERSONNALISÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â°S
+   10. EMOJIS PERSONNALISÃ‰S
 ========================================================== */
 
 .program-icon {
@@ -1366,7 +1366,10 @@ font-size:1.6rem;
   .weekend,
   .domaine,
   .details,
-  .gift {
+  .gift,
+  .gift-list-hero,
+  .gift-category,
+  .gift-free {
     padding-left: 22px;
     padding-right: 22px;
   }
@@ -1466,7 +1469,7 @@ font-size:1.6rem;
 }
 
 /* ==========================================================
-   22. ACCESSIBILITÃ
+   22. ACCESSIBILITÃ‰
 ========================================================== */
 
 @media (prefers-reduced-motion: reduce) {
@@ -1484,9 +1487,10 @@ font-size:1.6rem;
 ========================================================== */
 
 .gift-list-hero {
-  background: var(--beige);
-  padding: 90px 30px 50px;
+  background: var(--blanc);
+  padding: 90px 30px 70px;
   text-align: center;
+  border-bottom: 1px solid var(--ligne);
 }
 
 .gift-list-intro {
@@ -1593,7 +1597,7 @@ font-size:1.6rem;
 }
 
 .gift-free {
-  background: var(--blanc);
+  background: var(--beige);
   padding: 90px 30px;
   text-align: center;
 }
