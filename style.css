@@ -1893,3 +1893,69 @@ font-size:1.6rem;
     font-size: 30px;
   }
 }
+
+.payment-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin: 34px 0 26px;
+}
+
+.payment-card {
+  border: 1px solid var(--ligne);
+  border-radius: 14px;
+  padding: 26px 22px;
+  background: var(--beige);
+  text-align: center;
+}
+
+.payment-card h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 26px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.payment-card p {
+  margin-bottom: 18px;
+  font-size: 14px;
+}
+
+.payment-card strong {
+  display: block;
+  color: var(--bleu);
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.bank-details {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 20px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.payment-card .gift-btn {
+  width: 100%;
+  max-width: 220px;
+}
+
+.payment-note {
+  max-width: 520px;
+  margin: 0 auto 30px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(18, 58, 111, 0.75);
+}
+
+.copy-btn.copied {
+  background: var(--or);
+  color: white;
+}
+
+@media (max-width: 700px) {
+  .payment-grid {
+    grid-template-columns: 1fr;
+  }
+}
