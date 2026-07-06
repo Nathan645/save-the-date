@@ -1731,7 +1731,7 @@ font-size:1.6rem;
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 720px;
+  max-width: 620px;
   max-height: 90vh;
   overflow-y: auto;
   background: var(--blanc);
@@ -1767,7 +1767,7 @@ font-size:1.6rem;
 
 .gift-modal-header h2 {
   font-family: "Playfair Display", serif;
-  font-size: 36px;
+  font-size: 34px;
   font-weight: 500;
   margin-bottom: 12px;
 }
@@ -1780,9 +1780,15 @@ font-size:1.6rem;
   font-weight: 600;
 }
 
+.gift-modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
 .gift-modal-form label {
   display: block;
-  margin-bottom: 20px;
+  margin-bottom: 0;
   font-size: 14px;
   font-weight: 600;
 }
@@ -1805,20 +1811,16 @@ font-size:1.6rem;
   border-color: var(--or);
 }
 
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 18px;
-}
-
 .checkbox-line {
   display: flex !important;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+  line-height: 1.5;
 }
 
 .checkbox-line input {
   width: auto;
+  flex-shrink: 0;
   margin: 0;
 }
 
@@ -1828,30 +1830,13 @@ font-size:1.6rem;
 }
 
 .gift-modal-form .btn {
-    display: block;
-    margin: 35px auto 0;
-}
-
-@media (max-width: 650px) {
-  .gift-modal-box {
-    padding: 34px 24px;
-  }
-
-  .form-row {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
-
-  .gift-modal-header h2 {
-    font-size: 30px;
-  }
-}
-
-.gift-modal-form .btn {
   display: block;
-  width: 320px;
-  margin: 35px auto 0;
+  width: 100%;
+  max-width: 330px;
+  margin: 22px auto 0;
 }
+
+/* Jauge de participation */
 
 .gift-progress {
   width: 100%;
@@ -1880,6 +1865,8 @@ font-size:1.6rem;
   text-align: center;
 }
 
+/* Modale de remerciement */
+
 .gift-thanks-box {
   max-width: 520px;
   text-align: center;
@@ -1895,4 +1882,14 @@ font-size:1.6rem;
 .gift-thanks-box p {
   margin-bottom: 32px;
   line-height: 1.8;
+}
+
+@media (max-width: 650px) {
+  .gift-modal-box {
+    padding: 34px 24px;
+  }
+
+  .gift-modal-header h2 {
+    font-size: 30px;
+  }
 }
