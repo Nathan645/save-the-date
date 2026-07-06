@@ -451,10 +451,16 @@ function updateGiftProgress() {
         }
 
         if (collected >= giftPrice && button) {
-          button.textContent = "Offert ❤️";
-          button.disabled = true;
-          button.classList.add("gift-btn-disabled");
-        }
+        button.textContent = "Offert ❤️";
+        button.disabled = true;
+        button.classList.add("gift-btn-disabled");
+
+        card.classList.add("gift-card-funded");
+
+        if (text) {
+          text.textContent = "🎁 Cadeau offert";
+  }
+}
       });
     })
     .catch(() => {
