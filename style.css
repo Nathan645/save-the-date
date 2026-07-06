@@ -1466,7 +1466,7 @@ font-size:1.6rem;
 }
 
 /* ==========================================================
-   22. ACCESSIBILITÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â°
+   22. ACCESSIBILITÃ
 ========================================================== */
 
 @media (prefers-reduced-motion: reduce) {
@@ -1476,5 +1476,148 @@ font-size:1.6rem;
     animation: none !important;
     transition: none !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* ==========================================================
+   LISTE DE MARIAGE
+========================================================== */
+
+.gift-list-hero {
+  background: var(--beige);
+  padding: 90px 30px 50px;
+  text-align: center;
+}
+
+.gift-list-intro {
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: 17px;
+  line-height: 1.9;
+}
+
+.gift-category {
+  padding: 70px 40px;
+  background: var(--blanc);
+  border-bottom: 1px solid var(--ligne);
+}
+
+.gift-category:nth-of-type(even) {
+  background: var(--beige);
+}
+
+.gift-category-heading {
+  max-width: 760px;
+  margin: 0 auto 48px;
+  text-align: center;
+}
+
+.gift-category-heading span {
+  font-size: 42px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.gift-category-heading h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 42px;
+  font-weight: 500;
+  margin-bottom: 18px;
+}
+
+.gift-category-heading p {
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.gift-grid {
+  max-width: 1120px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.gift-card {
+  background: var(--blanc);
+  border: 1px solid var(--ligne);
+  padding: 36px 30px;
+  text-align: center;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.gift-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 22px 45px rgba(18, 58, 111, 0.12);
+}
+
+.gift-card-icon {
+  font-size: 44px;
+  margin-bottom: 22px;
+}
+
+.gift-card h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 14px;
+}
+
+.gift-card p {
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+
+.gift-btn {
+  border: 1px solid var(--or);
+  background: transparent;
+  color: var(--or);
+  padding: 12px 28px;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.gift-btn:hover {
+  background: var(--or);
+  color: white;
+}
+
+.gift-free {
+  background: var(--blanc);
+  padding: 90px 30px;
+  text-align: center;
+}
+
+.gift-free h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 42px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.gift-free p {
+  max-width: 620px;
+  margin: 0 auto 34px;
+  line-height: 1.8;
+}
+
+@media (max-width: 900px) {
+  .gift-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gift-category {
+    padding: 60px 24px;
+  }
+
+  .gift-category-heading h2,
+  .gift-free h2 {
+    font-size: 34px;
   }
 }
