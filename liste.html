@@ -407,50 +407,48 @@
       <span id="modal-gift-price">0 €</span>
     </div>
 
-    <form class="gift-modal-form" id="gift-modal-form">
+   <form class="gift-modal-form" id="gift-modal-form">
 
-      <div class="form-row">
+  <label>
+    Votre nom *
+    <input
+      type="text"
+      name="nom_affichage"
+      required
+      placeholder="ex : Famille Martin, Paul & Julie..."
+    >
+  </label>
 
-     <label>
-     Votre nom *
-     <input
-        type="text"
-        name="nom_affichage"
-        required
-        placeholder="ex : Famille Martin, Paul & Julie..."
-      >
-    </label>
+  <label class="checkbox-line">
+    <input type="checkbox" name="display_name" checked>
+    Afficher ce nom sur la liste des participants
+  </label>
 
-<label class="checkbox-line">
-  <input type="checkbox" name="display_name" checked>
-  Afficher ce nom sur la liste des participants
-</label>
+  <label class="checkbox-line">
+    <input type="checkbox" id="full-gift">
+    Je finance ce cadeau en entier
+  </label>
 
-      <label class="checkbox-line">
-        <input type="checkbox" id="full-gift">
-        Je finance ce cadeau en entier
-      </label>
+  <label>
+    Montant (€) *
+    <input type="number" name="montant" id="gift-amount" min="1" required>
+  </label>
 
-      <label>
-        Montant (€) *
-        <input type="number" name="montant" id="gift-amount" min="1" required>
-      </label>
+  <label>
+    Un petit mot
+    <textarea name="message" rows="4" placeholder="Avec tout notre amour..."></textarea>
+  </label>
 
-      <label>
-        Un petit mot
-        <textarea name="message" rows="4"></textarea>
-      </label>
+  <label class="checkbox-line">
+    <input type="checkbox" name="anonymous">
+    Je souhaite rester anonyme
+  </label>
 
-      <label class="checkbox-line">
-        <input type="checkbox" name="anonymous">
-        Je souhaite rester anonyme
-      </label>
+  <button type="submit" class="btn">
+    Confirmer ma participation
+  </button>
 
-      <button type="submit" class="btn">
-        Confirmer ma participation
-      </button>
-
-    </form>
+</form>
   </div>
 </div>
 
