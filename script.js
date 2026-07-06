@@ -420,3 +420,46 @@ document.querySelectorAll(".copy-btn").forEach((button) => {
     }, 1800);
   });
 });
+
+/* ==========================================================
+   LISTE DE MARIAGE — JAUGES AUTOMATIQUES
+========================================================== */
+
+function updateGiftProgress() {
+  fetch(`${GIFT_SCRIPT_URL}?action=progress`)
+    .then((response) => response.json())
+    .then((totals) => {
+      document.querySelectorAll(".gift-card-photo").forEach((card) => {
+        const giftName = card.dataset.gift;
+        const giftPrice = Number(card.dataset.price);
+
+        if (!giftName || !giftPrice) return;
+
+        const collected = Number(totals[giftName] || 0);
+        const percent = Math.min((collected / giftPrice) * 100, 100);
+
+        const bar = card.querySelector(".gift-progress-bar span");
+        const text = card.querySelector(".gift-progress-text");
+        const button = card.querySelector(".open-gift-modal");
+
+        if (bar) {
+          bar.style.width = `${percent}%`;
+        }
+
+        if (text) {
+          text.textContent = `${collected} € / ${giftPrice} € offerts`;
+        }
+
+        if (collected >= giftPrice && button) {
+          button.textContent = "Offert ❤️";
+          button.disabled = true;
+          button.classList.add("gift-btn-disabled");
+        }
+      });
+    })
+    .catch(() => {
+      console.warn("Impossible de charger les jauges cadeaux.");
+    });
+}
+
+updateGiftProgress();
