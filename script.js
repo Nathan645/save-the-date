@@ -358,3 +358,8 @@ document.getElementById("gift-thanks-close")?.addEventListener("click", () => {
   document.getElementById("gift-thanks-modal").classList.add("hidden");
   document.body.style.overflow = "";
 });
+
+document.getElementById("gift-thanks-button")?.addEventListener("click", () => {
+  document.getElementById("gift-thanks-modal").classList.add("hidden");
+  document.body.style.overflow = "";
+});
