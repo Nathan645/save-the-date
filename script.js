@@ -5,6 +5,9 @@
 const SCRIPT_URL =
   "https://script.google.com/macros/s/AKfycbyVslzmvf_f2QXiDZI9qalE-93TTZ1xMK9h_1hvQcIZPzUCSY8LPqTrtcYpghDfbSqO/exec";
 
+const GIFT_SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbwBRLdS1ExOMGhdylWZ_ATl41CFg7nJ7xfdxlUALBui83mH_AQLgsYbL9oQPg7Lq8Fn/exec";
+
 /* ==========================================================
    MENU MOBILE
 ========================================================== */
@@ -126,8 +129,6 @@ if (slides.length) {
   });
 }
 
-/* Animation discrète des flèches sur mobile */
-
 if (window.innerWidth < 850 && prevBtn && nextBtn) {
   prevBtn.classList.add("animate");
   nextBtn.classList.add("animate");
@@ -137,8 +138,6 @@ if (window.innerWidth < 850 && prevBtn && nextBtn) {
     nextBtn.classList.remove("animate");
   }, 2600);
 }
-
-/* Swipe mobile */
 
 let touchStartX = 0;
 let touchEndX = 0;
@@ -194,7 +193,7 @@ revealTargets.forEach((element) => {
 });
 
 /* ==========================================================
-   RSVP — AFFICHAGE CONDITIONNEL
+   RSVP
 ========================================================== */
 
 const presence = document.getElementById("presence");
@@ -245,10 +244,6 @@ if (dort && hebergementBlock) {
     }
   });
 }
-
-/* ==========================================================
-   RSVP — ENVOI GOOGLE APPS SCRIPT
-========================================================== */
 
 const form = document.getElementById("rsvp-form");
 const message = document.getElementById("form-message");
@@ -314,7 +309,7 @@ document.querySelectorAll(".open-gift-modal").forEach((button) => {
     giftAmount.disabled = false;
     fullGift.checked = false;
 
-    giftModalForm.reset();
+    giftModalForm?.reset();
 
     giftModal.classList.remove("hidden");
     document.body.style.overflow = "hidden";
@@ -322,7 +317,7 @@ document.querySelectorAll(".open-gift-modal").forEach((button) => {
 });
 
 function closeGiftModal() {
-  giftModal.classList.add("hidden");
+  giftModal?.classList.add("hidden");
   document.body.style.overflow = "";
 }
 
@@ -342,30 +337,64 @@ fullGift?.addEventListener("change", () => {
 giftModalForm?.addEventListener("submit", (e) => {
   e.preventDefault();
 
+  const submitButton = giftModalForm.querySelector("button[type='submit']");
+
   const amount = giftAmount.value;
   const giftName = modalGiftTitle.textContent;
+  const giftPrice = currentGiftPrice;
+
   const displayName =
-    giftModalForm.querySelector('[name="nom_affichage"]')?.value || "Merci";
+    giftModalForm.querySelector('[name="nom_affichage"]')?.value || "";
 
-  closeGiftModal();
+  const anonymous =
+    giftModalForm.querySelector('[name="anonymous"]')?.checked ? "oui" : "non";
 
-  document.getElementById("gift-thanks-text").innerHTML =
-    `<strong>${displayName}</strong>, votre participation de <strong>${amount} €</strong>
-     pour <strong>${giftName}</strong> a bien été enregistrée.<br>
-     Il ne reste plus qu'à choisir votre moyen de paiement.`;
+  const giftMessage =
+    giftModalForm.querySelector('[name="message"]')?.value || "";
 
-  document.getElementById("gift-thanks-modal").classList.remove("hidden");
-  document.body.style.overflow = "hidden";
-});
+  if (submitButton) {
+    submitButton.disabled = true;
+    submitButton.textContent = "Enregistrement...";
+  }
 
-document.getElementById("gift-thanks-close")?.addEventListener("click", () => {
-  document.getElementById("gift-thanks-modal").classList.add("hidden");
-  document.body.style.overflow = "";
-});
+  const formData = new FormData();
+  formData.append("cadeau", giftName);
+  formData.append("prix_total", giftPrice);
+  formData.append("montant", amount);
+  formData.append("nom", displayName);
+  formData.append("anonyme", anonymous);
+  formData.append("message", giftMessage);
 
-document.getElementById("gift-thanks-button")?.addEventListener("click", () => {
-  document.getElementById("gift-thanks-modal").classList.add("hidden");
-  document.body.style.overflow = "";
+  fetch(GIFT_SCRIPT_URL, {
+    method: "POST",
+    body: formData,
+  })
+    .then((response) => {
+      if (!response.ok) throw new Error();
+      return response.text();
+    })
+    .then(() => {
+      closeGiftModal();
+
+      document.getElementById("gift-thanks-text").innerHTML =
+        `<strong>${displayName || "Merci"}</strong>, votre participation de <strong>${amount} €</strong>
+         pour <strong>${giftName}</strong> a bien été enregistrée.<br>
+         Il ne reste plus qu'à choisir votre moyen de paiement.`;
+
+      document.getElementById("gift-thanks-modal").classList.remove("hidden");
+      document.body.style.overflow = "hidden";
+
+      giftModalForm.reset();
+    })
+    .catch(() => {
+      alert("Une erreur est survenue. Merci de réessayer.");
+    })
+    .finally(() => {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = "Confirmer ma participation";
+      }
+    });
 });
 
 function closeThanksModal() {
