@@ -286,3 +286,68 @@ if (form && message) {
       });
   });
 }
+
+/* ==========================================================
+   LISTE DE MARIAGE — MODALE PARTICIPATION
+========================================================== */
+
+const giftModal = document.getElementById("gift-modal");
+const modalGiftTitle = document.getElementById("modal-gift-title");
+const modalGiftPrice = document.getElementById("modal-gift-price");
+const giftAmount = document.getElementById("gift-amount");
+const fullGift = document.getElementById("full-gift");
+const withPlusOne = document.getElementById("with-plus-one");
+const plusOneFields = document.getElementById("plus-one-fields");
+const giftModalForm = document.getElementById("gift-modal-form");
+
+let currentGiftPrice = 0;
+
+document.querySelectorAll(".open-gift-modal").forEach((button) => {
+  button.addEventListener("click", () => {
+    const title = button.dataset.title;
+    const price = Number(button.dataset.price);
+
+    currentGiftPrice = price;
+
+    modalGiftTitle.textContent = title;
+    modalGiftPrice.textContent = `${price} €`;
+    giftAmount.value = "";
+    giftAmount.disabled = false;
+    fullGift.checked = false;
+    withPlusOne.checked = false;
+    plusOneFields.classList.add("hidden");
+
+    giftModal.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+  });
+});
+
+function closeGiftModal() {
+  giftModal.classList.add("hidden");
+  document.body.style.overflow = "";
+}
+
+document.getElementById("gift-modal-close")?.addEventListener("click", closeGiftModal);
+document.getElementById("gift-modal-x")?.addEventListener("click", closeGiftModal);
+
+withPlusOne?.addEventListener("change", () => {
+  plusOneFields.classList.toggle("hidden", !withPlusOne.checked);
+});
+
+fullGift?.addEventListener("change", () => {
+  if (fullGift.checked) {
+    giftAmount.value = currentGiftPrice;
+    giftAmount.disabled = true;
+  } else {
+    giftAmount.value = "";
+    giftAmount.disabled = false;
+  }
+});
+
+giftModalForm?.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  alert("Participation enregistrée pour le test ❤️");
+
+  closeGiftModal();
+});
