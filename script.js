@@ -296,8 +296,6 @@ const modalGiftTitle = document.getElementById("modal-gift-title");
 const modalGiftPrice = document.getElementById("modal-gift-price");
 const giftAmount = document.getElementById("gift-amount");
 const fullGift = document.getElementById("full-gift");
-const withPlusOne = document.getElementById("with-plus-one");
-const plusOneFields = document.getElementById("plus-one-fields");
 const giftModalForm = document.getElementById("gift-modal-form");
 
 let currentGiftPrice = 0;
@@ -311,11 +309,12 @@ document.querySelectorAll(".open-gift-modal").forEach((button) => {
 
     modalGiftTitle.textContent = title;
     modalGiftPrice.textContent = `${price} €`;
+
     giftAmount.value = "";
     giftAmount.disabled = false;
     fullGift.checked = false;
-    withPlusOne.checked = false;
-    plusOneFields.classList.add("hidden");
+
+    giftModalForm.reset();
 
     giftModal.classList.remove("hidden");
     document.body.style.overflow = "hidden";
@@ -330,10 +329,6 @@ function closeGiftModal() {
 document.getElementById("gift-modal-close")?.addEventListener("click", closeGiftModal);
 document.getElementById("gift-modal-x")?.addEventListener("click", closeGiftModal);
 
-withPlusOne?.addEventListener("change", () => {
-  plusOneFields.classList.toggle("hidden", !withPlusOne.checked);
-});
-
 fullGift?.addEventListener("change", () => {
   if (fullGift.checked) {
     giftAmount.value = currentGiftPrice;
@@ -347,7 +342,19 @@ fullGift?.addEventListener("change", () => {
 giftModalForm?.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  alert("Participation enregistrée pour le test ❤️");
+  const amount = giftAmount.value;
 
   closeGiftModal();
+
+  document.getElementById("gift-thanks-title").textContent = "Merci beaucoup ❤️";
+  document.getElementById("gift-thanks-text").textContent =
+    `Votre participation de ${amount} € a bien été enregistrée.`;
+
+  document.getElementById("gift-thanks-modal").classList.remove("hidden");
+  document.body.style.overflow = "hidden";
+});
+
+document.getElementById("gift-thanks-close")?.addEventListener("click", () => {
+  document.getElementById("gift-thanks-modal").classList.add("hidden");
+  document.body.style.overflow = "";
 });
