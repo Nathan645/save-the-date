@@ -1959,3 +1959,9 @@ font-size:1.6rem;
     grid-template-columns: 1fr;
   }
 }
+
+.gift-btn-disabled {
+  opacity: 0.55;
+  cursor: default;
+  pointer-events: none;
+}
