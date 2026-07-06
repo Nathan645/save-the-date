@@ -2,8 +2,6 @@
    RSVP — AFFICHAGE CONDITIONNEL
 ========================================================== */
 
-const SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbyVslzmvf_f2QXiDZI9qalE-93TTZ1xMK9h_1hvQcIZPzUCSY8LPqTrtcYpghDfbSqO/exec";
 const presence = document.getElementById("presence");
 const detailsBlock = document.getElementById("details-block");
 const hebergementBlock = document.getElementById("hebergement-block");
