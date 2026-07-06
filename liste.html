@@ -84,6 +84,12 @@
       <div class="gift-card-body">
         <h3>Nuit dans un bungalow sur pilotis</h3>
         <div class="gift-price">250 €</div>
+        <div class="gift-progress">
+        <div class="gift-progress-bar">
+        <span style="width: 0%;"></span>
+        </div>
+        <p>0 € / 250 € offerts</p>
+    </div>
         <button
           class="gift-btn open-gift-modal"
           data-title="Nuit dans un bungalow sur pilotis"
@@ -404,35 +410,21 @@
     <form class="gift-modal-form" id="gift-modal-form">
 
       <div class="form-row">
-        <label>
-          Prénom *
-          <input type="text" name="prenom">
-        </label>
 
-        <label>
-          Nom *
-          <input type="text" name="nom">
-        </label>
-      </div>
+     <label>
+     Votre nom *
+     <input
+        type="text"
+        name="nom_affichage"
+        required
+        placeholder="ex : Famille Martin, Paul & Julie..."
+      >
+    </label>
 
-      <label class="checkbox-line">
-        <input type="checkbox" id="with-plus-one">
-        Nous participons à deux
-      </label>
-
-      <div id="plus-one-fields" class="hidden">
-        <div class="form-row">
-          <label>
-            Prénom du +1
-            <input type="text" name="prenom_plus_one">
-          </label>
-
-          <label>
-            Nom du +1
-            <input type="text" name="nom_plus_one">
-          </label>
-        </div>
-      </div>
+<label class="checkbox-line">
+  <input type="checkbox" name="display_name" checked>
+  Afficher ce nom sur la liste des participants
+</label>
 
       <label class="checkbox-line">
         <input type="checkbox" id="full-gift">
