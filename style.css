@@ -1498,11 +1498,14 @@ font-size:1.6rem;
 
 .gift-category {
   padding: 70px 40px;
-  background: var(--blanc);
   border-bottom: 1px solid var(--ligne);
 }
 
-.gift-category:nth-of-type(even) {
+.gift-light {
+  background: var(--blanc);
+}
+
+.gift-beige {
   background: var(--beige);
 }
 
