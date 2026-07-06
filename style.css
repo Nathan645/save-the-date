@@ -2014,3 +2014,43 @@ font-size:1.6rem;
   background: var(--or);
   color: white;
 }
+
+body.night-mode {
+  background: #07182d;
+  color: #f8f2e8;
+}
+
+body.night-mode .site-header,
+body.night-mode .gift-light,
+body.night-mode .gift-free {
+  background: #07182d;
+}
+
+body.night-mode .gift-beige,
+body.night-mode .gift-card-photo,
+body.night-mode .gift-modal-box {
+  background: #0d2442;
+}
+
+body.night-mode h1,
+body.night-mode h2,
+body.night-mode h3,
+body.night-mode p,
+body.night-mode label {
+  color: #f8f2e8;
+}
+
+.theme-toggle {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 2500;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--or);
+  background: var(--blanc);
+  color: var(--bleu);
+  cursor: pointer;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.18);
+}
