@@ -139,3 +139,13 @@ document.querySelectorAll(".copy-btn").forEach((button) => {
     }, 1800);
   });
 });
+
+document.querySelector(".open-free-payment")?.addEventListener("click", () => {
+  document.getElementById("gift-thanks-text").innerHTML =
+    `Merci beaucoup ❤️<br>
+     Vous pouvez participer librement au montant de votre choix.<br>
+     Il ne reste plus qu'à choisir votre moyen de paiement.`;
+
+  document.getElementById("gift-thanks-modal").classList.remove("hidden");
+  document.body.style.overflow = "hidden";
+});
