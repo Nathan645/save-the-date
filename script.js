@@ -9,25 +9,6 @@ const GIFT_SCRIPT_URL =
   "https://script.google.com/macros/s/AKfycbwBRLdS1ExOMGhdylWZ_ATl41CFg7nJ7xfdxlUALBui83mH_AQLgsYbL9oQPg7Lq8Fn/exec";
 
 /* ==========================================================
-   MENU MOBILE
-========================================================== */
-
-const toggle = document.getElementById("menu-toggle");
-const menu = document.getElementById("menu-links");
-
-if (toggle && menu) {
-  toggle.addEventListener("click", () => {
-    menu.classList.toggle("open");
-  });
-
-  menu.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      menu.classList.remove("open");
-    });
-  });
-}
-
-/* ==========================================================
    COMPTE À REBOURS
 ========================================================== */
 
