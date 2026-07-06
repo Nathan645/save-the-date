@@ -1827,6 +1827,11 @@ font-size:1.6rem;
   color: rgba(18, 58, 111, 0.6);
 }
 
+.gift-modal-form .btn {
+    display: block;
+    margin: 35px auto 0;
+}
+
 @media (max-width: 650px) {
   .gift-modal-box {
     padding: 34px 24px;
