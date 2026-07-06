@@ -737,7 +737,7 @@ a {
 
 .footer {
   background: #0f3c79;
-  padding: 50px 30px;
+  padding: 90px 40px;
 }
 
 .footer-content {
@@ -750,7 +750,7 @@ a {
 }
 
 .footer-logo img {
-  width: 150px;
+  width: 400px;
 }
 
 .footer-divider {
@@ -1500,6 +1500,12 @@ font-size:1.6rem;
   line-height: 1.9;
 }
 
+.gift-category {
+  padding: 70px 40px;
+  border-bottom: 1px solid var(--ligne);
+   
+}
+
 .gift-light {
   background: var(--blanc);
 }
@@ -1591,6 +1597,7 @@ font-size:1.6rem;
 }
 
 .gift-free {
+  background: var(--beige);
   padding: 90px 30px;
   text-align: center;
 }
@@ -1611,6 +1618,10 @@ font-size:1.6rem;
 @media (max-width: 900px) {
   .gift-grid {
     grid-template-columns: 1fr;
+  }
+
+  .gift-category {
+    padding: 60px 24px;
   }
 
   .gift-category-heading h2,
