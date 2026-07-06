@@ -2,11 +2,11 @@
    LISTE DE MARIAGE — JAUGES AUTOMATIQUES
 ========================================================== */
 
-const GIFT_SCRIPT_URL =
+const GIFT_SCRIPT_URL_1 =
   "https://script.google.com/macros/s/AKfycbwBRLdS1ExOMGhdylWZ_ATl41CFg7nJ7xfdxlUALBui83mH_AQLgsYbL9oQPg7Lq8Fn/exec";
 
 function updateGiftProgress() {
-  fetch(`${GIFT_SCRIPT_URL}?action=progress`)
+  fetch(`${GIFT_SCRIPT_URL_1}?action=progress`)
     .then((response) => response.json())
     .then((totals) => {
       document.querySelectorAll(".gift-card-photo").forEach((card) => {
