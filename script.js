@@ -9,33 +9,6 @@ const GIFT_SCRIPT_URL =
   "https://script.google.com/macros/s/AKfycbwBRLdS1ExOMGhdylWZ_ATl41CFg7nJ7xfdxlUALBui83mH_AQLgsYbL9oQPg7Lq8Fn/exec";
 
 
-/* ==========================================================
-   APPARITIONS AU SCROLL
-========================================================== */
-
-const revealTargets = document.querySelectorAll(
-  ".intro, .weekend, .domaine, .details, .gift, .footer"
-);
-
-revealTargets.forEach((element) => {
-  element.classList.add("reveal");
-});
-
-const revealObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.14 }
-);
-
-revealTargets.forEach((element) => {
-  revealObserver.observe(element);
-});
 
 /* ==========================================================
    RSVP
