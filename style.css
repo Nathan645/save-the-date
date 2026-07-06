@@ -1705,3 +1705,139 @@ font-size:1.6rem;
     height: 220px;
   }
 }
+
+/* ==========================================================
+   MODALE PARTICIPATION CADEAU
+========================================================== */
+
+.gift-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.gift-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 38, 70, 0.55);
+  backdrop-filter: blur(6px);
+}
+
+.gift-modal-box {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 720px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--blanc);
+  border-radius: 18px;
+  padding: 42px;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.25);
+}
+
+.gift-modal-x {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  border: none;
+  background: transparent;
+  color: var(--bleu);
+  font-size: 34px;
+  cursor: pointer;
+}
+
+.gift-modal-header {
+  text-align: center;
+  margin-bottom: 34px;
+}
+
+.gift-modal-header p {
+  color: var(--or);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.gift-modal-header h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 36px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.gift-modal-header span {
+  display: inline-block;
+  color: var(--or);
+  font-family: "Playfair Display", serif;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.gift-modal-form label {
+  display: block;
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.gift-modal-form input,
+.gift-modal-form textarea {
+  width: 100%;
+  margin-top: 8px;
+  padding: 14px 16px;
+  border: 1px solid var(--ligne);
+  border-radius: 8px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  color: var(--bleu);
+}
+
+.gift-modal-form input:focus,
+.gift-modal-form textarea:focus {
+  outline: none;
+  border-color: var(--or);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.checkbox-line {
+  display: flex !important;
+  align-items: center;
+  gap: 10px;
+}
+
+.checkbox-line input {
+  width: auto;
+  margin: 0;
+}
+
+#gift-amount:disabled {
+  background: #f4f0ea;
+  color: rgba(18, 58, 111, 0.6);
+}
+
+@media (max-width: 650px) {
+  .gift-modal-box {
+    padding: 34px 24px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .gift-modal-header h2 {
+    font-size: 30px;
+  }
+}
