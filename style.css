@@ -371,6 +371,10 @@ a {
   margin-bottom: 70px;
 }
 
+.intro p {
+  margin-bottom: 45px;
+}
+
 .countdown {
   display: flex;
   justify-content: center;
@@ -2014,4 +2018,9 @@ font-size:1.6rem;
 .gift-tabs a:hover {
   background: var(--or);
   color: white;
+}
+
+.gift-category,
+.gift-free {
+  scroll-margin-top: 115px;
 }
