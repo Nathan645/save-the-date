@@ -12,12 +12,15 @@ const giftAmount = document.getElementById("gift-amount");
 const fullGift = document.getElementById("full-gift");
 const giftModalForm = document.getElementById("gift-modal-form");
 
+let currentGiftId = "";
 let currentGiftPrice = 0;
 
 document.querySelectorAll(".open-gift-modal").forEach((button) => {
   button.addEventListener("click", () => {
-    const title = button.dataset.title;
-    const price = Number(button.dataset.price);
+    currentGiftId = button.dataset.giftId || "";
+
+    const title = button.dataset.title || "";
+    const price = Number(button.dataset.price || 0);
 
     currentGiftPrice = price;
 
@@ -26,11 +29,14 @@ document.querySelectorAll(".open-gift-modal").forEach((button) => {
 
     giftAmount.value = "";
     giftAmount.disabled = false;
-    fullGift.checked = false;
+
+    if (fullGift) {
+      fullGift.checked = false;
+    }
 
     giftModalForm?.reset();
 
-    giftModal.classList.remove("hidden");
+    giftModal?.classList.remove("hidden");
     document.body.style.overflow = "hidden";
   });
 });
@@ -65,9 +71,6 @@ giftModalForm?.addEventListener("submit", (e) => {
   const displayName =
     giftModalForm.querySelector('[name="nom_affichage"]')?.value || "";
 
-  const anonymous =
-    giftModalForm.querySelector('[name="anonymous"]')?.checked ? "oui" : "non";
-
   const giftMessage =
     giftModalForm.querySelector('[name="message"]')?.value || "";
 
@@ -77,11 +80,11 @@ giftModalForm?.addEventListener("submit", (e) => {
   }
 
   const formData = new FormData();
+  formData.append("gift_id", currentGiftId);
   formData.append("cadeau", giftName);
   formData.append("prix_total", giftPrice);
   formData.append("montant", amount);
   formData.append("nom", displayName);
-  formData.append("anonyme", anonymous);
   formData.append("message", giftMessage);
 
   fetch(GIFT_SCRIPT_URL, {
