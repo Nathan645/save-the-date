@@ -153,13 +153,14 @@ document.querySelector(".open-free-payment")?.addEventListener("click", () => {
   document.body.style.overflow = "hidden";
 });
 
-document.querySelectorAll(".gift-image").forEach((image) => {
+window.addEventListener("load", () => {
 
-    const img = image.querySelector("img");
+    document.querySelectorAll(".gift-image").forEach((image) => {
 
-    image.style.setProperty(
-        "--bg",
-        `url('${img.src}')`
-    );
+        const img = image.querySelector("img");
+
+        image.style.setProperty("--bg", `url("${img.src}")`);
+
+    });
 
 });
