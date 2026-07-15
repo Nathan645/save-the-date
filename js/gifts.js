@@ -152,3 +152,14 @@ document.querySelector(".open-free-payment")?.addEventListener("click", () => {
   document.getElementById("gift-thanks-modal").classList.remove("hidden");
   document.body.style.overflow = "hidden";
 });
+
+document.querySelectorAll(".gift-image").forEach((image) => {
+
+    const img = image.querySelector("img");
+
+    image.style.setProperty(
+        "--bg",
+        `url('${img.src}')`
+    );
+
+});
