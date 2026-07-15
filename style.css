@@ -1658,25 +1658,66 @@ font-size:1.6rem;
 ========================================================== */
 
 .gift-image{
+
     position:relative;
+
     height:280px;
+
     overflow:hidden;
+
     border-radius:18px 18px 0 0;
-    background:#f6f4ef;
+
+    isolation:isolate;
+
+    background:#ece8df;
+
 }
 
-/* fond flou */
+/* image floue en fond */
 
 .gift-image::before{
+
     content:"";
+
     position:absolute;
-    inset:0;
+
+    inset:-40px;
+
     background-image:var(--bg);
+
     background-size:cover;
+
     background-position:center;
-    filter:blur(18px);
-    transform:scale(1.15);
-    opacity:.55;
+
+    filter:blur(32px) saturate(140%) brightness(.95);
+
+    transform:scale(1.35);
+
+    opacity:.95;
+
+    z-index:0;
+
+}
+
+/* léger voile élégant */
+
+.gift-image::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    radial-gradient(circle at center,
+        transparent 35%,
+        rgba(255,255,255,.05) 70%,
+        rgba(255,255,255,.12) 100%);
+
+    z-index:1;
+
 }
 
 /* image nette */
@@ -1700,8 +1741,11 @@ font-size:1.6rem;
 
     z-index:2;
 
-    transition:.45s;
+    transition:transform .45s ease;
+
 }
+
+/* zoom léger */
 
 .gift-card-photo:hover .gift-image img{
 
